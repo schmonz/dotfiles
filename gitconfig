@@ -1,0 +1,13 @@
+[apply]
+	whitespace = warn
+[user]
+	name = Amitai Schlair
+	email = schmonz-web-git@schmonz.com
+[color]
+	ui = true
+[core]
+	excludesfile = /Users/schmonz/.gitignore_global
+[alias]
+	graph = log --graph --all --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %Cgreen %an, %ar%Creset'
+[push]
+	default = simple

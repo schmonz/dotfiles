@@ -1,0 +1,2 @@
+folder-hook .* 'push <delete-pattern>~d-30/09/08<enter>'
+set delete=yes
