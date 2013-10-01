@@ -1,4 +1,4 @@
-ControlPath ~/.ssh/master-%l-%r@%h:%p
+ControlPath ~/.ssh/%l-%r@%h:%p
 ControlMaster auto
 Host *.ms.com
 User amitsc
