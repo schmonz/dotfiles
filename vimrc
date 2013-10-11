@@ -85,7 +85,16 @@ function! IkiwikiPreview()
   execute s:cmd
   redraw!
 endfunction
-map <leader>p :call IkiwikiPreview()<cr>
+
+function! SelectaCommand(choice_command, vim_command)
+  try
+    silent! exec a:vim_command . " " . system(a:choice_command . " | selecta")
+  catch /Vim:Interrupt/
+    " Swallow the ^C so that the redraw below happens; otherwise there will be
+    " leftovers from selecta on the screen
+  endtry
+  redraw!
+endfunction
 
 autocmd BufEnter *.tt,*.ep,*.html,*.css setlocal tabstop=4 shiftwidth=4 nowrap
 autocmd FileType perl,ruby,sh setlocal number|let w:m2=matchadd('Search', '\%>80v.\+', -1)
@@ -120,6 +129,8 @@ autocmd BufEnter * let &titlestring = "vim " . expand("%:h") . "/" . expand("%:t
 
 " mappings
 noremap <leader>w !}fmt<cr>}b
+noremap <leader>p :call IkiwikiPreview()<cr>
+noremap <leader>f :call SelectaCommand("find * -type f", ":e")<cr>
 noremap <leader>t :w\|:!make && clear && /usr/pkg/bin/prove -b %<cr>
 " noremap <leader>t :w\|:!clear && /usr/pkg/bin/ruby193 %<cr>
 " noremap <leader>t :w\|:!guess_how_to_run_tests_for_file %<cr>
