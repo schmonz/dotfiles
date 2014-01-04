@@ -4,3 +4,5 @@ Host *.ms.com
 User amitsc
 ForwardX11 yes
 Compression yes
+Host hosting-dreamhost.schmonz.com
+User schmonz2
