@@ -58,7 +58,10 @@ let g:solarized_termcolors=16
 colorscheme solarized
 set cursorline
 highlight clear SignColumn
-"let g:Powerline_symbols = 'unicode'
+let g:Powerline_symbols = 'unicode'
+
+" VimRoom (<Leader>V)
+let g:vimroom_sidebar_height=0
 
 " language-specific settings
 filetype off
