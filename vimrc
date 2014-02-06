@@ -46,6 +46,7 @@ set ruler
 set showmode
 set visualbell
 set scrolloff=3
+set nojoinspaces
 set nocompatible
 set laststatus=2
 set encoding=utf-8
@@ -62,6 +63,7 @@ let g:Powerline_symbols = 'unicode'
 
 " VimRoom (<Leader>V)
 let g:vimroom_sidebar_height=0
+" set formatoptions=t1
 
 " language-specific settings
 filetype off
@@ -76,6 +78,7 @@ autocmd BufEnter *.txtl let g:ikiwiki_render_filetype = 'textile'
 autocmd BufRead,BufNewFile *.mdwn setlocal filetype=ikiwiki
 autocmd BufEnter *.mdwn let g:ikiwiki_render_filetype = 'vim-markdown'
 autocmd BufEnter * set nofoldenable
+" autocmd BufEnter * set foldmethod=expr
 " let g:ikiwiki_render_filetype = 'textile'
 " ,*.mdwn set filetype=ikiwiki
 
