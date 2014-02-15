@@ -107,7 +107,7 @@ autocmd FileType perl,ruby,sh setlocal number|let w:m2=matchadd('Search', '\%>80
 autocmd FileType ruby,cucumber setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType textile,markdown,ikiwiki setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType markdown,ikiwiki setlocal textwidth=72
-autocmd FileType textile setlocal textwidth=0
+autocmd FileType textile setlocal textwidth=0|let gitgutter_enabled=0
 " autocmd FileType perl iabbrev <buffer> iff if ()<left>
 
 " shortcuts for paste mode in normal and insert modes
