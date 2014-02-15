@@ -1,3 +1,33 @@
 # # useful for (mostly) deduplicating old mail before merging:
 # folder-hook .* 'push <delete-pattern>~d-30/09/08<enter>'
 # set delete=yes
+
+set imap_user = "schmonz@gmail.com"
+#set imap_pass = "password"
+set imap_keepalive = 900
+
+set smtp_url = "smtps://schmonz@gmail.com@smtp.gmail.com:465/"
+#set smtp_pass = "password"
+set realname = "Amitai Schlair"
+#set from = "schmonz@schmonz.com"
+#set use_from = yes
+#set envelope_from = yes
+
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set postponed="+[Gmail]/Drafts"
+#set record="+[Gmail]/Sent Mail"
+unset record
+#set trash="+[Gmail]/Trash"
+
+set header_cache=~/.mutt/cache/headers
+set message_cachedir=~/.mutt/cache/bodies
+set certificate_file=~/.mutt/certificates
+
+set sort = 'threads'
+set sort_aux = 'last-date-received'
+hdr_order Date From To Cc
+
+set move = no
+
+source /usr/pkg/share/examples/mutt/gpg.rc
