@@ -1,33 +1,80 @@
-# # useful for (mostly) deduplicating old mail before merging:
-# folder-hook .* 'push <delete-pattern>~d-30/09/08<enter>'
-# set delete=yes
+# alternates ^(schmonz|schmonz-web-.+|schmonz-lists-.+(\+[^@]*)?@schmonz)\.com$
+# my_hdr From: Amitai Schlair <schmonz@schmonz.com>
 
-set imap_user = "schmonz@gmail.com"
-#set imap_pass = "password"
-set imap_keepalive = 900
-
-set smtp_url = "smtps://schmonz@gmail.com@smtp.gmail.com:465/"
-#set smtp_pass = "password"
-set realname = "Amitai Schlair"
-#set from = "schmonz@schmonz.com"
-#set use_from = yes
-#set envelope_from = yes
-
-set folder = "imaps://imap.gmail.com:993"
-set spoolfile = "+INBOX"
+mailboxes imaps://imap.gmail.com:993
+set folder="imaps://imap.gmail.com:993"
+set spoolfile="+INBOX"				# what's the diff to =INBOX
 set postponed="+[Gmail]/Drafts"
-#set record="+[Gmail]/Sent Mail"
-unset record
-#set trash="+[Gmail]/Trash"
+unset record					# set record="+[Gmail]/Sent Mail"
+# set trash="+[Gmail]/Trash"
+
+set imap_authenticators="login"			# XXX SSL/TLS only
+set imap_keepalive=900
+# set imap_pass="password"
+# set imap_peek=no
+set imap_user="schmonz@gmail.com"
 
 set header_cache=~/.mutt/cache/headers
 set message_cachedir=~/.mutt/cache/bodies
 set certificate_file=~/.mutt/certificates
 
-set sort = 'threads'
-set sort_aux = 'last-date-received'
-hdr_order Date From To Cc
+set smtp_url="smtps://schmonz@gmail.com@smtp.gmail.com:465/"
+# set smtp_pass="password"
+set envelope_from=yes
 
-set move = no
+# set sendmail="/usr/sbin/sendmail -oem -oi"
 
+set charset="utf-8"
+# set hidden_host=yes
+set use_from=yes
+set from="schmonz@schmonz.com"
+set realname="Amitai Schlair"
+set ascii_chars=yes
+set beep_new
+set fast_reply
+set sort="threads"
+set sort_aux="last-date-received"
+set confirmappend=no
+set delete=yes
+# set editor="~/bin/joeyh-editmail"
+set move=no
+set copy=yes
+
+set quote_regexp="^([ \t]*[|>:}#])+"
+# set query_command="lbdbq '%s'"
+# set print_command="a2ps -P XXX-brother-schmonz -g --prologue=gray -Email"
+
+set include=yes
+set timeout=10
+
+bind index G imap-fetch-mail
+set wait_key=no
+
+# unmy_hdr Bcc:
+# my_hdr Fcc: $record
+
+alternative_order text/plain text/html
+auto_view text/html application/msword text/calendar text/x-vcalendar
+
+#
+# Colorize / Highlight header components
+#
+
+ignore *
+unignore from: date subject to cc organization organisation
+
+unhdr_order *
+hdr_order From: Reply-To: To: Cc: Bcc: Date: Message-Id: Subject:
+
+color header white black .
+color quoted cyan black
+mono quoted bold
+mono header reverse ^from.*|^subject:.*
+
+set attribution="On %d, %n wrote:\n"
+
+source ~/.mutt/colors/solarized/mutt-colors-solarized-dark-16.muttrc
 source /usr/pkg/share/examples/mutt/gpg.rc
+
+# useful for (mostly) deduplicating old mail before merging:
+# folder-hook .* 'push <delete-pattern>~d-30/09/08<enter>'
