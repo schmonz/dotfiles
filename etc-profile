@@ -20,6 +20,7 @@ LC_ALL=en_US.UTF-8; export LC_ALL
 
 CLICOLOR=1; export CLICOLOR
 LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD; export LSCOLORS
+COLORTERM=1; export COLORTERM
 
 make()
 {
