@@ -1,4 +1,6 @@
 # alternates ^(schmonz|schmonz-web-.+|schmonz-lists-.+(\+[^@]*)?@schmonz)\.com$
+alternates .+@schmonz.com schmonz@[nN]et[bB][sS][dD].org schmonz@pkgsrc.org schmonz@gmail.com
+
 # my_hdr From: Amitai Schlair <schmonz@schmonz.com>
 
 mailboxes imaps://imap.gmail.com:993
@@ -18,7 +20,7 @@ set header_cache=~/.mutt/cache/headers
 set message_cachedir=~/.mutt/cache/bodies
 set certificate_file=~/.mutt/certificates
 
-set smtp_url="smtps://schmonz@gmail.com@smtp.gmail.com:465/"
+set smtp_url="smtps://schmonz@smtp.gmail.com:465/"
 # set smtp_pass="password"
 set envelope_from=yes
 
@@ -29,7 +31,7 @@ set charset="utf-8"
 set use_from=yes
 set from="schmonz@schmonz.com"
 set realname="Amitai Schlair"
-set ascii_chars=yes
+# set ascii_chars=yes
 set beep_new
 set fast_reply
 set sort="threads"
@@ -75,6 +77,9 @@ set attribution="On %d, %n wrote:\n"
 
 source ~/.mutt/colors/solarized/mutt-colors-solarized-dark-16.muttrc
 source /usr/pkg/share/examples/mutt/gpg.rc
+
+set mailcap_path=~/.mutt/mailcap
+set tmpdir= ~/.mutt/temp
 
 # useful for (mostly) deduplicating old mail before merging:
 # folder-hook .* 'push <delete-pattern>~d-30/09/08<enter>'
