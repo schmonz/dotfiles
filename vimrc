@@ -72,7 +72,7 @@ filetype on
 
 autocmd BufRead,BufNewFile *.t,*.pl,*.pm setlocal filetype=perl
 autocmd BufRead,BufNewFile *.toc setlocal filetype=asciidoc
-autocmd BufRead,BufNewFile *.rb setlocal filetype=ruby
+autocmd BufRead,BufNewFile *.rb,Vagrantfile setlocal filetype=ruby
 autocmd BufRead,BufNewFile *.txtl setlocal filetype=textile
 autocmd BufEnter *.txtl let g:ikiwiki_render_filetype = 'textile'
 autocmd BufRead,BufNewFile *.mdwn setlocal filetype=ikiwiki
