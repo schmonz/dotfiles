@@ -82,6 +82,17 @@ autocmd BufEnter * set nofoldenable
 " let g:ikiwiki_render_filetype = 'textile'
 " ,*.mdwn set filetype=ikiwiki
 
+function! SaveAndRunTests()
+  :w
+" let s:currentSub = PerlCurrentSub()
+  let s:cmd = "! clear && /usr/pkg/bin/prove -b %"
+  execute s:cmd
+" noremap <leader>t :w\|:!clear && /usr/pkg/bin/ruby193 %<cr>
+" noremap <leader>t :w\|:!guess_how_to_run_tests_for_file %<cr>
+" noremap <leader>t :w\|:!bmake clean && bmake test<cr>
+" noremap <leader>t :w\|!clear && /Applications/LilyPond.app/Contents/Resources/bin/lilypond % && open berber.pdf<cr>
+endfunction
+
 function! IkiwikiPreview()
   :w
   let s:ikiwiki = "/usr/pkg/bin/ikiwiki --setup ~/Documents/wiki/conf/ikiwiki.conf --render"
@@ -139,8 +150,4 @@ autocmd BufEnter * let &titlestring = "vim " . expand("%:h") . "/" . expand("%:t
 noremap <leader>w !}fmt<cr>}b
 noremap <leader>p :call IkiwikiPreview()<cr>
 noremap <leader>f :call SelectaCommand("find * -type f", ":e")<cr>
-noremap <leader>t :w\|:!make && clear && /usr/pkg/bin/prove -b %<cr>
-" noremap <leader>t :w\|:!clear && /usr/pkg/bin/ruby193 %<cr>
-" noremap <leader>t :w\|:!guess_how_to_run_tests_for_file %<cr>
-" noremap <leader>t :w\|:!bmake clean && bmake test<cr>
-" noremap <leader>t :w\|!clear && /Applications/LilyPond.app/Contents/Resources/bin/lilypond % && open berber.pdf<cr>
+noremap <leader>t :call SaveAndRunTests()<cr>
