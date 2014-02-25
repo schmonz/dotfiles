@@ -23,7 +23,7 @@ iabbrev udpate update
 
 " DWIM searching
 set incsearch
-set ignorecase 
+set ignorecase
 set smartcase
 
 " DWIM indenting
