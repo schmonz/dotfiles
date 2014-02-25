@@ -30,6 +30,7 @@ set smartcase
 set autoindent
 filetype plugin indent on
 set cindent
+inoremap # X<BS>#
 set backspace=indent,eol,start
 vnoremap <tab> >gv
 vnoremap <s-tab> <gv
