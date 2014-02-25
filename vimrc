@@ -113,6 +113,36 @@ function! SelectaCommand(choice_command, vim_command)
   redraw!
 endfunction
 
+" http://blogs.perl.org/users/ovid/2011/01/show-perl-subname-in-vim-statusline.html
+" doesn't work with line numbers on
+if has('perl')
+perl << EOP
+  use strict;
+  sub current_sub {
+    my $curwin = $main::curwin;
+    my $curbuf = $main::curbuf;
+
+    my @document = map { $curbuf->Get($_) } 0 .. $curbuf->Count;
+    my ($line_number, $column) = $curwin->Cursor;
+
+    my $sub_name = '(not in sub)';
+    for my $i (reverse (1 .. $line_number-1)) {
+      my $line = $document[$i];
+      if ($line =~ /^\s*sub\s+(\w+)\b/) {
+        $sub_name = $1;
+        last;
+      }
+    }
+    VIM::DoCommand "let subName='$line_number: $sub_name'";
+  }
+EOP
+
+function! PerlCurrentSub()
+  perl current_sub()
+  return subName
+endfunction
+endif
+
 autocmd BufEnter *.tt,*.ep,*.html,*.css setlocal tabstop=4 shiftwidth=4 nowrap
 autocmd FileType perl,ruby,sh setlocal number|let w:m2=matchadd('Search', '\%>80v.\+', -1)
 autocmd FileType ruby,cucumber setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
