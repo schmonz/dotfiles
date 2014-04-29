@@ -1,8 +1,4 @@
 ControlPath ~/.ssh/%l-%r@%h:%p
 ControlMaster auto
-Host *.ms.com
-User amitsc
-ForwardX11 yes
-Compression yes
 Host hosting-dreamhost.schmonz.com
 User schmonz2
