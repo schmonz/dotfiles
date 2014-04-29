@@ -64,6 +64,7 @@ let g:Powerline_symbols = 'unicode'
 
 " VimRoom (<Leader>V)
 let g:vimroom_sidebar_height=0
+" let g:vimroom_width=120
 " set formatoptions=t1
 
 " language-specific settings
@@ -79,6 +80,7 @@ autocmd BufEnter *.txtl let g:ikiwiki_render_filetype = 'textile'
 autocmd BufRead,BufNewFile *.mdwn setlocal filetype=ikiwiki
 autocmd BufEnter *.mdwn let g:ikiwiki_render_filetype = 'vim-markdown'
 autocmd BufEnter * set nofoldenable
+autocmd BufEnter * call SmartTildes()
 " autocmd BufEnter * set foldmethod=expr
 " let g:ikiwiki_render_filetype = 'textile'
 " ,*.mdwn set filetype=ikiwiki
@@ -87,6 +89,7 @@ function! SaveAndRunTests()
   :w
 " let s:currentSub = PerlCurrentSub()
   let s:cmd = "! clear && /usr/pkg/bin/prove -b %"
+" let s:cmd = ":w\|:! open -a /Applications/Chromium.app %"
   execute s:cmd
 " noremap <leader>t :w\|:!clear && /usr/pkg/bin/ruby193 %<cr>
 " noremap <leader>t :w\|:!guess_how_to_run_tests_for_file %<cr>
@@ -153,6 +156,15 @@ autocmd FileType textile setlocal textwidth=0|let gitgutter_enabled=0
 autocmd FileType perl nnoremap ,pt :%!perltidy -q<cr>
 autocmd FileType perl vnoremap ,pt :!perltidy -q<cr>
 " autocmd FileType perl iabbrev <buffer> iff if ()<left>
+
+function! SmartTildes()
+	if &number
+		" color non-text lines same as background
+		highlight NonText ctermfg=bg guifg=bg
+	endif
+	" gonna want to set to set it back when I switch out of numbered
+	" http://www.ibm.com/developerworks/library/l-vim-script-1/
+endfunction
 
 " shortcuts for paste mode in normal and insert modes
 " nnoremap  :set invpaste paste?<cr>
