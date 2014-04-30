@@ -1,0 +1,159 @@
+[ikiwiki]
+checkout =
+	git clone git://git.ikiwiki.info/ ikiwiki
+	cd ikiwiki
+	git remote add admin ssh://b-ikiwiki@ikiwiki.branchable.com/
+	git remote add github git@github.com:schmonz/ikiwiki.git
+
+[smuganizer]
+checkout = svn co 'http://smuganizer.googlecode.com/svn/trunk' 'smuganizer'
+
+[cwrapper]
+checkout = cvs -d 'schmonz@netbsd-soc.cvs.sf.net:/cvsroot/netbsd-soc' co -d 'cwrapper' 'cwrapper'
+
+[joerg-cwrapper]
+checkout = hg clone 'ssh://morden.netbsd.org/~joerg/cwrapper' 'joerg-cwrapper'
+
+[kyua]
+checkout = svn co 'http://kyua.googlecode.com/svn/trunk/kyua-cli' 'kyua'
+
+[localsrc]
+checkout = cvs -d 'schmonz@cvs.netbsd.org:/cvsroot' co -d 'localsrc' 'localsrc'
+
+[philowixian]
+checkout = git clone 'ssh://wiki.philo.org/home/schmonz/philo/philowixian.git' 'philowixian'
+
+[privowixian]
+checkout = git clone 'ssh://wiki.philo.org/home/schmonz/philo/privowixian.git' 'privowixian'
+
+[pkgsrc-current]
+checkout = cvs -d 'schmonz@cvs.netbsd.org:/cvsroot' co -d 'pkgsrc-current' 'pkgsrc'
+
+[pkgsrc-current/wip]
+checkout = cvs -d ':ext:schmonz@pkgsrc-wip.cvs.sourceforge.net:/cvsroot/pkgsrc-wip' co -d 'pkgsrc/wip' 'wip'
+
+[wikisrc]
+checkout = cvs -d 'schmonz@wiki.netbsd.org:/cvsroot' co -d 'wikisrc' 'wikisrc'
+
+[Perl_Companies]
+checkout = git clone 'git@github.com:schmonz/Perl_Companies.git' 'Perl_Companies'
+
+[anglofish.net]
+checkout = git clone 'ssh://b-anglofish@anglofish.branchable.com/' 'anglofish.net'
+
+[atf]
+checkout = git clone 'https://code.google.com/p/kyua.atf/' 'atf'
+
+[health]
+checkout = git clone 'git@github.com:schmonz/health.git' 'health'
+
+[html2text]
+checkout = git clone 'https://github.com/Alir3z4/html2text.git' 'html2text'
+
+[jirash]
+checkout = git clone 'https://github.com/trentm/jirash.git' 'jirash'
+
+[knc]
+checkout = git clone 'http://oskt.secure-endpoints.com/git/knc' 'knc'
+
+[logjam]
+checkout = git clone 'git@github.com:schmonz/logjam.git' 'logjam'
+
+[music]
+checkout = git clone 'git@github.com:schmonz/music.git' 'music'
+
+[netbsd-CVSROOT]
+checkout = cvs -d 'schmonz@cvs.netbsd.org:/cvsroot' co -d 'netbsd-CVSROOT' 'CVSROOT'
+
+[pkgjam]
+checkout = svn co 'https://pkgjam.svn.sourceforge.net/svnroot/pkgjam' 'pkgjam'
+
+[pkgsrc-wiki]
+checkout = cvs -d 'schmonz@wiki.netbsd.org:/home/pkgwiki/pkgsrc-wiki.cvs' co -d 'pkgsrc-wiki' 'ikiwiki'
+
+[podcast.schmonz.com]
+checkout = git clone 'ssh://b-schmonz@schmonz.branchable.com/' 'podcast.schmonz.com'
+
+[rainskiwiki]
+checkout = git clone 'git@github.com:truist/rainskiwiki.git' 'rainskiwiki'
+
+[resume]
+checkout = git clone 'git@github.com:schmonz/resume.git' 'resume'
+
+[rss2email]
+checkout = git clone 'git@github.com:wking/rss2email.git' 'rss2email'
+
+[sonosweb]
+checkout = git clone 'git://github.com/ConradIrwin/sonosweb.git' 'sonosweb'
+
+[wireshark]
+checkout = git clone 'http://code.wireshark.org/git/wireshark' 'wireshark'
+
+[yourls]
+checkout = git clone 'git://github.com/batuhanicoz/yourls.git' 'yourls'
+
+[discount]
+checkout = git clone 'https://github.com/Orc/discount.git' 'discount'
+
+[dotfiles]
+checkout = git clone 'git@github.com:schmonz/dotfiles.git' 'dotfiles'
+
+[selecta]
+checkout = git clone 'https://github.com/garybernhardt/selecta.git' 'selecta'
+
+[fink-dists]
+checkout = cvs -d ':pserver:anonymous@fink.cvs.sourceforge.net:/cvsroot/fink' co -d 'fink-dists' 'dists'
+
+[macports-dports]
+checkout = /usr/pkg/bin/svn co 'https://svn.macports.org/repository/macports/trunk/dports' 'macports-dports'
+
+[1pass]
+checkout = hg clone 'http://hg.icculus.org/icculus/1pass/' '1pass'
+
+[trivia]
+checkout = git clone 'git@github.com:schmonz/trivia.git' 'trivia'
+
+[wikisrc-CVSROOT]
+checkout = cvs -d 'schmonz@wiki.netbsd.org/cvsroot' co -d 'wikisrc-CVSROOT' 'CVSROOT'
+
+[agedu]
+checkout = svn co 'svn://svn.tartarus.org/sgt/agedu' 'agedu'
+
+[homebrew]
+checkout = git clone 'https://github.com/Homebrew/homebrew.git' 'homebrew'
+
+[git-annex.branchable.com]
+checkout = git clone 'git://git-annex.branchable.com/' 'git-annex.branchable.com'
+
+[SoCo]
+checkout = git clone 'https://github.com/SoCo/SoCo.git' 'SoCo'
+
+[Sonos]
+checkout = git clone 'https://github.com/markgandy/Sonos.git' 'Sonos'
+
+[emlx2maildir]
+checkout = git clone 'https://github.com/mlaiosa/emlx2maildir.git' 'emlx2maildir'
+
+[sonos-java]
+checkout = git clone 'https://github.com/SR-G/sonos-java.git' 'sonos-java'
+
+[sonos-ruby]
+checkout = git clone 'https://github.com/soffes/sonos.git' 'sonos-ruby'
+
+[kharon]
+checkout = git clone 'http://oskt.secure-endpoints.com/git/kharon' 'kharon'
+
+[krb5_admin]
+checkout = git clone 'http://oskt.secure-endpoints.com/git/krb5_admin' 'krb5_admin'
+
+[krb5_keytab]
+checkout = git clone 'http://oskt.secure-endpoints.com/git/krb5_keytab' 'krb5_keytab'
+
+[lnetd]
+checkout = git clone 'http://oskt.secure-endpoints.com/git/lnetd' 'lnetd'
+
+[prefork]
+checkout = git clone 'http://oskt.secure-endpoints.com/git/prefork' 'prefork'
+
+[rtl8723au]
+checkout = git clone 'https://github.com/lwfinger/rtl8723au.git' 'rtl8723au'
