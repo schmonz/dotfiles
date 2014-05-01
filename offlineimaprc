@@ -7,7 +7,7 @@ fsync = False
 localrepository = Schmonz-Local
 remoterepository = Schmonz-Remote
 status_backend = sqlite
-maxage = 10
+maxage = 100
 
 [Repository Schmonz-Local]
 type = Maildir
