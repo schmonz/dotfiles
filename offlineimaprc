@@ -25,7 +25,6 @@ type = Gmail
 ssl = yes
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 remoteuser = schmonz
-remotepassfile = ~/Gmaildirs/my-google-password-in-plaintext.txt
 realdelete = yes
 nametrans = lambda folder: {'[Gmail]/Drafts':    'Drafts',
                             '[Gmail]/Sent Mail': 'Sent',
