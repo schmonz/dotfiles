@@ -1,0 +1,37 @@
+[general]
+ui = ttyui
+accounts = Schmonz
+fsync = False
+
+[Account Schmonz]
+localrepository = Schmonz-Local
+remoterepository = Schmonz-Remote
+status_backend = sqlite
+maxage = 10
+
+[Repository Schmonz-Local]
+type = Maildir
+localfolders = ~/Gmaildirs/schmonz-schmonz.com
+nametrans = lambda folder: {'Drafts':  '[Gmail]/Drafts',
+                            'Sent':    '[Gmail]/Sent Mail',
+                            'Flagged': '[Gmail]/Starred',
+                            'Trash':   '[Gmail]/Trash',
+                            'AllMail': '[Gmail]/All Mail',
+                            }.get(folder, folder)
+
+[Repository Schmonz-Remote]
+maxconnections = 1
+type = Gmail
+ssl = yes
+cert_fingerprint = 0f7a6d02be71cf3d263feb781cb091d9f2c5af78
+remoteuser = schmonz
+remotepassfile = ~/Gmaildirs/my-google-password-in-plaintext.txt
+realdelete = yes
+nametrans = lambda folder: {'[Gmail]/Drafts':    'Drafts',
+                            '[Gmail]/Sent Mail': 'Sent',
+                            '[Gmail]/Starred':   'Flagged',
+                            '[Gmail]/Trash':     'Trash',
+                            '[Gmail]/All Mail':  'AllMail',
+                            }.get(folder, folder)
+folderfilter = lambda folder: folder in ['[Gmail]/All Mail',
+                                         ]
