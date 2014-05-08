@@ -1,0 +1,24 @@
+FSync no
+
+IMAPStore gmail-remote
+	Host imap.gmail.com
+	User schmonz
+	PassCmd "netrc imap.schmonz.com schmonz"
+	UseIMAPS yes
+	RequireSSL yes
+	CertificateFile /etc/ssl/certs/ca-certificates.crt
+	PipelineDepth 1
+
+MaildirStore gmail-local
+	Path ~/Gmaildir/
+	Inbox ~/Gmaildir/Inbox
+
+Channel gmail
+	Master ":gmail-remote:[Gmail]/All Mail"
+	Slave :gmail-local:AllMail
+	MaxMessages 100
+	Sync Pull
+	Create Slave
+	Expunge Slave
+	CopyArrivalDate yes
+	SyncState *
