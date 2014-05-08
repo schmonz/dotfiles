@@ -3,7 +3,7 @@ FSync no
 IMAPStore gmail-remote
 	Host imap.gmail.com
 	User schmonz
-	PassCmd "netrc imap.schmonz.com schmonz"
+	PassCmd "netrc imap.gmail.com schmonz"
 	UseIMAPS yes
 	RequireSSL yes
 	CertificateFile /etc/ssl/certs/ca-certificates.crt
@@ -17,6 +17,7 @@ Channel gmail
 	Master ":gmail-remote:[Gmail]/All Mail"
 	Slave :gmail-local:AllMail
 	MaxMessages 100
+	ExpireUnread yes
 	Sync Pull
 	Create Slave
 	Expunge Slave
