@@ -3,7 +3,7 @@
 IMAPStore gmail-remote
 	Host imap.gmail.com
 	User schmonz
-#PassCmd "netrc imap.gmail.com schmonz"
+	PassCmd "netrc imap.gmail.com schmonz"
 	UseIMAPS yes
 	RequireSSL yes
 	CertificateFile /etc/ssl/certs/ca-certificates.crt
@@ -21,5 +21,5 @@ Channel gmail
 	Sync Pull
 	Create Slave
 	Expunge Slave
-#CopyArrivalDate yes
+	CopyArrivalDate yes
 	SyncState *
