@@ -1,5 +1,5 @@
 [ikiwiki]
-checkout =
+checkout = 
 	git clone git://git.ikiwiki.info/ ikiwiki
 	cd ikiwiki
 	git remote add admin ssh://b-ikiwiki@ikiwiki.branchable.com/
@@ -157,3 +157,9 @@ checkout = git clone 'http://oskt.secure-endpoints.com/git/prefork' 'prefork'
 
 [rtl8723au]
 checkout = git clone 'https://github.com/lwfinger/rtl8723au.git' 'rtl8723au'
+
+[remark]
+checkout = git clone 'https://github.com/gnab/remark.git' 'remark'
+
+[mutt-colors-solarized]
+checkout = git clone 'https://github.com/altercation/mutt-colors-solarized.git' 'mutt-colors-solarized'
