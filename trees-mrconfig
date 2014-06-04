@@ -66,7 +66,7 @@ checkout = git clone 'git@github.com:schmonz/music.git' 'music'
 checkout = cvs -d 'schmonz@cvs.netbsd.org:/cvsroot' co -d 'netbsd-CVSROOT' 'CVSROOT'
 
 [pkgjam]
-checkout = svn co 'https://pkgjam.svn.sourceforge.net/svnroot/pkgjam' 'pkgjam'
+checkout = svn co 'http://svn.code.sf.net/p/pkgjam/code' 'pkgjam'
 
 [pkgsrc-wiki]
 checkout = cvs -d 'schmonz@wiki.netbsd.org:/home/pkgwiki/pkgsrc-wiki.cvs' co -d 'pkgsrc-wiki' 'ikiwiki'
@@ -90,7 +90,7 @@ checkout = git clone 'git://github.com/ConradIrwin/sonosweb.git' 'sonosweb'
 checkout = git clone 'http://code.wireshark.org/git/wireshark' 'wireshark'
 
 [yourls]
-checkout = git clone 'git://github.com/batuhanicoz/yourls.git' 'yourls'
+checkout = git clone 'https://github.com/YOURLS/YOURLS.git' 'yourls'
 
 [discount]
 checkout = git clone 'https://github.com/Orc/discount.git' 'discount'
