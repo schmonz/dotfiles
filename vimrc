@@ -72,18 +72,17 @@ filetype off
 set runtimepath+=/Applications/LilyPond.app/Contents/Resources/share/lilypond/current/vim/
 filetype on
 
-autocmd BufRead,BufNewFile *.t,*.pl,*.pm setlocal filetype=perl
-autocmd BufRead,BufNewFile *.toc setlocal filetype=asciidoc
-autocmd BufRead,BufNewFile *.rb,Vagrantfile setlocal filetype=ruby
-autocmd BufRead,BufNewFile *.txtl setlocal filetype=textile
-autocmd BufEnter *.txtl let g:ikiwiki_render_filetype = 'textile'
-autocmd BufRead,BufNewFile *.mdwn setlocal filetype=ikiwiki
-autocmd BufEnter *.mdwn let g:ikiwiki_render_filetype = 'vim-markdown'
-autocmd BufEnter * set nofoldenable
+autocmd BufRead,BufNewFile *.t,*.pl,*.pm setfiletype perl
+autocmd BufRead,BufNewFile *.toc setfiletype asciidoc
+autocmd BufRead,BufNewFile *.rb,Vagrantfile setfiletype ruby
+autocmd BufRead,BufNewFile *.txtl setfiletype textile
+	autocmd FileType textile let g:ikiwiki_render_filetype = 'textile'
+" IWBNI FileType were 'ikiwiki', but how to set ikiwiki_render_filetype?
+autocmd BufRead,BufNewFile *.mdwn setfiletype ikiwiki
+	autocmd FileType ikiwiki let g:ikiwiki_render_filetype = 'vim-markdown'
+autocmd BufRead,BufNewFile,BufEnter * set nofoldenable
 autocmd BufEnter * call SmartTildes()
 " autocmd BufEnter * set foldmethod=expr
-" let g:ikiwiki_render_filetype = 'textile'
-" ,*.mdwn set filetype=ikiwiki
 
 function! SaveAndRunTests()
   :w
