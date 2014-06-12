@@ -83,3 +83,10 @@ set tmpdir= ~/.mutt/temp
 
 # useful for (mostly) deduplicating old mail before merging:
 # folder-hook .* 'push <delete-pattern>~d-30/09/08<enter>'
+
+#set sidebar_width=10
+#set sidebar_visible=no
+#set sidebar_delim='|'
+#color sidebar_new red default
+#macro index b 'toggle sidebar_visible'
+#macro pager b 'toggle sidebar_visible'
