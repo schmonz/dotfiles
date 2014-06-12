@@ -72,7 +72,10 @@ filetype off
 set runtimepath+=/Applications/LilyPond.app/Contents/Resources/share/lilypond/current/vim/
 filetype on
 
+let g:hlvarcurrent = 1
 autocmd BufRead,BufNewFile *.t,*.pl,*.pm setfiletype perl
+	autocmd FileType perl set updatetime=500
+	autocmd FileType perl let g:hlvarcurrent = 0
 autocmd BufRead,BufNewFile *.toc setfiletype asciidoc
 autocmd BufRead,BufNewFile *.rb,Vagrantfile setfiletype ruby
 autocmd BufRead,BufNewFile *.txtl setfiletype textile
