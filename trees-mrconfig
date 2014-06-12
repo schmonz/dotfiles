@@ -163,3 +163,6 @@ checkout = git clone 'https://github.com/gnab/remark.git' 'remark'
 
 [mutt-colors-solarized]
 checkout = git clone 'https://github.com/altercation/mutt-colors-solarized.git' 'mutt-colors-solarized'
+
+[isync]
+checkout = git clone 'git://git.code.sf.net/p/isync/isync' 'isync'
