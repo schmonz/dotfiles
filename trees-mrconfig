@@ -166,3 +166,6 @@ checkout = git clone 'https://github.com/altercation/mutt-colors-solarized.git' 
 
 [isync]
 checkout = git clone 'git://git.code.sf.net/p/isync/isync' 'isync'
+
+[distix]
+checkout = git clone 'git://git.liw.fi/distix' 'distix'
