@@ -39,3 +39,6 @@ checkout = git clone 'https://github.com/mikewest/vimroom.git' 'vimroom'
 
 [vim-hl-var]
 checkout = git clone 'https://github.com/pjcj/vim-hl-var.git' 'vim-hl-var'
+
+[vim-surround]
+checkout = git clone 'https://github.com/tpope/vim-surround.git' 'vim-surround'
