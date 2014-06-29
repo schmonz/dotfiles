@@ -169,3 +169,6 @@ checkout = git clone 'git://git.code.sf.net/p/isync/isync' 'isync'
 
 [distix]
 checkout = git clone 'git://git.liw.fi/distix' 'distix'
+
+[philolexian]
+checkout = git clone 'git@github.com:schmonz/philolexian.git' 'philolexian'
