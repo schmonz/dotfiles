@@ -176,6 +176,14 @@ endfunction
 " to use: type 'dp' or 'cp' (etc.) while in normal mode
 onoremap p i(
 
+" configure syntastic
+let g:syntastic_perl_checkers = ['perl', 'perlcritic']
+let g:syntastic_enable_perl_checker = 1
+
+" configure CtrlP
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
 " configure Supertab
 let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabMidWordCompletion = "0"
