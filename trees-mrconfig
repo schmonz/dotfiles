@@ -172,3 +172,9 @@ checkout = git clone 'git://git.liw.fi/distix' 'distix'
 
 [philolexian]
 checkout = git clone 'git@github.com:schmonz/philolexian.git' 'philolexian'
+
+[freebsd-ports]
+checkout = git clone 'https://github.com/freebsd/freebsd-ports.git' 'freebsd-ports'
+
+[tigerbrew]
+checkout = git clone 'git://github.com/mistydemeo/tigerbrew.git' 'tigerbrew'
