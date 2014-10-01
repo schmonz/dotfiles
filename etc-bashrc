@@ -28,3 +28,7 @@ fi
 
 # Make bash check its window size after a process completes
 shopt -s checkwinsize
+
+# Search history for commands like what I've started typing
+bind '"\e[A":history-search-backward'
+bind '"\e[B":history-search-forward'
