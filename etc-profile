@@ -4,6 +4,10 @@ if [ -x /usr/libexec/path_helper ]; then
 	eval `/usr/libexec/path_helper -s`
 fi
 
+if [ "${BASH-no}" != "no" ]; then
+	[ -r /etc/bashrc ] && . /etc/bashrc
+fi
+
 LESS=FRSX; export LESS
 LESSOPEN="| src-hilite-lesspipe.sh %s"; export LESSOPEN
 LC_CTYPE=en_US.UTF-8; export LC_CTYPE
@@ -23,7 +27,3 @@ make()
 		/usr/bin/make "$@"
 	fi
 }
-
-if [ "${BASH-no}" != "no" ]; then
-	[ -r /etc/bashrc ] && . /etc/bashrc
-fi
