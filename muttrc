@@ -22,6 +22,9 @@ set certificate_file=~/.mutt/certificates
 
 set smtp_url="smtps://schmonz@smtp.gmail.com:465/"
 # set smtp_pass="password"
+# set smtp_url="smtp://schmonz@mail.schmonz.com:587/"
+# set ssl_starttls=yes
+# set ssl_force_tls=yes
 set envelope_from=yes
 
 # set sendmail="/usr/sbin/sendmail -oem -oi"
