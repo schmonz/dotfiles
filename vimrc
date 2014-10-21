@@ -90,7 +90,7 @@ autocmd BufEnter * call SmartTildes()
 function! SaveAndRunTests()
   :w
 " let s:currentSub = PerlCurrentSub()
-  let s:cmd = "! clear && /usr/pkg/bin/prove -b %"
+  let s:cmd = "! clear && prove -b %"
 " let s:cmd = ":w\|:! open -a /Applications/Chromium.app %"
   execute s:cmd
 " noremap <leader>t :w\|:!clear && /usr/pkg/bin/ruby193 %<cr>
