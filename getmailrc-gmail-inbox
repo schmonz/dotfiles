@@ -1,0 +1,17 @@
+[options]
+verbose = 1
+delete = true
+# read_all = false
+# message_log = ~/.getmail/log
+# message_log_verbose = true
+
+[retriever]
+type = SimpleIMAPSSLRetriever
+server = imap.gmail.com
+username = schmonz
+mailboxes = ("INBOX",)
+# use_peek = false
+
+[destination]
+type = Maildir
+path = ~/Maildir/
