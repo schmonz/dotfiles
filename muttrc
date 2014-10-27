@@ -1,5 +1,7 @@
-# alternates ^(schmonz|schmonz-web-.+|schmonz-lists-.+(\+[^@]*)?@schmonz)\.com$
-alternates .+@schmonz.com schmonz@[nN]et[bB][sS][dD].org schmonz@pkgsrc.org schmonz@gmail.com
+alternates 'schmonz(\-.+)?@(.+\.)*schmonz\.com'
+alternates schmonz@netbsd\.(org,net)
+alternates schmonz@pkgsrc\.org
+alternates (abuse,hostmaster,postmaster,webmaster)@schmonz\.com
 
 # my_hdr From: Amitai Schlair <schmonz@schmonz.com>
 
