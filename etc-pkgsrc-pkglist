@@ -41,7 +41,6 @@ net/mosh
 net/p5-Net-OpenID-Consumer
 net/rsync
 pkgtools/pkg_chk
-pkgtools/pkg_comp
 pkgtools/pkg_install
 security/caff
 security/cy2-plain
