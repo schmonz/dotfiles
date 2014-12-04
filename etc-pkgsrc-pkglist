@@ -9,16 +9,11 @@ databases/mysql55-server
 databases/php-mysql
 databases/php-mysqli
 devel/cvsps
-devel/fossil
 devel/git-base
-devel/subversion-base
 editors/ce
 editors/emacs-nox11
 editors/joe
 editors/vim
-games/fortune-strfile
-games/fortunes-futurama
-games/fortunes-h2g2
 graphics/netpbm
 graphics/php-gd
 mail/dovecot2
@@ -31,10 +26,8 @@ mail/mutt-devel
 mail/qmail-qfilter
 mail/qtools
 mail/rss2email
-mail/serialmail
 mail/spamassassin
 mail/tmda
-misc/colorls
 misc/tmux
 net/djbdns-run
 net/mosh
