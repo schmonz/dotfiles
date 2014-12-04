@@ -14,6 +14,7 @@ devel/git-base
 devel/subversion-base
 editors/ce
 editors/emacs-nox11
+editors/joe
 editors/vim
 games/fortune-strfile
 games/fortunes-futurama
