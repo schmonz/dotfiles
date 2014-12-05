@@ -2,7 +2,7 @@ SCHMONZ_NETBSD_RELEASE="$(uname -r)-$(uname -m)"
 VINTAGE=$(date '+%Y%m%d')
 
 MKCONF_VARS="VINTAGE"
-EXTRAMK="/etc/pkgsrc/mk.conf"
+EXTRAMK="/home/schmonz/trees/dotfiles/etc-pkgsrc-mkconf"
 
 DISTRIBDIR="/home/schmonz/binaries/system/${SCHMONZ_NETBSD_RELEASE}"
 REAL_PACKAGES="/home/schmonz/binaries/packages/${SCHMONZ_NETBSD_RELEASE}-${VINTAGE}"
@@ -11,4 +11,4 @@ REAL_PKGSRC="/home/schmonz/trees/pkgsrc-current"
 REAL_DISTFILES="${REAL_PKGSRC}/distfiles"
 REAL_SRC="/home/schmonz/trees/src-6-1"
 SETS_X11="no"
-AUTO_PACKAGES="`cat /etc/pkgsrc/pkglist`"
+AUTO_PACKAGES="`cat /home/schmonz/trees/dotfiles/etc-pkgsrc-pkglist`"
