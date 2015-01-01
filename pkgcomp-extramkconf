@@ -51,7 +51,7 @@ PKG_OPTIONS.apache+=	suexec
 PKG_OPTIONS.apcupsd+=	cgi -snmp
 PKG_OPTIONS.djbdns+=	djbdns-ignoreip2
 PKG_OPTIONS.graphviz+=	-gtk -pangocairo -lua -perl -tcl
-PKG_OPTIONS.ikiwiki+=	git ikiwiki-search
+PKG_OPTIONS.ikiwiki+=	git ikiwiki-search imagemagick
 PKG_OPTIONS.maildrop+=	-authlib
 PKG_OPTIONS.mencoder+=	-cdparanoia -dv -dvdread -gif -lame -mad -mplayer-real \
 			-mplayer-runtime-cpudetection -png -theora -vorbis \
