@@ -50,5 +50,6 @@ www/apache24
 www/elinks
 www/ikiwiki
 www/links
+www/p5-HTML-Form
 www/php-curl
 www/php-fpm
