@@ -19,14 +19,14 @@ PKG_DBDIR=		${LOCALBASE}/.pkgdb
 SPECIAL_PERMS+=		bin/checkpassword ${ROOT_USER} ${ROOT_GROUP} 4755
 .endif
 
-# XXX schmonz 20140809:
-# mail/isync/1.1.0 with security/openssl/1.0.1h fails with system gcc 4.5.3
-#.if !empty(.CURDIR:M*mail/isync)
-#USE_PKGSRC_GCC=		yes
-#USE_PKGSRC_GCC_RUNTIME=	yes
-#GCC_REQD=		4.7.0
-#PKGSRC_COMPILER=	gcc
-#.endif
+# XXX schmonz 20150321:
+# mail/isync/1.1.1 with security/openssl/1.0.2a fails with system gcc 4.5.3
+.if !empty(.CURDIR:M*mail/isync)
+USE_PKGSRC_GCC=		yes
+USE_PKGSRC_GCC_RUNTIME=	yes
+GCC_REQD=		4.7.0
+PKGSRC_COMPILER=	gcc
+.endif
 
 #ACCEPTABLE_LICENSES+=	gnu-gpl-v3 lame-license artistic-2.0
 ACCEPTABLE_LICENSES+=	djb-nonlicense hydra-license php-license vim-license
@@ -42,7 +42,7 @@ FETCH_USING?=		curl
 
 PKGSRC_KEEP_BIN_PKGS=	yes
 
-#PREFER_PKGSRC=		openssl
+PREFER_PKGSRC=		openssl
 #USE_BUILTIN.resolv=	yes
 #X11_TYPE=		modular
 
