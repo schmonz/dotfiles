@@ -27,6 +27,7 @@ mail/qmail-qfilter
 mail/qtools
 mail/rss2email
 mail/spamassassin
+mail/spamdyke
 mail/tmda
 misc/tmux
 net/djbdns-run
