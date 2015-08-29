@@ -1,5 +1,6 @@
 sysutils/checkperms
 mail/qmail-run
+mail/ezmlm-idx
 archivers/php-zlib
 archivers/unzip
 chat/irssi-icb
@@ -18,7 +19,6 @@ graphics/netpbm
 graphics/php-gd
 mail/dovecot2
 mail/dovecot2-antispam-plugin
-mail/ezmlm-idx
 mail/getmail
 mail/isync
 mail/mess822

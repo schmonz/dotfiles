@@ -40,7 +40,7 @@ LOCALPATCHES=		${PKGSRCDIR}/localpatches
 FETCH_USING?=		curl
 .endif
 
-.if !empty(.CURDIR:M*textproc/py-html2text) || !empty(.CURDIR:M*lang/python34)
+.if !empty(.CURDIR:M*textproc/py-html2text) || !empty(.CURDIR:M*lang/python34) || !empty(.CURDIR:M*net/mosh)
 FETCH_USING?=		curl
 .endif
 
@@ -53,6 +53,7 @@ PREFER_PKGSRC=		openssl
 PKG_DEFAULT_OPTIONS=	ssl tls -inet6 -sasl -x11 -fam -kerberos -gssapi
 PKG_OPTIONS.apache+=	suexec
 PKG_OPTIONS.apcupsd+=	cgi -snmp
+PKG_OPTIONS.apr-util+=	-ssl
 PKG_OPTIONS.djbdns+=	djbdns-ignoreip2
 PKG_OPTIONS.graphviz+=	-gtk -pangocairo -lua -perl -tcl
 PKG_OPTIONS.ikiwiki+=	git ikiwiki-search imagemagick l10n
