@@ -22,7 +22,7 @@ mail/dovecot2-antispam-plugin
 mail/getmail
 mail/isync
 mail/mess822
-mail/mutt-devel
+mail/mutt
 mail/qmail-qfilter
 mail/qtools
 mail/rss2email
