@@ -20,13 +20,14 @@ SPECIAL_PERMS+=		bin/checkpassword ${ROOT_USER} ${ROOT_GROUP} 4755
 .endif
 
 # XXX schmonz 20150321:
-# mail/isync/1.1.1 with security/openssl/1.0.2a fails with system gcc 4.5.3
-.if !empty(.CURDIR:M*mail/isync)
-USE_PKGSRC_GCC=		yes
-USE_PKGSRC_GCC_RUNTIME=	yes
-GCC_REQD=		4.7.0
-PKGSRC_COMPILER=	gcc
-.endif
+# mail/isync/1.1.1 with security/openssl/1.0.2a fails
+# with NetBSD-6.1.5 system gcc-4.5.3
+#.if !empty(.CURDIR:M*mail/isync)
+#USE_PKGSRC_GCC=		yes
+#USE_PKGSRC_GCC_RUNTIME=	yes
+#GCC_REQD=		4.7.0
+#PKGSRC_COMPILER=	gcc
+#.endif
 
 #ACCEPTABLE_LICENSES+=	gnu-gpl-v3 lame-license artistic-2.0
 ACCEPTABLE_LICENSES+=	djb-nonlicense hydra-license php-license vim-license
@@ -36,9 +37,9 @@ ALLOW_VULNERABLE_PACKAGES=	# defined
 
 LOCALPATCHES=		${PKGSRCDIR}/localpatches
 
-.if defined(MASTER_SITES) && ${MASTER_SITES:M*https\:*}
-FETCH_USING?=		curl
-.endif
+#.if defined(MASTER_SITES) && ${MASTER_SITES:M*https\:*}
+#FETCH_USING?=		curl
+#.endif
 
 .if !empty(.CURDIR:M*textproc/py-html2text) || !empty(.CURDIR:M*lang/python34) || !empty(.CURDIR:M*net/mosh)
 FETCH_USING?=		curl
@@ -68,7 +69,7 @@ PKG_OPTIONS.netatalk+=	slp
 PKG_OPTIONS.pari+=	-doc
 #PKG_OPTIONS.perl+=	-threads
 #PKG_OPTIONS.php+=	suhosin
-PKG_OPTIONS.php55+=	readline
+PKG_OPTIONS.php56+=	readline
 PKG_OPTIONS.roundcube+=	sqlite
 PKG_OPTIONS.qmail+=	qmail-netqmail qmail-bigdns qmail-realrcptto
 PKG_OPTIONS.qmail+=	qmail-viruscan syncdir -tls
@@ -93,7 +94,7 @@ PKG_SYSCONFBASE=	/etc
 PKG_DEVELOPER=		yes
 CHECK_PERMS=		no
 
-PHP_VERSION_DEFAULT=	55
+PHP_VERSION_DEFAULT=	56
 PKG_APACHE_DEFAULT=	apache24
 #PGSQL_VERSION_DEFAULT=	83	# preserved from chicken-ac
 PYTHON_VERSION_DEFAULT=	34

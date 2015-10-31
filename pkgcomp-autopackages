@@ -17,6 +17,7 @@ editors/joe
 editors/vim
 graphics/netpbm
 graphics/php-gd
+lang/ruby21-base
 mail/dovecot2
 mail/dovecot2-antispam-plugin
 mail/getmail

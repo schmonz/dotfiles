@@ -9,6 +9,6 @@ REAL_PACKAGES="/home/schmonz/binaries/packages/${SCHMONZ_NETBSD_RELEASE}-${VINTA
 	mkdir -p "${REAL_PACKAGES}"
 REAL_PKGSRC="/home/schmonz/trees/pkgsrc-current"
 REAL_DISTFILES="${REAL_PKGSRC}/distfiles"
-REAL_SRC="/home/schmonz/trees/src-6-1"
+REAL_SRC="/home/schmonz/trees/src-7"
 SETS_X11="no"
 AUTO_PACKAGES="`cat /home/schmonz/trees/dotfiles/pkgcomp-autopackages`"
