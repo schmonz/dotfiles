@@ -90,10 +90,18 @@ autocmd BufEnter * call SmartTildes()
 function! SaveAndRunTests()
   :w
 " let s:currentSub = PerlCurrentSub()
-  let s:cmd = "! clear && prove -b %"
+  let s:cmd = "! clear && tp %"
+" let s:cmd = "! clear && prove -b %"
+" let s:cmd = "! clear && ./% secretbombdisarmingcodes.txt"
+" let s:cmd = "! clear && ./%"
+" let s:cmd = "! clear && make && clear && prove -b %"
+" let s:cmd = "! clear && prove -b t/import.t"
+" let s:cmd = "! clear && prove -PProgressBar -b t/import.t"
+" let s:cmd = "! clear && prove -PProgressBar::Each -b t/import.t"
 " let s:cmd = ":w\|:! open -a /Applications/Chromium.app %"
+" let s:cmd = "! bmake clean && bmake && clear && bmake test"
   execute s:cmd
-" noremap <leader>t :w\|:!clear && /usr/pkg/bin/ruby193 %<cr>
+" noremap <leader>t :w\|:!clear && /opt/pkg/bin/ruby193 %<cr>
 " noremap <leader>t :w\|:!guess_how_to_run_tests_for_file %<cr>
 " noremap <leader>t :w\|:!bmake clean && bmake test<cr>
 " noremap <leader>t :w\|!clear && /Applications/LilyPond.app/Contents/Resources/bin/lilypond % && open berber.pdf<cr>
@@ -101,7 +109,7 @@ endfunction
 
 function! IkiwikiPreview()
   :w
-  let s:ikiwiki = "/usr/pkg/bin/ikiwiki --setup ~/Documents/wiki/conf/ikiwiki.conf --render"
+  let s:ikiwiki = "/opt/pkg/bin/ikiwiki --setup ~/Documents/wiki/conf/ikiwiki.conf --render"
   let s:currentFile = expand("%")
   let s:tmpFile = s:currentFile . ".tmp.html"
   let s:cmd = "silent ! " . s:ikiwiki . " " . s:currentFile . " > " . s:tmpFile . " && open " . s:tmpFile . " && sleep 5 && rm " . s:tmpFile
@@ -154,7 +162,7 @@ autocmd FileType perl,ruby,sh setlocal number|let w:m2=matchadd('Search', '\%>80
 autocmd FileType ruby,cucumber setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType textile,markdown,ikiwiki setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType markdown,ikiwiki setlocal textwidth=72
-autocmd FileType textile setlocal textwidth=0|let gitgutter_enabled=0
+autocmd FileType textile,markdown,ikiwiki setlocal textwidth=0|let gitgutter_enabled=0
 autocmd FileType perl nnoremap ,pt :%!perltidy -q<cr>
 autocmd FileType perl vnoremap ,pt :!perltidy -q<cr>
 " autocmd FileType perl iabbrev <buffer> iff if ()<left>
@@ -177,7 +185,8 @@ endfunction
 onoremap p i(
 
 " configure syntastic
-let g:syntastic_perl_checkers = ['perl', 'perlcritic']
+" let g:syntastic_perl_checkers = ['perl', 'perlcritic']
+let g:syntastic_perl_checkers = ['perl']
 let g:syntastic_enable_perl_checker = 1
 
 " configure CtrlP
