@@ -94,3 +94,4 @@ set tmpdir= ~/.mutt/temp
 #color sidebar_new red default
 #macro index b 'toggle sidebar_visible'
 #macro pager b 'toggle sidebar_visible'
+macro pager \Cu "|urlview<enter>" "call urlview to open links"
