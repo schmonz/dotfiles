@@ -24,7 +24,7 @@ fi
 bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
 
-_GIT_PREFIX=/usr/pkg/share/examples/git
+_GIT_PREFIX=/opt/pkg/share/examples/git
 #_GIT_PREFIX=/Applications/Xcode.app/Contents/Developer/usr/share/git-core
 
 if [ -f ${_GIT_PREFIX}/git-completion.bash ]; then
