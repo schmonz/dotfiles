@@ -51,3 +51,12 @@ checkout = git clone 'git://github.com/kien/ctrlp.vim.git' 'ctrlp.vim'
 
 [ack.vim]
 checkout = git clone 'git://github.com/mileszs/ack.vim.git' 'ack.vim'
+
+[vim-perl]
+checkout = git clone 'https://github.com/vim-perl/vim-perl.git' 'vim-perl'
+
+[vim-tmux-navigator]
+checkout = git clone 'https://github.com/christoomey/vim-tmux-navigator.git' 'vim-tmux-navigator'
+
+[vim-expand-region]
+checkout = git clone 'git@github.com:terryma/vim-expand-region.git' 'vim-expand-region'
