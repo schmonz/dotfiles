@@ -105,7 +105,7 @@ checkout = git clone 'https://github.com/garybernhardt/selecta.git' 'selecta'
 checkout = cvs -d ':pserver:anonymous@fink.cvs.sourceforge.net:/cvsroot/fink' co -d 'fink-dists' 'dists'
 
 [macports-dports]
-checkout = /usr/pkg/bin/svn co 'https://svn.macports.org/repository/macports/trunk/dports' 'macports-dports'
+checkout = /opt/pkg/bin/svn co 'https://svn.macports.org/repository/macports/trunk/dports' 'macports-dports'
 
 [1pass]
 checkout = hg clone 'http://hg.icculus.org/icculus/1pass/' '1pass'
@@ -178,3 +178,27 @@ checkout = git clone 'https://github.com/freebsd/freebsd-ports.git' 'freebsd-por
 
 [tigerbrew]
 checkout = git clone 'git://github.com/mistydemeo/tigerbrew.git' 'tigerbrew'
+
+[dovecot-antispam-plugin]
+checkout = hg clone 'http://hg.dovecot.org/dovecot-antispam-plugin' 'dovecot-antispam-plugin'
+
+[mob_rotation]
+checkout = git clone 'git@github.com:RubySteps/mob_rotation.git' 'mob_rotation'
+
+[jekyll-import]
+checkout = git clone 'git@github.com:jekyll/jekyll-import.git' 'jekyll-import'
+
+[pumpa]
+checkout = git clone 'git://gitorious.org/pumpa/pumpa.git' 'pumpa'
+
+[implemications]
+checkout = git clone 'ssh://implemications.com/~schmonz/sites/implemications.com/www/git/src.git' 'implemications'
+
+[rubysteps]
+checkout = git clone 'git@github.com:RubySteps/rubysteps-premium.git' 'rubysteps'
+
+[devops-dojo]
+checkout = git clone 'git@github.com:schmonz/devops-dojo.git' 'devops-dojo'
+
+[mindmup]
+checkout = git clone 'git@github.com:schmonz/mindmup.git' 'mindmup'
