@@ -179,6 +179,9 @@ checkout = git clone 'https://github.com/freebsd/freebsd-ports.git' 'freebsd-por
 [tigerbrew]
 checkout = git clone 'git://github.com/mistydemeo/tigerbrew.git' 'tigerbrew'
 
+[caretaker-infant-object]
+checkout = git clone 'git@github.com:schmonz/caretaker-infant-object.git' 'caretaker-infant-object'
+
 [dovecot-antispam-plugin]
 checkout = hg clone 'http://hg.dovecot.org/dovecot-antispam-plugin' 'dovecot-antispam-plugin'
 
