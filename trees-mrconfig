@@ -15,7 +15,7 @@ checkout = cvs -d 'schmonz@netbsd-soc.cvs.sf.net:/cvsroot/netbsd-soc' co -d 'cwr
 checkout = hg clone 'ssh://morden.netbsd.org/~joerg/cwrapper' 'joerg-cwrapper'
 
 [kyua]
-checkout = svn co 'http://kyua.googlecode.com/svn/trunk/kyua-cli' 'kyua'
+checkout = git clone 'git@github.com:jmmv/kyua.git' 'kyua'
 
 [localsrc]
 checkout = cvs -d 'schmonz@cvs.netbsd.org:/cvsroot' co -d 'localsrc' 'localsrc'
@@ -40,9 +40,6 @@ checkout = git clone 'git@github.com:schmonz/Perl_Companies.git' 'Perl_Companies
 
 [anglofish.net]
 checkout = git clone 'ssh://b-anglofish@anglofish.branchable.com/' 'anglofish.net'
-
-[atf]
-checkout = git clone 'https://code.google.com/p/kyua.atf/' 'atf'
 
 [health]
 checkout = git clone 'git@github.com:schmonz/health.git' 'health'
@@ -76,9 +73,6 @@ checkout = git clone 'ssh://b-schmonz@schmonz.branchable.com/' 'podcast.schmonz.
 
 [rainskiwiki]
 checkout = git clone 'git@github.com:truist/rainskiwiki.git' 'rainskiwiki'
-
-[resume]
-checkout = git clone 'git@github.com:schmonz/resume.git' 'resume'
 
 [rss2email]
 checkout = git clone 'git@github.com:wking/rss2email.git' 'rss2email'
@@ -196,9 +190,6 @@ checkout = git clone 'git://gitorious.org/pumpa/pumpa.git' 'pumpa'
 
 [implemications]
 checkout = git clone 'ssh://implemications.com/~schmonz/sites/implemications.com/www/git/src.git' 'implemications'
-
-[rubysteps]
-checkout = git clone 'git@github.com:RubySteps/rubysteps-premium.git' 'rubysteps'
 
 [devops-dojo]
 checkout = git clone 'git@github.com:schmonz/devops-dojo.git' 'devops-dojo'
