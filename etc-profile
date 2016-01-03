@@ -17,6 +17,8 @@ CLICOLOR=1; export CLICOLOR
 LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD; export LSCOLORS
 COLORTERM=1; export COLORTERM
 
+SCALA_HOME=/opt/scala; export SCALA_HOME
+
 make()
 {
 	local _MK
