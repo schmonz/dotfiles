@@ -90,8 +90,13 @@ autocmd BufEnter * call SmartTildes()
 function! SaveAndRunTests()
   :w
 " let s:currentSub = PerlCurrentSub()
-  let s:cmd = "! clear && tp %"
-" let s:cmd = "! clear && prove -b %"
+" let s:cmd = "! clear && ginkgo"
+" let s:cmd = "! clear && mix test"
+" let s:cmd = "! clear && sbt test"
+" let s:cmd = "! clear && cargo build && cargo run hi fred and chris"
+" let s:cmd = "! clear && lein test"
+" let s:cmd = "! clear && rspec %"
+  let s:cmd = "! clear && prove -b %"
 " let s:cmd = "! clear && ./% secretbombdisarmingcodes.txt"
 " let s:cmd = "! clear && ./%"
 " let s:cmd = "! clear && make && clear && prove -b %"
@@ -159,7 +164,8 @@ endif
 
 autocmd BufEnter *.tt,*.ep,*.html,*.css setlocal tabstop=4 shiftwidth=4 nowrap
 autocmd FileType perl,ruby,sh setlocal number|let w:m2=matchadd('Search', '\%>80v.\+', -1)
-autocmd FileType ruby,cucumber,hb setlocal number expandtab tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType rust setlocal number expandtab tabstop=4 shiftwidth=4 softtabstop=4
+autocmd FileType ruby,cucumber,hb,haskell,scala,go setlocal number expandtab tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType textile,markdown,ikiwiki,javascript,objc setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType markdown,ikiwiki setlocal textwidth=72
 autocmd FileType textile,markdown,ikiwiki setlocal textwidth=0|let gitgutter_enabled=0
