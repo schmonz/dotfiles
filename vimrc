@@ -215,7 +215,8 @@ endif
 autocmd BufEnter * let &titlestring = "vim " . expand("%:h") . "/" . expand("%:t")
 
 " mappings
-noremap <leader>w !}fmt<cr>}b
+nnoremap <leader>w !} perl -MText::Autoformat -e "{autoformat;}"<cr>
+vnoremap <leader>w !<C-R> perl -MText::Autoformat -e "{autoformat{all=>1};}"<cr>
 noremap <leader>p :call IkiwikiPreview()<cr>
 noremap <leader>f :call SelectaCommand("find * -type f", ":e")<cr>
 noremap <leader>t :call SaveAndRunTests()<cr>
