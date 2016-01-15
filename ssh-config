@@ -1,3 +1,4 @@
+UseRoaming no
 ControlPath ~/.ssh/%l-%r@%h:%p
 ControlMaster auto
 Host hosting-dreamhost.schmonz.com
