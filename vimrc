@@ -79,6 +79,7 @@ autocmd BufRead,BufNewFile *.t,*.pl,*.pm setfiletype perl
 autocmd BufRead,BufNewFile *.toc setfiletype asciidoc
 autocmd BufRead,BufNewFile *.rb,Vagrantfile setfiletype ruby
 autocmd BufRead,BufNewFile *.txtl setfiletype textile
+autocmd BufRead,BufNewFile *.remark setfiletype markdown
 	autocmd FileType textile let g:ikiwiki_render_filetype = 'textile'
 " IWBNI FileType were 'ikiwiki', but how to set ikiwiki_render_filetype?
 autocmd BufRead,BufNewFile *.mdwn setfiletype ikiwiki
