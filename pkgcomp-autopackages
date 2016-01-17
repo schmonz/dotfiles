@@ -20,7 +20,6 @@ graphics/php-gd
 lang/ruby21-base
 mail/dovecot2
 mail/dovecot2-antispam-plugin
-mail/getmail
 mail/isync
 mail/mess822
 mail/mutt
