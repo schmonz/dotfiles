@@ -196,3 +196,15 @@ checkout = git clone 'git@github.com:schmonz/devops-dojo.git' 'devops-dojo'
 
 [mindmup]
 checkout = git clone 'git@github.com:schmonz/mindmup.git' 'mindmup'
+
+[ikiwiki-hosting]
+checkout = git clone 'git://ikiwiki-hosting.branchable.com/' 'ikiwiki-hosting'
+
+[mr]
+checkout = git clone 'git://git.kitenet.net/mr.git' 'mr'
+
+[relay-ctrl]
+checkout = git clone 'https://github.com/bruceg/relay-ctrl' 'relay-ctrl'
+
+[emile]
+checkout = git clone 'https://gitorious.org/emile/mainline.git' 'emile'
