@@ -97,7 +97,7 @@ function! SaveAndRunTests()
 " let s:cmd = "! clear && cargo build && cargo run hi fred and chris"
 " let s:cmd = "! clear && lein test"
 " let s:cmd = "! clear && rspec %"
-  let s:cmd = "! clear && prove -b %"
+  let s:cmd = "! clear && prove -b leap.t"
 " let s:cmd = "! clear && ./% secretbombdisarmingcodes.txt"
 " let s:cmd = "! clear && ./%"
 " let s:cmd = "! clear && make && clear && prove -b %"

@@ -30,6 +30,7 @@ mail/spamassassin
 mail/spamdyke
 mail/tmda
 misc/tmux
+misc/watch
 net/djbdns-run
 net/mosh
 net/p5-Net-OpenID-Consumer
