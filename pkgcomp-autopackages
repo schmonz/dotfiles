@@ -11,6 +11,7 @@ databases/php-mysql
 databases/php-mysqli
 devel/cvsps
 devel/git-base
+devel/p5-Sort-Naturally
 editors/ce
 editors/emacs-nox11
 editors/joe
