@@ -11,6 +11,8 @@
 	graph = log --graph --all --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %Cgreen %an, %ar%Creset'
 	graph2 = log --pretty=format:'%C(yellow)%h %ad%Cblue%d%Creset %s %Cgreen[%an]%Creset' --graph --all --date=short
 	guygraph = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+	co = checkout
+	st = status
 [push]
 	default = simple
 [filter "lfs"]
@@ -23,3 +25,5 @@
 	fsckobjects = true
 [receive]
 	fsckObjects = true
+[diff]
+	noprefix = true
