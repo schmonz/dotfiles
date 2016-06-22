@@ -5,16 +5,16 @@ checkout = git clone 'http://git.devnull.li/ikiwiki-nav.git' 'ikiwiki-nav'
 checkout = git clone 'http://git.devnull.li/ikiwiki-syntax.git' 'ikiwiki-syntax'
 
 [supertab]
-checkout = git clone 'git://github.com/ervandew/supertab.git' 'supertab'
+checkout = git clone 'https://github.com/ervandew/supertab.git' 'supertab'
 
 [textile.vim]
 checkout = git clone 'https://github.com/timcharper/textile.vim.git' 'textile.vim'
 
 [vim-colors-solarized]
-checkout = git clone 'git://github.com/altercation/vim-colors-solarized.git' 'vim-colors-solarized'
+checkout = git clone 'https://github.com/altercation/vim-colors-solarized.git' 'vim-colors-solarized'
 
 [vim-dispatch]
-checkout = git clone 'git@github.com:tpope/vim-dispatch.git' 'vim-dispatch'
+checkout = git clone 'https://github.com/tpope/vim-dispatch.git' 'vim-dispatch'
 
 [vim-elixir]
 checkout = git clone 'https://github.com/elixir-lang/vim-elixir.git' 'vim-elixir'
@@ -23,13 +23,13 @@ checkout = git clone 'https://github.com/elixir-lang/vim-elixir.git' 'vim-elixir
 checkout = git clone 'https://github.com/tpope/vim-fugitive.git' 'vim-fugitive'
 
 [vim-gitgutter]
-checkout = git clone 'git://github.com/airblade/vim-gitgutter.git' 'vim-gitgutter'
+checkout = git clone 'https://github.com/airblade/vim-gitgutter.git' 'vim-gitgutter'
 
 [vim-markdown]
-checkout = git clone 'git://github.com/plasticboy/vim-markdown.git' 'vim-markdown'
+checkout = git clone 'https://github.com/plasticboy/vim-markdown.git' 'vim-markdown'
 
 [vim-pathogen]
-checkout = git clone 'git://github.com/tpope/vim-pathogen.git' 'vim-pathogen'
+checkout = git clone 'https://github.com/tpope/vim-pathogen.git' 'vim-pathogen'
 
 [vim-powerline]
 checkout = git clone 'https://github.com/Lokaltog/vim-powerline.git' 'vim-powerline'
@@ -44,13 +44,13 @@ checkout = git clone 'https://github.com/pjcj/vim-hl-var.git' 'vim-hl-var'
 checkout = git clone 'https://github.com/tpope/vim-surround.git' 'vim-surround'
 
 [syntastic]
-checkout = git clone 'git://github.com/scrooloose/syntastic.git' 'syntastic'
+checkout = git clone 'https://github.com/scrooloose/syntastic.git' 'syntastic'
 
 [ctrlp.vim]
-checkout = git clone 'git://github.com/kien/ctrlp.vim.git' 'ctrlp.vim'
+checkout = git clone 'https://github.com/kien/ctrlp.vim.git' 'ctrlp.vim'
 
 [ack.vim]
-checkout = git clone 'git://github.com/mileszs/ack.vim.git' 'ack.vim'
+checkout = git clone 'https://github.com/mileszs/ack.vim.git' 'ack.vim'
 
 [vim-perl]
 checkout = git clone 'https://github.com/vim-perl/vim-perl.git' 'vim-perl'
@@ -59,4 +59,4 @@ checkout = git clone 'https://github.com/vim-perl/vim-perl.git' 'vim-perl'
 checkout = git clone 'https://github.com/christoomey/vim-tmux-navigator.git' 'vim-tmux-navigator'
 
 [vim-expand-region]
-checkout = git clone 'git@github.com:terryma/vim-expand-region.git' 'vim-expand-region'
+checkout = git clone 'https://github.com/terryma/vim-expand-region.git' 'vim-expand-region'
