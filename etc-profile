@@ -17,7 +17,9 @@ CLICOLOR=1; export CLICOLOR
 LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD; export LSCOLORS
 COLORTERM=1; export COLORTERM
 
+JAVA_HOME=$(/usr/libexec/java_home); export JAVA_HOME
 SCALA_HOME=/opt/scala; export SCALA_HOME
+GRADLE_HOME=/opt/gradle-2.12; export GRADLE_HOME
 
 make()
 {
