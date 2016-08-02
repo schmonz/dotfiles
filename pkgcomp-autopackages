@@ -53,6 +53,7 @@ textproc/the_silver_searcher
 www/apache24
 www/elinks
 www/ikiwiki
+www/lighttpd
 www/links
 www/p5-HTML-Form
 www/php-curl
