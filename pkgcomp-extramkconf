@@ -49,7 +49,7 @@ PKGSRC_KEEP_BIN_PKGS=	yes
 
 PREFER_PKGSRC=		openssl
 #USE_BUILTIN.resolv=	yes
-#X11_TYPE=		modular
+X11_TYPE=		modular
 
 PKG_DEFAULT_OPTIONS=	ssl tls -inet6 -sasl -x11 -fam -kerberos -gssapi
 PKG_OPTIONS.apache+=	suexec
