@@ -52,7 +52,6 @@ PREFER_PKGSRC=		openssl
 X11_TYPE=		modular
 
 PKG_DEFAULT_OPTIONS=	ssl tls -inet6 -sasl -x11 -fam -kerberos -gssapi
-PKG_OPTIONS.apache+=	suexec
 PKG_OPTIONS.apcupsd+=	cgi -snmp
 PKG_OPTIONS.apr-util+=	-ssl
 PKG_OPTIONS.djbdns+=	djbdns-ignoreip2
@@ -96,11 +95,9 @@ PKG_DEVELOPER=		yes
 CHECK_PERMS=		no
 
 PHP_VERSION_DEFAULT=	56
-PKG_APACHE_DEFAULT=	apache24
 #PGSQL_VERSION_DEFAULT=	83	# preserved from chicken-ac
 PYTHON_VERSION_DEFAULT=	34
 
-APACHE_SUEXEC_DOCROOT=	/
 PGHOME=			${VARBASE}/pgsql
 QMAILDIR=		${LOCALBASE}/varqmail
 
