@@ -6,7 +6,7 @@ checkout =
 	git remote add github git@github.com:schmonz/ikiwiki.git
 
 [smuganizer]
-checkout = svn co 'http://smuganizer.googlecode.com/svn/trunk' 'smuganizer'
+checkout = git clone 'git@github.com:truist/smuganizer.git' 'smuganizer'
 
 [cwrapper]
 checkout = cvs -d 'schmonz@netbsd-soc.cvs.sf.net:/cvsroot/netbsd-soc' co -d 'cwrapper' 'cwrapper'
