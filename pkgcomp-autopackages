@@ -26,6 +26,7 @@ mail/mess822
 mail/mutt
 mail/qmail-qfilter
 mail/qtools
+mail/roundcube
 mail/rss2email
 mail/spamassassin
 mail/spamdyke
