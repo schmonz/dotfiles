@@ -1,12 +1,16 @@
 ControlPath ~/.ssh/%l-%r@%h:%p
 ControlMaster auto
+
 Host hosting-dreamhost.schmonz.com
-User schmonz2
+  User schmonz2
+
 Host localhost
-Port 2222
-ForwardAgent yes
+  Port 2222
+  ForwardAgent yes
+
 Host magnetic-babysitter-philo.local
-User philolex
-ForwardAgent yes
+  User philolex
+  ForwardAgent yes
+
 Host philolexian.org
-User philolex
+  User philolex
