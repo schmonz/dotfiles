@@ -23,9 +23,12 @@ GRADLE_HOME=/opt/gradle-2.12; export GRADLE_HOME
 
 make()
 {
-	local _MK
+	local _MK _BUILDSH
 	_MK=mk/bsd.pkg.mk
+	_BUILDSH=build.sh
 	if [ -f ../../$_MK -o -f ../$_MK -o -f $_MK ]; then
+		bmake "$@"
+	elif [ -f ../../../../${_BUILDSH} -o -f ../../../${_BUILDSH} -o -f ../../${_BUILDSH} -o -f ../${_BUILDSH} -o -f ${_BUILDSH} ]; then
 		bmake "$@"
 	else
 		/usr/bin/make "$@"
