@@ -17,6 +17,7 @@ editors/emacs-nox11
 editors/joe
 editors/vim
 graphics/netpbm
+graphics/p5-Image-Imlib2
 graphics/php-gd
 lang/ruby21-base
 mail/dovecot2
@@ -56,5 +57,6 @@ www/ikiwiki
 www/lighttpd
 www/links
 www/p5-HTML-Form
+www/p5-Mojolicious
 www/php-curl
 www/pound
