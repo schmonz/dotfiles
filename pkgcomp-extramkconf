@@ -19,6 +19,10 @@ PKG_DBDIR=		${LOCALBASE}/.pkgdb
 SPECIAL_PERMS+=		bin/checkpassword ${ROOT_USER} ${ROOT_GROUP} 4755
 .endif
 
+# XXX schmonz 20161030:
+# pkg_comp hangs while configuring cwrappers
+USE_CWRAPPERS=		no
+
 # XXX schmonz 20150321:
 # mail/isync/1.1.1 with security/openssl/1.0.2a fails
 # with NetBSD-6.1.5 system gcc-4.5.3
