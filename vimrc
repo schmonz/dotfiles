@@ -83,6 +83,7 @@ autocmd BufRead,BufNewFile *.remark setfiletype markdown
 	autocmd FileType textile let g:ikiwiki_render_filetype = 'textile'
 " IWBNI FileType were 'ikiwiki', but how to set ikiwiki_render_filetype?
 autocmd BufRead,BufNewFile *.mdwn setfiletype ikiwiki
+autocmd BufRead,BufNewFile *.md setfiletype ikiwiki
 	autocmd FileType ikiwiki let g:ikiwiki_render_filetype = 'vim-markdown'
 autocmd BufRead,BufNewFile,BufEnter * set nofoldenable
 autocmd BufEnter * call SmartTildes()
@@ -120,7 +121,7 @@ endfunction
 
 function! IkiwikiPreview()
   :w
-  let s:ikiwiki = "/opt/pkg/bin/ikiwiki --setup ~/Documents/wiki/conf/ikiwiki.conf --render"
+  let s:ikiwiki = "/opt/pkg/bin/ikiwiki --setup ~/Documents/wiki/conf/ikiwiki --render"
   let s:currentFile = expand("%")
   let s:tmpFile = s:currentFile . ".tmp.html"
   let s:cmd = "silent ! " . s:ikiwiki . " " . s:currentFile . " > " . s:tmpFile . " && open " . s:tmpFile . " && sleep 5 && rm " . s:tmpFile
