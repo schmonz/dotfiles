@@ -201,6 +201,7 @@ onoremap p i(
 " let g:syntastic_perl_checkers = ['perl', 'perlcritic']
 let g:syntastic_perl_checkers = ['perl']
 let g:syntastic_enable_perl_checker = 1
+let g:syntastic_c_include_dirs = ['/opt/pkg/include']
 
 " configure CtrlP
 let g:ctrlp_map = '<c-p>'
