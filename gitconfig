@@ -8,9 +8,9 @@
 [core]
 	excludesfile = /Users/schmonz/.gitignore_global
 [alias]
-	graph = log --graph --all --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %Cgreen %an, %ar%Creset'
-	graph2 = log --pretty=format:'%C(yellow)%h %ad%Cblue%d%Creset %s %Cgreen[%an]%Creset' --graph --all --date=short
-	guygraph = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+	graph =    log --graph --all --date=short --pretty=format:'%C(yellow)%h%Creset %Cgreen%ad%Cblue%d%Creset %s %Cgreen[%an]%Creset'
+	guygraph = log --graph       --date=short --pretty=format:'%h %ad | %s%d [%an]'
+	tree =     log --graph --all              --pretty=format:'%Cgreen%h%Creset -%C(auto)%d%Creset %s %C(cyan)<author:%an | committer:%cn>%Creset' --color --decorate
 	co = checkout
 	st = status
 [push]
