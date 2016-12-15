@@ -186,7 +186,7 @@ checkout = git clone 'git@github.com:RubySteps/mob_rotation.git' 'mob_rotation'
 checkout = git clone 'git@github.com:jekyll/jekyll-import.git' 'jekyll-import'
 
 [pumpa]
-checkout = git clone 'git://gitorious.org/pumpa/pumpa.git' 'pumpa'
+checkout = git clone 'git://pumpa.branchable.com/' 'pumpa'
 
 [implemications]
 checkout = git clone 'ssh://implemications.com/~schmonz/sites/implemications.com/www/git/src.git' 'implemications'
