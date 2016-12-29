@@ -48,6 +48,7 @@ security/stunnel
 security/sudo
 textproc/p5-ack
 textproc/p5-Text-Autoformat
+textproc/p5-Text-CSV
 textproc/p5-Text-Textile
 textproc/p5-Text-Typography
 textproc/php-json
