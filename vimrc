@@ -216,6 +216,11 @@ let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabMidWordCompletion = "0"
 " XXX YouCompleteMe is supposed to be better, but needs python bindings
 
+" configure ack.vim
+if executable('ag')
+	let g:ackprg = 'ag --vimgrep'
+endif
+
 " make the tmux status line show the currently-edited file
 if &term == "screen" || &term == "screen-256color"
 	set t_ts=
