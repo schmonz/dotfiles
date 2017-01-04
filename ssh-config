@@ -7,10 +7,12 @@ Host hosting-dreamhost.schmonz.com
   User schmonz2
 
 Host localhost
+  ControlPath none
   Port 2222
   ForwardAgent yes
 
 Host magnetic-babysitter-philo.local
+  ControlPath none
   User philolex
   ForwardAgent yes
 
@@ -18,4 +20,5 @@ Host philolexian.org
   User philolex
 
 Host pet-piercer.local
+  ControlPath none
   ForwardX11 yes
