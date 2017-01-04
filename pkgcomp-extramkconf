@@ -41,14 +41,6 @@ ALLOW_VULNERABLE_PACKAGES=	# defined
 
 LOCALPATCHES=		${PKGSRCDIR}/localpatches
 
-#.if defined(MASTER_SITES) && ${MASTER_SITES:M*https\:*}
-#FETCH_USING?=		curl
-#.endif
-
-.if !empty(.CURDIR:M*textproc/py-html2text) || !empty(.CURDIR:M*lang/python34) || !empty(.CURDIR:M*net/mosh)
-FETCH_USING?=		curl
-.endif
-
 PKGSRC_KEEP_BIN_PKGS=	yes
 
 PREFER_PKGSRC=		openssl
