@@ -1,3 +1,5 @@
+.ifdef BSD_PKG_MK	# begin pkgsrc settings
+
 _LOGICALBASE=		/usr/pkg		# symlink points to LOCALBASE
 _LOCALPATH=		/usr/.pkg-		# LOCALBASE is here somewhere
 
@@ -9,7 +11,7 @@ VINTAGE!=		( readlink -f ${_LOGICALBASE} \
 _PHYSICALBASE=		${_LOCALPATH}${VINTAGE}
 LOCALBASE=		${_PHYSICALBASE}
 
-PKG_DBDIR=		${LOCALBASE}/.pkgdb
+PKG_DBDIR=		${LOCALBASE}/pkgdb
 
 .if !empty(.CURDIR:M*sysutils/checkpassword)
 SPECIAL_PERMS+=		bin/checkpassword ${ROOT_USER} ${ROOT_GROUP} 4755
@@ -18,7 +20,6 @@ SPECIAL_PERMS+=		bin/checkpassword ${ROOT_USER} ${ROOT_GROUP} 4755
 # XXX schmonz 20161030:
 # pkg_comp hangs while configuring cwrappers
 USE_CWRAPPERS=		no
-
 #ACCEPTABLE_LICENSES+=	gnu-gpl-v3 lame-license artistic-2.0
 ACCEPTABLE_LICENSES+=	djb-nonlicense hydra-license php-license vim-license
 ACCEPTABLE_LICENSES+=	erlang-public-license
@@ -30,10 +31,10 @@ LOCALPATCHES=		${PKGSRCDIR}/localpatches
 PKGSRC_KEEP_BIN_PKGS=	yes
 
 PREFER_PKGSRC=		openssl
-X11_TYPE=		modular
 
 PKG_DEFAULT_OPTIONS=	ssl tls -inet6 -sasl -x11 -fam -kerberos -gssapi
 PKG_OPTIONS.ikiwiki+=	git ikiwiki-search imagemagick l10n
+PKG_OPTIONS.lighttpd+=	-ssl geoip
 PKG_OPTIONS.mutt+=	mutt-hcache mutt-smtp sasl # mutt-sidebar
 PKG_OPTIONS.pari+=	-doc
 PKG_OPTIONS.php56+=	readline
@@ -58,8 +59,10 @@ PKG_SYSCONFBASE=	/etc
 PKG_DEVELOPER=		yes
 
 PHP_VERSION_DEFAULT=	56
-PYTHON_VERSION_DEFAULT=	34
+PYTHON_VERSION_DEFAULT=	35
 
 QMAILDIR=		${LOCALBASE}/varqmail
 
 PKGSRC_SETENV=		${SETENV} -i
+
+.endif			# end pkgsrc settings
