@@ -1,7 +1,7 @@
 .ifdef BSD_PKG_MK	# begin pkgsrc settings
 
-_LOGICALBASE=		/usr/pkg		# symlink points to LOCALBASE
-_LOCALPATH=		/usr/.pkg-		# LOCALBASE is here somewhere
+_LOGICALBASE=		/opt/pkg		# symlink points to LOCALBASE
+_LOCALPATH=		/opt/.pkg-		# LOCALBASE is here somewhere
 
 .if !defined(VINTAGE)
 VINTAGE!=		( readlink -f ${_LOGICALBASE} \
