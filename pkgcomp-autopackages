@@ -23,15 +23,12 @@ lang/ruby21-base
 mail/dovecot2
 mail/dovecot2-antispam-plugin
 mail/isync
-mail/mess822
 mail/mutt
 mail/qmail-qfilter
 mail/qtools
 mail/roundcube
 mail/rss2email
 mail/spamassassin
-mail/spamdyke
-mail/tmda
 misc/tmux
 misc/watch
 net/djbdns-run
@@ -44,7 +41,6 @@ security/caff
 security/cy2-plain
 security/keychain
 security/php-mcrypt
-security/stunnel
 security/sudo
 textproc/p5-ack
 textproc/p5-Text-Autoformat
