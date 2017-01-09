@@ -13,10 +13,6 @@ LOCALBASE=		${_PHYSICALBASE}
 
 PKG_DBDIR=		${LOCALBASE}/pkgdb
 
-.if !empty(.CURDIR:M*sysutils/checkpassword)
-SPECIAL_PERMS+=		bin/checkpassword ${ROOT_USER} ${ROOT_GROUP} 4755
-.endif
-
 # XXX schmonz 20161030:
 # pkg_comp hangs while configuring cwrappers
 USE_CWRAPPERS=		no
@@ -33,6 +29,7 @@ PKGSRC_KEEP_BIN_PKGS=	yes
 PREFER_PKGSRC=		openssl
 
 PKG_DEFAULT_OPTIONS=	ssl tls -inet6 -sasl -x11 -fam -kerberos -gssapi
+PKG_OPTIONS.checkpassword+=	checkpassword-suid
 PKG_OPTIONS.ikiwiki+=	git ikiwiki-search imagemagick l10n
 PKG_OPTIONS.lighttpd+=	-ssl geoip
 PKG_OPTIONS.mutt+=	mutt-hcache mutt-smtp sasl # mutt-sidebar
