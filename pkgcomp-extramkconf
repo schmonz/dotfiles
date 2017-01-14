@@ -32,6 +32,7 @@ PKG_DEFAULT_OPTIONS=	ssl tls -inet6 -sasl -x11 -fam -kerberos -gssapi
 PKG_OPTIONS.checkpassword+=	checkpassword-suid
 PKG_OPTIONS.ikiwiki+=	git ikiwiki-search imagemagick l10n
 PKG_OPTIONS.lighttpd+=	-ssl geoip
+PKG_OPTIONS.mess822+=	sasl
 PKG_OPTIONS.mutt+=	mutt-hcache mutt-smtp sasl # mutt-sidebar
 PKG_OPTIONS.pari+=	-doc
 PKG_OPTIONS.php56+=	readline
