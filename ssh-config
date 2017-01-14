@@ -3,9 +3,6 @@ ControlMaster auto
 AddKeysToAgent yes
 UseKeychain yes
 
-Host hosting-dreamhost.schmonz.com
-  User schmonz2
-
 Host localhost
   ControlPath none
   Port 2222
