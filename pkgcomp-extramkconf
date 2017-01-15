@@ -40,7 +40,7 @@ PKG_OPTIONS.roundcube+=	nginx sqlite
 PKG_OPTIONS.qmail+=	qmail-netqmail qmail-bigdns qmail-realrcptto \
 			qmail-viruscan syncdir -tls
 PKG_OPTIONS.qmail-run+=	sasl
-PKG_OPTIONS.spamdyke+=	tls
+PKG_OPTIONS.spamdyke+=	-tls
 PKG_OPTIONS.p5-Authen-SASL+=	-gssapi
 
 PKG_GID.qmail=		1002
