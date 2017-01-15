@@ -29,6 +29,7 @@ mail/qtools
 mail/roundcube
 mail/rss2email
 mail/spamassassin
+mail/spamdyke
 misc/tmux
 misc/watch
 net/djbdns-run
