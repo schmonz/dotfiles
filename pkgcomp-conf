@@ -1,14 +1,34 @@
-SCHMONZ_NETBSD_RELEASE="$(uname -r)-$(uname -m)"
-VINTAGE=$(date '+%Y%m%d')
+# $NetBSD: pkg_comp.conf,v 1.1 2017/02/17 21:27:38 jmmv Exp $
 
-MKCONF_VARS="VINTAGE"
-EXTRAMK="/home/schmonz/trees/dotfiles/pkgcomp-extramkconf"
+# pkg_comp.conf(5) configuration file for unattended pkgsrc builds.
 
-DISTRIBDIR="/home/schmonz/binaries/system/${SCHMONZ_NETBSD_RELEASE}"
-REAL_PACKAGES="/home/schmonz/binaries/packages/${SCHMONZ_NETBSD_RELEASE}-${VINTAGE}"
-	mkdir -p "${REAL_PACKAGES}"
-REAL_PKGSRC="/home/schmonz/trees/pkgsrc-current"
-REAL_DISTFILES="${REAL_PKGSRC}/distfiles"
-REAL_SRC="/home/schmonz/trees/src-7"
-SETS_X11="no"
-AUTO_PACKAGES="`cat /home/schmonz/trees/dotfiles/pkgcomp-autopackages`"
+# Additional configuration files to support this setup.
+EXTRA_MKCONF="/var/pkg_comp/extra.mk.conf"
+SANDBOX_CONFFILE="/var/pkg_comp/sandbox.conf"
+
+# Remote VCS configuration.
+FETCH_VCS=cvs
+#CVS_ROOT=:ext:anoncvs@anoncvs.NetBSD.org:/cvsroot
+#CVS_TAG=pkgsrc-2017Q1
+#GIT_URL=https://github.com/jsonn/pkgsrc.git
+#GIT_BRANCH=trunk
+
+# Schmonzy business.
+VINTAGE="$(date '+%Y%m%d')"
+
+# Host file layout.
+PKGSRCDIR="/home/schmonz/trees/pkgsrc-current"
+DISTDIR="${PKGSRCDIR}/distfiles"
+PACKAGES="/home/schmonz/binaries/packages/$(uname -r)-$(uname -m)-${VINTAGE}"
+PBULK_PACKAGES="/var/pkg_comp/pbulk-packages"
+
+# Target file layout.
+LOCALBASE="/opt/.pkg-${VINTAGE}"
+PKG_DBDIR="${LOCALBASE}/libdata/pkgdb"
+SYSCONFDIR="/etc"
+VARBASE="/var"
+
+# List of packages to build during automatic execution.  We source these
+# from a separate file for simplicity, as maintaining a long list of
+# package names in a shell variable can be cumbersome.
+AUTO_PACKAGES="$(grep -v '^#' '/var/pkg_comp/list.txt')"

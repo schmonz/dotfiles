@@ -1,3 +1,15 @@
+# Packages to build automatically during the periodic runs.
+#
+# List one package per line, using bare names or the category/name syntax.
+
+#shells/dash
+#tmux
+
+# Don't forget to list pkg_comp-cron itself if you are building packages
+# for this same machine!  Otherwise, rebootstrapping your system
+# configuration will require additional manual steps.
+#pkg_comp-cron
+
 sysutils/checkperms
 mail/qmail-run
 mail/ezmlm-idx
