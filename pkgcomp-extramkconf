@@ -11,9 +11,6 @@
 #PKG_DEFAULT_OPTIONS=
 #PKG_DEVELOPER=
 
-# XXX schmonz 20161030:
-# pkg_comp1 hangs while configuring cwrappers
-# USE_CWRAPPERS=		no
 #ACCEPTABLE_LICENSES+=	gnu-gpl-v3 lame-license artistic-2.0
 ACCEPTABLE_LICENSES+=	djb-nonlicense hydra-license php-license vim-license
 ACCEPTABLE_LICENSES+=	erlang-public-license
@@ -54,6 +51,7 @@ PKG_RCD_SCRIPTS=	yes
 PKG_SYSCONFBASE=	/etc
 PKG_DEVELOPER=		yes
 
+NO_MULTI_PKG=		# defined
 PHP_VERSION_DEFAULT=	56
 PYTHON_VERSION_DEFAULT=	35
 
