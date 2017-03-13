@@ -3,8 +3,8 @@
 # pkg_comp.conf(5) configuration file for unattended pkgsrc builds.
 
 # Additional configuration files to support this setup.
-EXTRA_MKCONF="/var/pkg_comp/extra.mk.conf"
-SANDBOX_CONFFILE="/var/pkg_comp/sandbox.conf"
+EXTRA_MKCONF="/home/schmonz/trees/dotfiles/pkgcomp-extramkconf"
+SANDBOX_CONFFILE="/home/schmonz/trees/dotfiles/pkgcomp-sandboxconf"
 
 # Remote VCS configuration.
 FETCH_VCS=cvs
@@ -20,7 +20,7 @@ VINTAGE="$(date '+%Y%m%d')"
 PKGSRCDIR="/home/schmonz/trees/pkgsrc-current"
 DISTDIR="${PKGSRCDIR}/distfiles"
 PACKAGES="/home/schmonz/binaries/packages/$(uname -r)-$(uname -m)-${VINTAGE}"
-PBULK_PACKAGES="/var/pkg_comp/pbulk-packages"
+PBULK_PACKAGES="/home/schmonz/binaries/packages/pbulk"
 
 # Target file layout.
 LOCALBASE="/opt/.pkg-${VINTAGE}"
@@ -31,4 +31,4 @@ VARBASE="/var"
 # List of packages to build during automatic execution.  We source these
 # from a separate file for simplicity, as maintaining a long list of
 # package names in a shell variable can be cumbersome.
-AUTO_PACKAGES="$(grep -v '^#' '/var/pkg_comp/list.txt')"
+AUTO_PACKAGES="$(grep -v '^#' '/home/schmonz/trees/dotfiles/pkgcomp-autopackages')"
