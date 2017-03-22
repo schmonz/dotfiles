@@ -10,9 +10,6 @@
 # configuration will require additional manual steps.
 #pkg_comp-cron
 
-sysutils/checkperms
-mail/qmail-run
-mail/ezmlm-idx
 archivers/php-zlib
 archivers/unzip
 chat/irssi-icb
@@ -34,9 +31,11 @@ graphics/php-gd
 lang/ruby21-base
 mail/dovecot2
 mail/dovecot2-antispam-plugin
+mail/ezmlm-idx
 mail/isync
 mail/mutt
 mail/qmail-qfilter
+mail/qmail-run
 mail/qtools
 mail/rss2email
 mail/spamassassin

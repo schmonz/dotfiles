@@ -37,16 +37,6 @@ PKG_OPTIONS.qmail+=	qmail-netqmail qmail-bigdns qmail-realrcptto \
 PKG_OPTIONS.spamdyke+=	-tls
 PKG_OPTIONS.p5-Authen-SASL+=	-gssapi
 
-PKG_GID.qmail=		1002
-PKG_GID.nofiles=	1001
-PKG_UID.alias=		1006
-PKG_UID.qmaild=		1007
-PKG_UID.qmaill=		1008
-PKG_UID.qmailp=		1009
-PKG_UID.qmailq=		1010
-PKG_UID.qmailr=		1011
-PKG_UID.qmails=		1012
-
 PKG_RCD_SCRIPTS=	yes
 PKG_SYSCONFBASE=	/etc
 PKG_DEVELOPER=		yes
@@ -55,6 +45,7 @@ NO_MULTI_PKG=		# defined
 PHP_VERSION_DEFAULT=	56
 PYTHON_VERSION_DEFAULT=	35
 
+# XXX schmonz 20170322: why is this needed?
 QMAILDIR=		${LOCALBASE}/varqmail
 
 PKGSRC_SETENV=		${SETENV} -i
