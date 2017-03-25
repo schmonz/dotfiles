@@ -7,7 +7,8 @@ EXTRA_MKCONF="/home/schmonz/trees/dotfiles/pkgcomp-extramkconf"
 SANDBOX_CONFFILE="/home/schmonz/trees/dotfiles/pkgcomp-sandboxconf"
 
 # Remote VCS configuration.
-FETCH_VCS=cvs
+UPDATE_SOURCES=false
+#FETCH_VCS=cvs
 #CVS_ROOT=:ext:anoncvs@anoncvs.NetBSD.org:/cvsroot
 #CVS_TAG=pkgsrc-2017Q1
 #GIT_URL=https://github.com/jsonn/pkgsrc.git
