@@ -116,6 +116,7 @@ function! SaveAndRunTests()
 " let s:cmd = "! clear && prove -PProgressBar::Each -b t/import.t"
 " let s:cmd = ":w\|:! open -a /Applications/Chromium.app %"
 " let s:cmd = "! bmake clean && bmake && clear && bmake test"
+" let s:cmd = "! clear && PYTHONPATH=test:$PYTHONPATH py.test %"
   execute s:cmd
 " noremap <leader>t :w\|:!clear && /opt/pkg/bin/ruby193 %<cr>
 " noremap <leader>t :w\|:!guess_how_to_run_tests_for_file %<cr>
@@ -175,7 +176,8 @@ endif
 
 autocmd BufEnter *.tt,*.ep,*.html,*.css setlocal tabstop=4 shiftwidth=4 nowrap
 autocmd FileType perl,ruby,sh,javascript,c,cpp setlocal number|let w:m2=matchadd('Search', '\%>80v.\+', -1)
-autocmd FileType rust setlocal number expandtab tabstop=4 shiftwidth=4 softtabstop=4
+autocmd FileType rust,perl setlocal number expandtab tabstop=4 shiftwidth=4 softtabstop=4
+autocmd FileType python setlocal number expandtab tabstop=4 shiftwidth=4 softtabstop=0
 autocmd FileType ruby,cucumber,hb,haskell,scala,go,lua setlocal number expandtab tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType textile,markdown,ikiwiki,javascript,objc,c,cpp setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType markdown,ikiwiki setlocal textwidth=72
@@ -205,7 +207,8 @@ onoremap p i(
 " let g:syntastic_perl_checkers = ['perl', 'perlcritic']
 let g:syntastic_perl_checkers = ['perl']
 let g:syntastic_enable_perl_checker = 1
-let g:syntastic_c_include_dirs = ['/opt/pkg/include']
+let g:syntastic_c_include_dirs = ['/Users/schmonz/pkg/include']
+let g:syntastic_python_checkers = ['python']
 
 " configure CtrlP
 let g:ctrlp_map = '<c-p>'
