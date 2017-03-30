@@ -3,7 +3,8 @@ ControlMaster auto
 AddKeysToAgent yes
 UseKeychain yes
 
-Host localhost
+Host netbsd7
+  HostName localhost
   ControlPath none
   Port 2222
   ForwardAgent yes
