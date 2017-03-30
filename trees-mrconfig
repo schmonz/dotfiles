@@ -211,3 +211,15 @@ checkout = git clone 'https://gitorious.org/emile/mainline.git' 'emile'
 
 [ack2]
 checkout = git clone 'git@github.com:petdance/ack2.git' 'ack2'
+
+[c-embedded-fundamentals]
+checkout = git clone 'git@github.com:schmonz/c-embedded-fundamentals.git' 'c-embedded-fundamentals'
+
+[c-gilded-rose-kata]
+checkout = git clone 'git@github.com:schmonz/c-gilded-rose-kata.git' 'c-gilded-rose-kata'
+
+[c-rpi-led-toggle]
+checkout = git clone 'git@github.com:schmonz/c-rpi-led-toggle.git' 'c-rpi-led-toggle'
+
+[c-spreadsheet-kata]
+checkout = git clone 'git@github.com:schmonz/c-spreadsheet-kata.git' 'c-spreadsheet-kata'
