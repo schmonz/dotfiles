@@ -208,3 +208,6 @@ checkout = git clone 'https://github.com/bruceg/relay-ctrl' 'relay-ctrl'
 
 [emile]
 checkout = git clone 'https://gitorious.org/emile/mainline.git' 'emile'
+
+[ack2]
+checkout = git clone 'git@github.com:petdance/ack2.git' 'ack2'
