@@ -20,3 +20,14 @@ Host philolexian.org
 Host pet-piercer.local
   ControlPath none
   ForwardX11 yes
+
+#Host provide-socks
+#  IdentitiesOnly yes
+#  IdentityFile ~/.ssh/id_specialpurpose_rsa
+#  HostName actual.host.name
+#  User schmonz
+#  DynamicForward 1080
+#
+#Host connect-via-socks
+#  HostName actual.host.name
+#  ProxyCommand=nc -x localhost:1080 %h %p %h
