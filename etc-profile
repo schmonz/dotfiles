@@ -21,6 +21,12 @@ JAVA_HOME=$(/usr/libexec/java_home); export JAVA_HOME
 SCALA_HOME=/opt/scala; export SCALA_HOME
 GRADLE_HOME=/opt/gradle-2.12; export GRADLE_HOME
 
+PYENV_ROOT="$HOME/.pyenv"; export PYENV_ROOT
+PATH="$PYENV_ROOT/bin:$PATH"
+
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 make()
 {
 	local _MK _BUILDSH
