@@ -33,3 +33,5 @@ VARBASE="/var"
 # from a separate file for simplicity, as maintaining a long list of
 # package names in a shell variable can be cumbersome.
 AUTO_PACKAGES="$(grep -v '^#' '/home/schmonz/trees/dotfiles/pkgcomp-autopackages')"
+
+PKG_ADD_THESE="$(for p in ${AUTO_PACKAGES}; do cd ${PKGSRCDIR}/${p} && make show-var VARNAME=PKGBASE; done)"
