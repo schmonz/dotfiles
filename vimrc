@@ -99,10 +99,12 @@ function! SaveAndRunTests()
 " let s:cmd = "! clear && lein test"
 " let s:cmd = "! clear && rspec %"
 " let s:cmd = "! clear && c++ -I /opt/pkg/include -L /opt/pkg/lib -lstdc++ -lCppUTest -lCppUTestExt % && ./a.out"
-  let s:cmd = "! clear && make"
+" let s:cmd = "! clear && make"
 " let s:cmd = "! clear && make -f Makefile.boot"
-" let s:cmd = "! clear && cd .. && make -f Makefile.boot && cd testsuite && bmake check-simple VERBOSE=no"
+  let s:cmd = "! clear && cd .. && make -f Makefile.boot && cd testsuite && bmake check-simple VERBOSE=no && bmake clean VERBOSE=no"
+" let s:cmd = "! clear && ./test-logstderr"
 " let s:cmd = "! git commit -am XXX"
+" let s:cmd = "! git commit --amend --no-edit"
 " let s:cmd = "! clear && ./run-once.sh"
 " let s:cmd = "! clear && cc % && ./a.out"
 " let s:cmd = "! clear && ruby *_test.rb"
@@ -180,6 +182,7 @@ autocmd FileType rust,perl setlocal number expandtab tabstop=4 shiftwidth=4 soft
 autocmd FileType python setlocal number expandtab tabstop=4 shiftwidth=4 softtabstop=0
 autocmd FileType ruby,cucumber,hb,haskell,scala,go,lua setlocal number expandtab tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType textile,markdown,ikiwiki,javascript,objc,c,cpp setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+" autocmd FileType c setlocal tabstop=8 shiftwidth=8 softtabstop=8
 autocmd FileType markdown,ikiwiki setlocal textwidth=72
 autocmd FileType textile,markdown,ikiwiki setlocal textwidth=0|let gitgutter_enabled=0
 autocmd FileType perl nnoremap ,pt :%!perltidy -q<cr>
