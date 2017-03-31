@@ -1,9 +1,5 @@
 [ikiwiki]
-checkout = 
-	git clone git://git.ikiwiki.info/ ikiwiki
-	cd ikiwiki
-	git remote add admin ssh://b-ikiwiki@ikiwiki.branchable.com/
-	git remote add github git@github.com:schmonz/ikiwiki.git
+checkout = git clone 'ssh://b-ikiwiki@ikiwiki.branchable.com/' 'ikiwiki'
 
 [smuganizer]
 checkout = git clone 'git@github.com:truist/smuganizer.git' 'smuganizer'
@@ -223,3 +219,51 @@ checkout = git clone 'git@github.com:schmonz/c-rpi-led-toggle.git' 'c-rpi-led-to
 
 [c-spreadsheet-kata]
 checkout = git clone 'git@github.com:schmonz/c-spreadsheet-kata.git' 'c-spreadsheet-kata'
+
+[EquineHoroscope]
+checkout = git clone 'git@github.com:gdinwiddie/EquineHoroscope.git' 'EquineHoroscope'
+
+[grenning-tdd-embedded-c]
+checkout = git clone 'git@github.com:PillarTechnology/grenning-tdd-embedded-c.git' 'grenning-tdd-embedded-c'
+
+[iOS-Hello-World]
+checkout = git clone 'git@github.com:schmonz/iOS-Hello-World.git' 'iOS-Hello-World'
+
+[JavaKatas]
+checkout = git clone 'git@github.com:schmonz/JavaKatas.git' 'JavaKatas'
+
+[Katas]
+checkout = git clone 'git@github.com:schmonz/Katas.git' 'Katas'
+
+[labs-java-junit]
+checkout = git clone 'git@github.com:AgileInstitute/labs-java-junit.git' 'labs-java-junit'
+
+[learning-java-katas]
+checkout = git clone 'git@github.com:phasebash/learning-java-katas.git' 'learning-java-katas'
+
+[RepoMan]
+checkout = git clone 'git@github.com:PillarTechnology/RepoMan.git' 'RepoMan'
+
+[PillarWebReverseProxy]
+checkout = git clone 'git@github.com:PillarTechnology/PillarWebReverseProxy.git' 'PillarWebReverseProxy'
+
+[PillarWebNode]
+checkout = git clone 'git@github.com:PillarTechnology/PillarWebNode.git' 'PillarWebNode'
+
+[vending-machine-kata]
+checkout = git clone 'git@github.com:guyroyse/vending-machine-kata.git' 'vending-machine-kata'
+
+[vending-machine-mahesh/perl-seed]
+checkout = git clone 'git@github.com:kata-seeds/perl-seed.git' 'perl-seed'
+
+[reorder]
+checkout = git clone 'git@github.com:schmonz/reorder.git' 'reorder'
+
+[trend]
+checkout = git clone 'git@github.com:rjo1970/trend.git' 'trend'
+
+[txp2ikiwiki]
+checkout = git clone 'git@github.com:schmonz/txp2ikiwiki.git' 'txp2ikiwiki'
+
+[xiki]
+checkout = git clone 'git@github.com:trogdoro/xiki.git' 'xiki'
