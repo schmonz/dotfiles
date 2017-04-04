@@ -53,6 +53,7 @@ security/cy2-plain
 security/keychain
 security/php-mcrypt
 security/sudo
+shells/bash
 textproc/p5-ack
 textproc/p5-Text-Autoformat
 textproc/p5-Text-CSV
