@@ -44,7 +44,4 @@ NO_MULTI_PKG=		# defined
 PHP_VERSION_DEFAULT=	56
 PYTHON_VERSION_DEFAULT=	35
 
-# XXX schmonz 20170322: why is this needed?
-QMAILDIR=		${LOCALBASE}/varqmail
-
 PKGSRC_SETENV=		${SETENV} -i
