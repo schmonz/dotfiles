@@ -54,6 +54,7 @@ security/keychain
 security/php-mcrypt
 security/sudo
 shells/bash
+sysutils/checkpassword
 textproc/p5-ack
 textproc/p5-Text-Autoformat
 textproc/p5-Text-CSV
