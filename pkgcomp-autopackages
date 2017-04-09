@@ -14,7 +14,6 @@ archivers/php-zlib
 archivers/unzip
 chat/irssi-icb
 converters/php-mbstring
-databases/mysql55-client
 databases/mysql55-server
 databases/php-mysql
 databases/php-mysqli
