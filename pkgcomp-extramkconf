@@ -46,4 +46,9 @@ MYSQL_VERSION_DEFAULT=	55
 PHP_VERSION_DEFAULT=	56
 PYTHON_VERSION_DEFAULT=	35
 
+# 20170409 schmonz:
+# - without this, ERROR: /var/qmail exists and is non-empty
+# - also, qmail users' home dirs are here, so root mail doesn't forward (!)
+QMAILDIR=		${LOCALBASE}/varqmail
+
 PKGSRC_SETENV=		${SETENV} -i
