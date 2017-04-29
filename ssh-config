@@ -3,6 +3,12 @@ ControlMaster auto
 AddKeysToAgent yes
 UseKeychain yes
 
+Host tribblix
+  HostName localhost
+  ControlPath none
+  Port 4444
+  ForwardAgent yes
+
 Host netbsd7
   HostName localhost
   ControlPath none
