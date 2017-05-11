@@ -29,7 +29,6 @@ graphics/p5-Image-Imlib2
 graphics/php-gd
 lang/ruby21-base
 mail/dovecot2
-mail/dovecot2-antispam-plugin
 mail/dovecot2-pigeonhole
 mail/ezmlm-idx
 mail/isync
