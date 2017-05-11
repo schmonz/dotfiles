@@ -267,3 +267,6 @@ checkout = git clone 'git@github.com:schmonz/txp2ikiwiki.git' 'txp2ikiwiki'
 
 [xiki]
 checkout = git clone 'git@github.com:trogdoro/xiki.git' 'xiki'
+
+[contentment]
+checkout = git clone 'git@github.com:GeePawHill/contentment.git' 'contentment'
