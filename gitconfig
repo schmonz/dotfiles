@@ -6,7 +6,7 @@
 [color]
 	ui = true
 [core]
-	excludesfile = /Users/schmonz/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [alias]
 	graph =    log --graph --all --date=short --pretty=format:'%C(yellow)%h%Creset %Cgreen%ad%Cblue%d%Creset %s %Cgreen[%an]%Creset'
 	guygraph = log --graph       --date=short --pretty=format:'%h %ad | %s%d [%an]'
