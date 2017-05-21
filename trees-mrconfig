@@ -270,3 +270,12 @@ checkout = git clone 'git@github.com:trogdoro/xiki.git' 'xiki'
 
 [contentment]
 checkout = git clone 'git@github.com:GeePawHill/contentment.git' 'contentment'
+
+[mobster]
+checkout = git clone 'git@github.com:dillonkearns/mobster.git' 'mobster'
+
+[homebrew-core]
+checkout = git clone 'git@github.com:Homebrew/homebrew-core.git' 'homebrew-core'
+
+[aQmail]
+checkout = git clone 'git@github.com:aqmail/aQmail.git' 'aQmail'
