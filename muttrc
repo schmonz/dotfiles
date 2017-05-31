@@ -3,7 +3,7 @@ alternates schmonz@netbsd\.(org,net)
 alternates schmonz@pkgsrc\.org
 alternates (abuse,hostmaster,postmaster,webmaster)@schmonz\.com
 
-# my_hdr From: Amitai Schlair <schmonz@schmonz.com>
+# my_hdr From: Amitai Schleier <schmonz@schmonz.com>
 
 mailboxes imaps://imap.gmail.com:993
 set folder="imaps://mail.schmonz.com:993"
@@ -34,7 +34,7 @@ set charset="utf-8"
 # set hidden_host=yes
 set use_from=yes
 set from="schmonz@schmonz.com"
-set realname="Amitai Schlair"
+set realname="Amitai Schleier"
 # set ascii_chars=yes
 set beep_new
 set fast_reply
