@@ -34,7 +34,6 @@ mail/ezmlm-idx
 mail/isync
 mail/mutt
 mail/pymsgauth
-mail/qmail-qfilter
 mail/qmail-run
 mail/qtools
 mail/rss2email
