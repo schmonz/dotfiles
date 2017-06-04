@@ -62,4 +62,4 @@ checkout = git clone 'https://github.com/christoomey/vim-tmux-navigator.git' 'vi
 checkout = git clone 'https://github.com/terryma/vim-expand-region.git' 'vim-expand-region'
 
 [vim-lastplace]
-checkout = git clone 'git@github.com:farmergreg/vim-lastplace.git' 'vim-lastplace'
+checkout = git clone 'https://github.com/farmergreg/vim-lastplace.git' 'vim-lastplace'
