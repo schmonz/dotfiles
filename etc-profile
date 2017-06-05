@@ -71,6 +71,11 @@ _set_termcolors() {
 	COLORTERM=1; export COLORTERM
 }
 
+_set_cdpath() {
+	CDPATH="$HOME:$HOME/trees:$HOME/Documents/trees:$HOME/Documents/trees/pkgsrc-current"
+	export CDPATH
+}
+
 _set_gradle
 _set_java
 _set_less
@@ -78,3 +83,4 @@ _set_locale
 _set_pyenv
 _set_scala
 _set_termcolors
+_set_cdpath
