@@ -94,8 +94,8 @@ checkout = git clone 'https://github.com/garybernhardt/selecta.git' 'selecta'
 [fink-dists]
 checkout = cvs -d ':pserver:anonymous@fink.cvs.sourceforge.net:/cvsroot/fink' co -d 'fink-dists' 'dists'
 
-[macports-dports]
-checkout = /opt/pkg/bin/svn co 'https://svn.macports.org/repository/macports/trunk/dports' 'macports-dports'
+[macports-ports]
+checkout = git clone 'https://github.com/macports/macports-ports.git' 'macports-ports'
 
 [1pass]
 checkout = hg clone 'http://hg.icculus.org/icculus/1pass/' '1pass'
