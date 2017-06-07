@@ -72,7 +72,7 @@ _set_termcolors() {
 }
 
 _set_cdpath() {
-	CDPATH="$HOME:$HOME/trees:$HOME/Documents/trees:$HOME/Documents/trees/pkgsrc-current"
+	CDPATH="$HOME:$HOME/trees:$HOME/Documents/trees:$HOME/Documents/trees/pkgsrc-current:."
 	export CDPATH
 }
 
