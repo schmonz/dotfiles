@@ -5,7 +5,7 @@ execute pathogen#infect()
 " 20170421 AATC schmonz:
 " Filipe Silva (ninrod) suggested trying space as leader key -- either hand
 " define <leader>
-let mapleader = " "
+let mapleader = ","
 
 " reload vim settings whenever I update them
 autocmd! BufWritePost $MYVIMRC source $MYVIMRC
