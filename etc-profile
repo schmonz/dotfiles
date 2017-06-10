@@ -10,12 +10,14 @@ fi
 
 make()
 {
-	local _MK _BUILDSH
+	local _MK _BUILDSH _HAS_BMAKE
 	_MK=mk/bsd.pkg.mk
 	_BUILDSH=build.sh
-	if [ -f ../../$_MK -o -f ../$_MK -o -f $_MK ]; then
+	type bmake >/dev/null
+	_HAS_BMAKE=$([ $? -eq 0 ] && echo yes)
+	if [ "${_HAS_BMAKE}" ] && [ -f ../../$_MK -o -f ../$_MK -o -f $_MK ]; then
 		bmake "$@"
-	elif [ -f ../../../../${_BUILDSH} -o -f ../../../${_BUILDSH} -o -f ../../${_BUILDSH} -o -f ../${_BUILDSH} -o -f ${_BUILDSH} ]; then
+	elif [ "${_HAS_BMAKE}" ] && [ -f ../../../../${_BUILDSH} -o -f ../../../${_BUILDSH} -o -f ../../${_BUILDSH} -o -f ../${_BUILDSH} -o -f ${_BUILDSH} ]; then
 		bmake "$@"
 	else
 		/usr/bin/make "$@"
