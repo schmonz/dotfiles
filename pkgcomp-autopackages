@@ -28,7 +28,6 @@ graphics/netpbm
 graphics/p5-Image-Imlib2
 graphics/p5-Image-JpegTran-AutoRotate
 graphics/php-gd
-lang/ruby21-base
 mail/dovecot2
 mail/dovecot2-pigeonhole
 mail/ezmlm-idx
@@ -46,6 +45,7 @@ net/djbdns-run
 net/mosh
 net/p5-Net-OpenID-Consumer
 net/rsync
+pkgtools/pkg_alternatives
 pkgtools/pkg_chk
 pkgtools/pkg_install
 security/caff
