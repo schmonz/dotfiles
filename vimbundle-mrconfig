@@ -43,9 +43,6 @@ checkout = git clone 'https://github.com/pjcj/vim-hl-var.git' 'vim-hl-var'
 [vim-surround]
 checkout = git clone 'https://github.com/tpope/vim-surround.git' 'vim-surround'
 
-[syntastic]
-checkout = git clone 'https://github.com/scrooloose/syntastic.git' 'syntastic'
-
 [ctrlp.vim]
 checkout = git clone 'https://github.com/kien/ctrlp.vim.git' 'ctrlp.vim'
 
@@ -63,3 +60,6 @@ checkout = git clone 'https://github.com/terryma/vim-expand-region.git' 'vim-exp
 
 [vim-lastplace]
 checkout = git clone 'https://github.com/farmergreg/vim-lastplace.git' 'vim-lastplace'
+
+[ale]
+checkout = git clone 'https://github.com/w0rp/ale.git' 'ale'
