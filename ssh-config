@@ -2,6 +2,7 @@ ControlPath ~/.ssh/%l-%r@%h:%p
 ControlMaster auto
 AddKeysToAgent yes
 UseKeychain yes
+User schmonz
 
 Host tribblix
   HostName localhost
