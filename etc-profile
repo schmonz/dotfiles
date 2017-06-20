@@ -1,12 +1,17 @@
 # System-wide .profile for sh(1)
 
-if [ -x /usr/libexec/path_helper ]; then
-	eval `/usr/libexec/path_helper -s`
-fi
+_set_path() {
+	if [ -x /usr/libexec/path_helper ]; then
+		eval `/usr/libexec/path_helper -s`
+	fi
+	PATH=$HOME/pkg/sbin:$HOME/pkg/bin:$PATH
+}
 
-if [ "${BASH-no}" != "no" ]; then
-	[ -r /etc/bashrc ] && . /etc/bashrc
-fi
+_set_bashisms() {
+	if [ "${BASH-no}" != "no" ]; then
+		[ -r /etc/bashrc ] && . /etc/bashrc
+	fi
+}
 
 make()
 {
@@ -74,10 +79,12 @@ _set_termcolors() {
 }
 
 _set_cdpath() {
-	CDPATH=".:$HOME:$HOME/trees:$HOME/Documents/trees:$HOME/trees/pkgsrc-current:$HOME/Documents/trees/pkgsrc-current"
+	CDPATH=".:$HOME:$HOME/trees:$HOME/Documents/trees:$HOME/trees/pkgsrc-current:$HOME/trees/pkgsrc:$HOME/Documents/trees/pkgsrc-current:$HOME/Documents/trees/pkgsrc"
 	export CDPATH
 }
 
+_set_path
+_set_bashisms
 _set_gradle
 _set_java
 _set_less
