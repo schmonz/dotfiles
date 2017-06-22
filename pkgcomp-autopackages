@@ -62,6 +62,7 @@ textproc/p5-Text-Textile
 textproc/p5-Text-Typography
 textproc/php-json
 textproc/the_silver_searcher
+www/apache24
 www/elinks
 www/ikiwiki
 www/lighttpd
