@@ -56,6 +56,7 @@ security/py-certbot
 security/sudo
 shells/bash
 sysutils/checkpassword
+sysutils/pstree
 textproc/p5-ack
 textproc/p5-Text-Autoformat
 textproc/p5-Text-CSV
