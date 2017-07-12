@@ -13,6 +13,11 @@ _set_bashisms() {
 	fi
 }
 
+_set_cvs() {
+	CVS_RSH=ssh
+	export CVS_RSH
+}
+
 make()
 {
 	local _MK _BUILDSH _HAS_BMAKE
@@ -85,6 +90,7 @@ _set_cdpath() {
 
 _set_path
 _set_bashisms
+_set_cvs
 _set_gradle
 _set_java
 _set_less
