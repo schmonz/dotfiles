@@ -52,6 +52,7 @@ security/caff
 security/cy2-plain
 security/keychain
 security/php-mcrypt
+security/py-acme-tiny
 security/sudo
 shells/bash
 sysutils/checkpassword
