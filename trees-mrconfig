@@ -172,9 +172,6 @@ checkout = git clone 'git://github.com/mistydemeo/tigerbrew.git' 'tigerbrew'
 [caretaker-infant-object]
 checkout = git clone 'git@github.com:schmonz/caretaker-infant-object.git' 'caretaker-infant-object'
 
-[dovecot-antispam-plugin]
-checkout = hg clone 'http://hg.dovecot.org/dovecot-antispam-plugin' 'dovecot-antispam-plugin'
-
 [mob_rotation]
 checkout = git clone 'git@github.com:RubySteps/mob_rotation.git' 'mob_rotation'
 
@@ -223,9 +220,6 @@ checkout = git clone 'git@github.com:schmonz/c-spreadsheet-kata.git' 'c-spreadsh
 [EquineHoroscope]
 checkout = git clone 'git@github.com:gdinwiddie/EquineHoroscope.git' 'EquineHoroscope'
 
-[grenning-tdd-embedded-c]
-checkout = git clone 'git@github.com:PillarTechnology/grenning-tdd-embedded-c.git' 'grenning-tdd-embedded-c'
-
 [iOS-Hello-World]
 checkout = git clone 'git@github.com:schmonz/iOS-Hello-World.git' 'iOS-Hello-World'
 
@@ -240,15 +234,6 @@ checkout = git clone 'git@github.com:AgileInstitute/labs-java-junit.git' 'labs-j
 
 [learning-java-katas]
 checkout = git clone 'git@github.com:phasebash/learning-java-katas.git' 'learning-java-katas'
-
-[RepoMan]
-checkout = git clone 'git@github.com:PillarTechnology/RepoMan.git' 'RepoMan'
-
-[PillarWebReverseProxy]
-checkout = git clone 'git@github.com:PillarTechnology/PillarWebReverseProxy.git' 'PillarWebReverseProxy'
-
-[PillarWebNode]
-checkout = git clone 'git@github.com:PillarTechnology/PillarWebNode.git' 'PillarWebNode'
 
 [vending-machine-kata]
 checkout = git clone 'git@github.com:guyroyse/vending-machine-kata.git' 'vending-machine-kata'
