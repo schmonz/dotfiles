@@ -5,6 +5,7 @@ _set_path() {
 		eval `/usr/libexec/path_helper -s`
 	fi
 	PATH=$HOME/pkg/sbin:$HOME/pkg/bin:$PATH
+	PATH=$HOME/trees/package-rebuild/bin:$PATH
 }
 
 _set_bashisms() {
