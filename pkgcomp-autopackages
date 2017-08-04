@@ -35,6 +35,7 @@ mail/greetdelay
 mail/isync
 mail/mutt
 mail/pymsgauth
+mail/qgreylist
 mail/qmail-run
 mail/qtools
 mail/rss2email
