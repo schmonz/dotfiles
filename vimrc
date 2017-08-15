@@ -24,6 +24,10 @@ nnoremap <right> <nop>
 imap jj <Esc>
 " vmap jj <Esc>
 
+" 20170713 schmonz:
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
 " fix common typos
 iabbrev flase false
 iabbrev udpate update
