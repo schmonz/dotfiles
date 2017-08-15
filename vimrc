@@ -248,6 +248,9 @@ if &term == "screen" || &term == "screen-256color" || &term == "xterm" || &term 
 endif
 autocmd BufEnter * let &titlestring = "vim " . expand("%:h") . "/" . expand("%:t")
 
+" configure ale
+let g:ale_perl_perl_executable = 'prove'
+
 " mappings
 nnoremap <leader>w !} perl -MText::Autoformat -e "{autoformat;}"<cr>
 vnoremap <leader>w !<C-R> perl -MText::Autoformat -e "{autoformat{all=>1};}"<cr>
