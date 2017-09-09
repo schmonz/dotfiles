@@ -55,7 +55,6 @@ security/cy2-plain
 security/keychain
 security/php-mcrypt
 security/py-acme-tiny
-security/py-certbot
 security/sudo
 shells/bash
 sysutils/checkpassword
