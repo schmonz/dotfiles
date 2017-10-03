@@ -60,6 +60,7 @@ security/sudo
 shells/bash
 sysutils/checkpassword
 sysutils/daemontools-run
+sysutils/fdtools
 sysutils/pstree
 textproc/p5-ack
 textproc/p5-Text-Autoformat
