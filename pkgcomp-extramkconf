@@ -26,6 +26,7 @@ PREFER_PKGSRC=		openssl
 PKG_DEFAULT_OPTIONS=	ssl tls -inet6 -sasl -x11 -fam -kerberos -gssapi
 PKG_OPTIONS.apache+=	-http2
 PKG_OPTIONS.checkpassword+=	checkpassword-suid
+PKG_OPTIONS.graphviz+=	-gd -gtk -lua -perl -tcl
 PKG_OPTIONS.ikiwiki+=	git ikiwiki-search imagemagick l10n
 PKG_OPTIONS.lighttpd+=	-ssl geoip
 PKG_OPTIONS.mess822+=	sasl
