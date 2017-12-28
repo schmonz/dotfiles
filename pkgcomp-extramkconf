@@ -23,7 +23,7 @@ PKGSRC_KEEP_BIN_PKGS=	yes
 
 PREFER_PKGSRC=		openssl
 
-PKG_DEFAULT_OPTIONS=	ssl tls -inet6 -sasl -x11 -fam -kerberos -gssapi
+PKG_DEFAULT_OPTIONS=	ssl tls -inet6 -sasl -x11 -xcb -fam -kerberos -gssapi
 PKG_OPTIONS.apache+=	-http2
 PKG_OPTIONS.checkpassword+=	checkpassword-suid
 PKG_OPTIONS.graphviz+=	-gd -gtk -lua -perl -tcl
