@@ -24,6 +24,8 @@ editors/ce
 editors/emacs-nox11
 editors/joe
 editors/vim
+fonts/freefonts
+fonts/ms-ttf
 graphics/graphviz
 graphics/netpbm
 graphics/p5-Image-Imlib2
