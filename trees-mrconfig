@@ -181,9 +181,6 @@ checkout = git clone 'git@github.com:jekyll/jekyll-import.git' 'jekyll-import'
 [pumpa]
 checkout = git clone 'git://pumpa.branchable.com/' 'pumpa'
 
-[implemications]
-checkout = git clone 'ssh://implemications.com/~schmonz/sites/implemications.com/www/git/src.git' 'implemications'
-
 [devops-dojo]
 checkout = git clone 'git@github.com:schmonz/devops-dojo.git' 'devops-dojo'
 
@@ -267,3 +264,6 @@ checkout = git clone 'git@github.com:aqmail/aQmail.git' 'aQmail'
 
 [mess822]
 checkout = git clone 'git@github.com:schmonz/mess822.git' 'mess822'
+
+[latentagility.com/src]
+checkout = git clone 'ssh://latentagility.com/~schmonz/sites/latentagility.com/www/git/latentagility.git' 'src'
