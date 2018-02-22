@@ -15,7 +15,6 @@ archivers/unzip
 chat/irssi-icb
 converters/php-mbstring
 databases/mysql57-server
-databases/php-mysql
 databases/php-mysqli
 devel/cvsps
 devel/git-base
