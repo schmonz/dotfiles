@@ -84,6 +84,7 @@ set runtimepath+=/Applications/LilyPond.app/Contents/Resources/share/lilypond/cu
 filetype on
 
 let g:hlvarcurrent = 1
+autocmd BufRead,BufNewFile *.h1 setfiletype c
 autocmd BufRead,BufNewFile *.t,*.pl,*.pm setfiletype perl
 	autocmd FileType perl set updatetime=500
 	autocmd FileType perl let g:hlvarcurrent = 0
