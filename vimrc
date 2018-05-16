@@ -253,7 +253,7 @@ autocmd BufEnter * let &titlestring = "vim " . expand("%:h") . "/" . expand("%:t
 let g:ale_perl_perl_executable = 'prove'
 
 " mappings
-nnoremap <leader>w !} perl -MText::Autoformat -e "{autoformat{break=>break_wrap};}" \| sed '$d'<cr>
+nnoremap <leader>w !} perl -MText::Autoformat -e "{autoformat{break=>break_wrap};}" \| sed '${/^$/d;}'<cr>
 noremap <leader>p :call IkiwikiPreview()<cr>
 noremap <leader>f :call SelectaCommand("find * -type f", ":e")<cr>
 noremap <leader>t :call SaveAndRunTests()<cr>
