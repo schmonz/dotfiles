@@ -267,3 +267,6 @@ checkout = git clone 'git@github.com:schmonz/mess822.git' 'mess822'
 
 [latentagility.com/src]
 checkout = git clone 'ssh://latentagility.com/~schmonz/sites/latentagility.com/www/git/latentagility.git' 'src'
+
+[Smoker-Controller]
+checkout = git clone 'git@github.com:holyfeld/Smoker-Controller.git' 'Smoker-Controller'

@@ -65,7 +65,7 @@ set encoding=utf-8
 
 " color
 syntax on
-set background=dark
+set background=light
 set t_Co=16
 let g:solarized_termcolors=16
 colorscheme solarized
@@ -104,6 +104,8 @@ autocmd BufEnter * call SmartTildes()
 function! SaveAndRunTests()
   :w
 " let s:currentSub = PerlCurrentSub()
+" let s:cmd = "! git commit --amend --no-edit"
+" let s:cmd = "! git commit -am XXX"
 " let s:cmd = "! clear && ginkgo"
 " let s:cmd = "! clear && mix test"
 " let s:cmd = "! clear && sbt test"
@@ -113,10 +115,8 @@ function! SaveAndRunTests()
 " let s:cmd = "! clear && c++ -I /opt/pkg/include -L /opt/pkg/lib -lstdc++ -lCppUTest -lCppUTestExt % && ./a.out"
 " let s:cmd = "! clear && make"
 " let s:cmd = "! clear && make -f Makefile.boot"
-  let s:cmd = "! clear && cd .. && make -f Makefile.boot && cd testsuite && bmake check-simple VERBOSE=no && bmake clean VERBOSE=no"
+" let s:cmd = "! clear && cd .. && make -f Makefile.boot && cd testsuite && bmake check-simple VERBOSE=no && bmake clean VERBOSE=no"
 " let s:cmd = "! clear && ./test-logstderr"
-" let s:cmd = "! git commit -am XXX"
-" let s:cmd = "! git commit --amend --no-edit"
 " let s:cmd = "! clear && ./run-once.sh"
 " let s:cmd = "! clear && cc % && ./a.out"
 " let s:cmd = "! clear && ruby *_test.rb"
@@ -129,8 +129,16 @@ function! SaveAndRunTests()
 " let s:cmd = "! clear && prove -PProgressBar -b t"
 " let s:cmd = "! clear && prove -PProgressBar::Each -b t/import.t"
 " let s:cmd = ":w\|:! open -a /Applications/Chromium.app %"
-" let s:cmd = "! bmake clean && bmake && clear && bmake test"
+" let s:cmd = "! clear && make fixsmtpio && clear && tcpserver 0 2626 /Users/schmonz/Documents/trees/qmail/fixsmtpio ofmipd 2>log"
+" let s:cmd = "! clear && make acceptutils && sudo tcpserver 0 26 ./reup -t 3 ./authup smtp checkpassword-pam -s sshd ./fixsmtpio ofmipd"
+" let s:cmd = "! clear && nroff -man % | less -p 'CONTROL FILES'"
+" let s:cmd = "! clear && nroff -man % | less"
+" let s:cmd = "! clear && make fixsmtpio && clear && env AUTHUSER=wowza ./fixsmtpio ofmipd 2>log"
+" let s:cmd = "! clear && make acceptutils-tests && clear && env AUTHUP_USER=wowza make acceptutils-tests-run"
+" let s:cmd = VimuxRunCommand("make acceptutils-tests-run")
 " let s:cmd = "! clear && PYTHONPATH=test:$PYTHONPATH py.test %"
+  let s:cmd = "! clear && ./% fixcrio qmail-smtpd 2>protocol.log && echo exited $?"
+" let s:cmd = "! clear && ./% echo hi"
   execute s:cmd
 " noremap <leader>t :w\|:!clear && /opt/pkg/bin/ruby193 %<cr>
 " noremap <leader>t :w\|:!guess_how_to_run_tests_for_file %<cr>
@@ -190,7 +198,8 @@ endif
 
 autocmd BufEnter *.tt,*.ep,*.html,*.css setlocal tabstop=4 shiftwidth=4 nowrap
 autocmd FileType perl,ruby,sh,javascript,c,cpp setlocal number|let w:m2=matchadd('Search', '\%>80v.\+', -1)
-autocmd FileType rust,perl setlocal number expandtab tabstop=4 shiftwidth=4 softtabstop=4
+" autocmd FileType rust,perl setlocal number expandtab tabstop=4 shiftwidth=4 softtabstop=4
+autocmd FileType rust setlocal number expandtab tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType python setlocal number expandtab tabstop=4 shiftwidth=4 softtabstop=0
 autocmd FileType ruby,cucumber,hb,haskell,scala,go,lua,c setlocal number expandtab tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType textile,markdown,ikiwiki,javascript,objc,cpp setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
@@ -257,3 +266,15 @@ nnoremap <leader>w !} perl -MText::Autoformat -e "{autoformat{break=>break_wrap}
 noremap <leader>p :call IkiwikiPreview()<cr>
 noremap <leader>f :call SelectaCommand("find * -type f", ":e")<cr>
 noremap <leader>t :call SaveAndRunTests()<cr>
+" noremap <leader>t :w<cr>:Dispatch make acceptutils-tests-run<cr>
+
+" https://twitter.com/jschauma/status/983810191346032641
+function! ToggleTabs()
+	if &list
+		set nolist
+	else
+		set list
+		silent! listchars=tab:>.,trail:>,precedes:<
+	endif
+endfunction
+map <Leader>	 :call ToggleTabs()<CR>

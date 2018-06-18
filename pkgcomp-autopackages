@@ -51,6 +51,7 @@ net/djbdns-run
 net/mosh
 net/p5-Net-OpenID-Consumer
 net/rsync
+net/ucspi-ssl
 pkgtools/pkg_alternatives
 pkgtools/pkg_chk
 pkgtools/pkg_install

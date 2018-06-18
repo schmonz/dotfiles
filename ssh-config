@@ -1,13 +1,29 @@
-ControlPath ~/.ssh/%l-%r@%h:%p
-ControlMaster auto
+#ControlPath ~/.ssh/%l-%r@%h:%p
+#ControlMaster auto
 AddKeysToAgent yes
 UseKeychain yes
 User schmonz
+
+Host prod
+  HostName schmonz.com
+  ForwardAgent yes
+
+Host centos7
+  HostName localhost
+  ControlPath none
+  Port 5555
+  ForwardAgent yes
 
 Host tribblix
   HostName localhost
   ControlPath none
   Port 4444
+  ForwardAgent yes
+
+Host centos6
+  HostName localhost
+  ControlPath none
+  Port 3333
   ForwardAgent yes
 
 Host netbsd7
