@@ -38,7 +38,6 @@ mail/greetdelay
 mail/isync
 mail/mutt
 mail/pymsgauth
-mail/rspamd
 mail/qgreylist
 mail/qmail-autoresponder
 mail/qmail-run
