@@ -137,7 +137,11 @@ function! SaveAndRunTests()
 " let s:cmd = "! clear && make acceptutils-tests && clear && env AUTHUP_USER=wowza make acceptutils-tests-run"
 " let s:cmd = VimuxRunCommand("make acceptutils-tests-run")
 " let s:cmd = "! clear && PYTHONPATH=test:$PYTHONPATH py.test %"
-  let s:cmd = "! clear && ./% fixcrio qmail-smtpd 2>protocol.log && echo exited $?"
+" let s:cmd = "! clear && python2.7 ./io_strangler.py smtp env RELAYCLIENT= ofmipd 2>strangler.log"
+" let s:cmd = "! clear && tcpserver 0 5888 ./io_strangler.py smtp env RELAYCLIENT= ofmipd"
+" let s:cmd = "! clear && python2.7 ./io_strangler.py pop3 qmail-pop3d /var/tmp/schmonz-maildir 2>strangler.log"
+" let s:cmd = "! clear && python2.7 ./io_strangler.py http /opt/pkg/libexec/bozohttpd -e /Users/schmonz/Sites localhost 2>strangler.log"
+" let s:cmd = "! clear && mconnect 0 5888"
 " let s:cmd = "! clear && ./% echo hi"
   execute s:cmd
 " noremap <leader>t :w\|:!clear && /opt/pkg/bin/ruby193 %<cr>
