@@ -14,6 +14,11 @@ Host centos7
   Port 5555
   ForwardAgent yes
 
+Host smartos
+  HostName pkgsrc-dev.joyent.com
+  ControlPath none
+  ForwardAgent yes
+
 Host tribblix
   HostName localhost
   ControlPath none
@@ -27,6 +32,12 @@ Host centos6
   ForwardAgent yes
 
 Host netbsd7
+  HostName localhost
+  ControlPath none
+  Port 2221
+  ForwardAgent yes
+
+Host netbsd8
   HostName localhost
   ControlPath none
   Port 2222
