@@ -52,7 +52,6 @@ net/djbdns-run
 net/mosh
 net/p5-Net-OpenID-Consumer
 net/rsync
-net/ucspi-ssl
 pkgtools/pkg_alternatives
 pkgtools/pkg_chk
 pkgtools/pkg_install
@@ -62,7 +61,6 @@ security/keychain
 security/py-acme-tiny
 security/sudo
 shells/bash
-sysutils/checkpassword
 sysutils/daemontools-run
 sysutils/fdtools
 sysutils/pstree
