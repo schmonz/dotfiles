@@ -64,7 +64,6 @@ shells/bash
 sysutils/daemontools-run
 sysutils/fdtools
 sysutils/pstree
-sysutils/xentools48
 textproc/p5-ack
 textproc/p5-Text-Autoformat
 textproc/p5-Text-CSV
