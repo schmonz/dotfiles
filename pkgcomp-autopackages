@@ -33,12 +33,10 @@ graphics/php-gd
 mail/dovecot2
 mail/dovecot2-pigeonhole
 mail/ezmlm-idx
-mail/getmail
 mail/greetdelay
 mail/isync
 mail/mutt
 mail/pymsgauth
-mail/qgreylist
 mail/qmail-autoresponder
 mail/qmail-run
 mail/qtools
