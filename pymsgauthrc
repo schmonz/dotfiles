@@ -1,5 +1,8 @@
 [default]
 
+#log_level = TRACE
+#log_file = '~/.pymsgauth/log'
+
 confirmation_address = 'schmonz@schmonz.com'
 secret = 'boy, I just really do not care a whole lot about how secret this is'
 
