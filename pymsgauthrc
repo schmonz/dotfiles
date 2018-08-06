@@ -1,0 +1,17 @@
+[default]
+
+confirmation_address = 'schmonz@schmonz.com'
+secret = 'boy, I just really do not care a whole lot about how secret this is'
+
+token_recipient = schmonz-web-pymsgauth@schmonz.com
+
+token_recipient = cdb@list.cr.yp.to
+token_recipient = dns@list.cr.yp.to
+token_recipient = ezmlm@list.cr.yp.to
+token_recipient = libtai@list.cr.yp.to
+token_recipient = log@list.cr.yp.to
+token_recipient = misc@list.cr.yp.to
+token_recipient = package@list.cr.yp.to
+token_recipient = publicfile@list.cr.yp.to
+token_recipient = qmail@list.cr.yp.to
+token_recipient = zeroseek@list.cr.yp.to
