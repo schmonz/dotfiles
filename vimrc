@@ -65,7 +65,7 @@ set encoding=utf-8
 
 " color
 syntax on
-set background=light
+set background=dark
 set t_Co=16
 let g:solarized_termcolors=16
 colorscheme solarized
