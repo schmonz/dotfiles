@@ -43,9 +43,10 @@ Host netbsd8
   Port 2222
   ForwardAgent yes
 
-Host magnetic-babysitter-philo.local
+Host philo
+  HostName localhost
   ControlPath none
-  User philolex
+  Port 6666
   ForwardAgent yes
 
 Host philolexian.org
