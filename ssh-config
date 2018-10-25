@@ -31,16 +31,16 @@ Host centos6
   Port 3333
   ForwardAgent yes
 
-Host netbsd7
-  HostName localhost
-  ControlPath none
-  Port 2221
-  ForwardAgent yes
-
 Host netbsd8
   HostName localhost
   ControlPath none
   Port 2222
+  ForwardAgent yes
+
+Host netbsd_current
+  HostName localhost
+  ControlPath none
+  Port 2223
   ForwardAgent yes
 
 Host philo
