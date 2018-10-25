@@ -109,9 +109,6 @@ checkout = cvs -d 'schmonz@wiki.netbsd.org/cvsroot' co -d 'wikisrc-CVSROOT' 'CVS
 [agedu]
 checkout = git clone 'https://git.tartarus.org/simon/agedu.git' 'agedu'
 
-[homebrew]
-checkout = git clone 'https://github.com/Homebrew/homebrew.git' 'homebrew'
-
 [git-annex.branchable.com]
 checkout = git clone 'git://git-annex.branchable.com/' 'git-annex.branchable.com'
 
@@ -270,3 +267,9 @@ checkout = git clone 'ssh://latentagility.com/~schmonz/sites/latentagility.com/w
 
 [Smoker-Controller]
 checkout = git clone 'git@github.com:holyfeld/Smoker-Controller.git' 'Smoker-Controller'
+
+[valgrind]
+checkout = git clone 'git://sourceware.org/git/valgrind.git' 'valgrind'
+
+[pkgsrc-wrapper]
+checkout = git clone 'git@github.com:schmonz/pkgsrc-wrapper.git' 'pkgsrc-wrapper'
