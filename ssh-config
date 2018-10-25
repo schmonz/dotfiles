@@ -52,6 +52,10 @@ Host philo
 Host philolexian.org
   User philolex
 
+Host wiki.philo.org
+  Hostname wiki.philo.org
+  User philolex
+
 Host pet-piercer.local
   ControlPath none
   ForwardX11 yes
