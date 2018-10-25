@@ -4,7 +4,6 @@ _set_path() {
 	if [ -x /usr/libexec/path_helper ]; then
 		eval `/usr/libexec/path_helper -s`
 	fi
-	PATH=$HOME/pkg/sbin:$HOME/pkg/bin:$PATH
 	PATH=$HOME/trees/package-rebuild/bin:$PATH
 }
 
