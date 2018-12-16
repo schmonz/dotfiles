@@ -60,6 +60,42 @@ Host pet-piercer.local
   ControlPath none
   ForwardX11 yes
 
+Host chikli
+  User ubuntu
+  Hostname ci.chikli.com
+  ControlPath none
+  ForwardX11 no
+
+Host debian9
+  HostName localhost
+  ControlPath none
+  Port 7777
+  ForwardAgent yes
+
+Host devuan
+  HostName localhost
+  ControlPath none
+  Port 9999
+  ForwardAgent yes
+
+Host void
+  HostName localhost
+  ControlPath none
+  Port 8888
+  ForwardAgent yes
+
+Host freebsd
+  HostName localhost
+  ControlPath none
+  Port 1212
+  ForwardAgent yes
+
+Host openbsd
+  HostName localhost
+  ControlPath none
+  Port 2323
+  ForwardAgent yes
+
 #Host provide-socks
 #  IdentitiesOnly yes
 #  IdentityFile ~/.ssh/id_specialpurpose_rsa
