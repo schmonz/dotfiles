@@ -194,7 +194,7 @@ checkout = git clone 'git://git.kitenet.net/mr.git' 'mr'
 checkout = git clone 'https://github.com/bruceg/relay-ctrl' 'relay-ctrl'
 
 [emile]
-checkout = git clone 'https://gitorious.org/emile/mainline.git' 'emile'
+checkout = git clone 'git@github.com:vivier/EMILE.git' 'emile'
 
 [ack2]
 checkout = git clone 'git@github.com:petdance/ack2.git' 'ack2'
@@ -273,3 +273,6 @@ checkout = git clone 'git://sourceware.org/git/valgrind.git' 'valgrind'
 
 [pkgsrc-wrapper]
 checkout = git clone 'git@github.com:schmonz/pkgsrc-wrapper.git' 'pkgsrc-wrapper'
+
+[Qsmtp]
+checkout = git clone 'git@github.com:DerDakon/Qsmtp.git' 'Qsmtp'
