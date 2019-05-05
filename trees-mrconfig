@@ -44,7 +44,7 @@ checkout = git clone 'https://github.com/Alir3z4/html2text.git' 'html2text'
 checkout = git clone 'https://github.com/trentm/jirash.git' 'jirash'
 
 [knc]
-checkout = git clone 'http://oskt.secure-endpoints.com/git/knc' 'knc'
+checkout = git clone 'https://imrryr.org/git/knc' 'knc'
 
 [logjam]
 checkout = git clone 'git@github.com:schmonz/logjam.git' 'logjam'
@@ -125,19 +125,19 @@ checkout = git clone 'https://github.com/SR-G/sonos-java.git' 'sonos-java'
 checkout = git clone 'https://github.com/soffes/sonos.git' 'sonos-ruby'
 
 [kharon]
-checkout = git clone 'http://oskt.secure-endpoints.com/git/kharon' 'kharon'
+checkout = git clone 'https://imrryr.org/git/kharon' 'kharon'
 
 [krb5_admin]
-checkout = git clone 'http://oskt.secure-endpoints.com/git/krb5_admin' 'krb5_admin'
+checkout = git clone 'https://imrryr.org/git/krb5_admin' 'krb5_admin'
 
 [krb5_keytab]
-checkout = git clone 'http://oskt.secure-endpoints.com/git/krb5_keytab' 'krb5_keytab'
+checkout = git clone 'https://imrryr.org/git/krb5_keytab' 'krb5_keytab'
 
 [lnetd]
-checkout = git clone 'http://oskt.secure-endpoints.com/git/lnetd' 'lnetd'
+checkout = git clone 'https://imrryr.org/git/lnetd' 'lnetd'
 
 [prefork]
-checkout = git clone 'http://oskt.secure-endpoints.com/git/prefork' 'prefork'
+checkout = git clone 'https://imrryr.org/git/prefork' 'prefork'
 
 [rtl8723au]
 checkout = git clone 'https://github.com/lwfinger/rtl8723au.git' 'rtl8723au'
