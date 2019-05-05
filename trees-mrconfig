@@ -276,3 +276,9 @@ checkout = git clone 'git@github.com:schmonz/pkgsrc-wrapper.git' 'pkgsrc-wrapper
 
 [Qsmtp]
 checkout = git clone 'git@github.com:DerDakon/Qsmtp.git' 'Qsmtp'
+
+[netbsd-src]
+checkout = git clone 'git@github.com:NetBSD/src.git' 'netbsd-src'
+
+[kontentment]
+checkout = git clone 'git@github.com:GeePawHill/kontentment.git' 'kontentment'
