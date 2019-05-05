@@ -4,9 +4,6 @@ checkout = git clone 'ssh://b-ikiwiki@ikiwiki.branchable.com/' 'ikiwiki'
 [smuganizer]
 checkout = git clone 'git@github.com:truist/smuganizer.git' 'smuganizer'
 
-[cwrapper]
-checkout = cvs -d 'schmonz@netbsd-soc.cvs.sf.net:/cvsroot/netbsd-soc' co -d 'cwrapper' 'cwrapper'
-
 [joerg-cwrapper]
 checkout = hg clone 'ssh://morden.netbsd.org/~joerg/cwrapper' 'joerg-cwrapper'
 
