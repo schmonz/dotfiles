@@ -32,7 +32,7 @@ checkout = cvs -d 'schmonz@wiki.netbsd.org:/cvsroot' co -d 'wikisrc' 'wikisrc'
 checkout = git clone 'git@github.com:schmonz/Perl_Companies.git' 'Perl_Companies'
 
 [anglofish.net/src]
-checkout = git clone 'ssh://b-anglofish@anglofish.branchable.com/' 'src'
+checkout = git clone 'ssh://schmonz.com/~schmonz/sites/anglofish.net/www/git/src.git' 'src'
 
 [health]
 checkout = git clone 'git@github.com:schmonz/health.git' 'health'
@@ -61,8 +61,8 @@ checkout = svn co 'http://svn.code.sf.net/p/pkgjam/code' 'pkgjam'
 [pkgsrc-wiki]
 checkout = cvs -d 'schmonz@wiki.netbsd.org:/home/pkgwiki/pkgsrc-wiki.cvs' co -d 'pkgsrc-wiki' 'ikiwiki'
 
-[podcast.schmonz.com]
-checkout = git clone 'ssh://b-schmonz@schmonz.branchable.com/' 'podcast.schmonz.com'
+[podcast.schmonz.com/src]
+checkout = git clone 'ssh://schmonz.com/~schmonz/sites/schmonz.com/podcast/git/src.git' 'src'
 
 [rainskiwiki]
 checkout = git clone 'git@github.com:truist/rainskiwiki.git' 'rainskiwiki'
