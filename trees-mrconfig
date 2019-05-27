@@ -279,3 +279,6 @@ checkout = git clone 'git@github.com:NetBSD/src.git' 'netbsd-src'
 
 [kontentment]
 checkout = git clone 'git@github.com:GeePawHill/kontentment.git' 'kontentment'
+
+[highlight]
+checkout = git clone 'git@gitlab.com:saalen/highlight.git' 'highlight'
