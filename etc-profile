@@ -33,10 +33,10 @@ _set_java() {
 }
 
 _set_less() {
-	if type src-hilite-lesspipe.sh >/dev/null 2>&1; then
-		LESSOPEN="| src-hilite-lesspipe.sh %s"; export LESSOPEN
+	if type highlight >/dev/null 2>&1; then
+		LESSOPEN="| highlight %s --out-format xterm256 -l --force -s solarized-dark --no-trailing-nl"; export LESSOPEN
 	fi
-	LESS=FRSX; export LESS
+	LESS="-FRSX"; export LESS
 }
 
 _set_locale() {
