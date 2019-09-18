@@ -1,9 +1,3 @@
-#ControlPath ~/.ssh/%l-%r@%h:%p
-#ControlMaster auto
-AddKeysToAgent yes
-UseKeychain yes
-User schmonz
-
 Host prod
   HostName schmonz.com
   ForwardAgent yes
@@ -18,6 +12,13 @@ Host smartos
   HostName pkgsrc-dev.joyent.com
   ControlPath none
   ForwardAgent yes
+  KexAlgorithms diffie-hellman-group-exchange-sha1,diffie-hellman-group1-sha1
+
+Host smartos2
+  HostName schmonz.people.pkgsrc.pub
+  ControlPath none
+  ForwardAgent yes
+  User root
 
 Host tribblix
   HostName localhost
@@ -60,6 +61,12 @@ Host pet-piercer.local
   ControlPath none
   ForwardX11 yes
 
+Host pet-power-plant.local
+  User buildbox
+  Hostname pet-power-plant.local
+  ControlPath none
+  ForwardAgent yes
+
 Host chikli
   User ubuntu
   Hostname ci.chikli.com
@@ -95,6 +102,25 @@ Host openbsd
   ControlPath none
   Port 2323
   ForwardAgent yes
+
+Host ubuntu16
+  HostName localhost
+  ControlPath none
+  Port 3434
+  ForwardAgent yes
+
+Host osxserver
+  HostName localhost
+  ControlPath none
+  Port 4545
+  ForwardAgent yes
+
+#ControlPath ~/.ssh/%l-%r@%h:%p
+#ControlMaster auto
+Host *
+  UseKeychain yes
+  AddKeysToAgent yes
+  User schmonz
 
 #Host provide-socks
 #  IdentitiesOnly yes
