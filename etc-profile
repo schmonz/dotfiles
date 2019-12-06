@@ -76,6 +76,12 @@ _set_cdpath() {
 	export CDPATH
 }
 
+_set_ssh() {
+	if [ -x /opt/pkg/bin/keychain ]; then
+		eval $(keychain --quiet --eval --agents ssh --inherit any id_rsa)
+	fi
+}
+
 _set_path
 _set_client_specific
 _set_bashisms
@@ -88,3 +94,4 @@ _set_pyenv
 _set_scala
 _set_termcolors
 _set_cdpath
+_set_ssh

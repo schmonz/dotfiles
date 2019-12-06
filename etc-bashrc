@@ -39,7 +39,3 @@ else
 fi
 
 [ -r ~/.xsh ] && . ~/.xsh
-
-if [ -x /opt/pkg/bin/keychain ]; then
-	eval $(keychain --quiet --eval --agents ssh --inherit any id_rsa)
-fi
