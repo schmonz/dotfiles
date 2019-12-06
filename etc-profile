@@ -7,6 +7,10 @@ _set_path() {
 	export PATH
 }
 
+_set_client_specific() {
+	:
+}
+
 _set_bashisms() {
 	if [ "${BASH-no}" != "no" ]; then
 		[ -r /etc/bashrc ] && . /etc/bashrc
@@ -73,6 +77,7 @@ _set_cdpath() {
 }
 
 _set_path
+_set_client_specific
 _set_bashisms
 _set_cvs
 _set_gradle
