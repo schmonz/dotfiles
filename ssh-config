@@ -44,6 +44,12 @@ Host netbsd_current
   Port 2223
   ForwardAgent yes
 
+Host netbsd9
+  HostName localhost
+  ControlPath none
+  Port 2224
+  ForwardAgent yes
+
 Host philo
   HostName localhost
   ControlPath none
@@ -77,6 +83,12 @@ Host debian9
   HostName localhost
   ControlPath none
   Port 7777
+  ForwardAgent yes
+
+Host debian10
+  HostName localhost
+  ControlPath none
+  Port 7778
   ForwardAgent yes
 
 Host devuan
