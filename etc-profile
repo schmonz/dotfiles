@@ -77,7 +77,7 @@ _set_cdpath() {
 }
 
 _set_ssh() {
-	ssh-add -A
+	ssh-add -l >/dev/null || ssh-add -A
 	if [ -x /opt/pkg/bin/keychain ]; then
 		eval $(keychain --quiet --eval --agents ssh --inherit any id_rsa)
 	fi
