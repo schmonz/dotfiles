@@ -67,12 +67,6 @@ Host pet-power-plant.local
   ControlPath none
   ForwardAgent yes
 
-Host chikli
-  User ubuntu
-  Hostname ci.chikli.com
-  ControlPath none
-  ForwardX11 no
-
 Host debian9
   HostName localhost
   ControlPath none
