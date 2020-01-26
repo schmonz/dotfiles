@@ -115,6 +115,12 @@ Host ubuntu18
   Port 3435
   ForwardAgent yes
 
+Host ubuntu19
+  HostName localhost
+  ControlPath none
+  Port 3436
+  ForwardAgent yes
+
 Host osxserver
   HostName localhost
   ControlPath none
