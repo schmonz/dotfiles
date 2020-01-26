@@ -8,6 +8,12 @@ Host centos7
   Port 5555
   ForwardAgent yes
 
+Host centos8
+  HostName localhost
+  ControlPath none
+  Port 5556
+  ForwardAgent yes
+
 Host smartos
   HostName schmonz.people.pkgsrc.pub
   ControlPath none
