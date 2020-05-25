@@ -63,7 +63,7 @@ Host pet-piercer.local
 
 Host pet-power-plant.local
   User buildbox
-  Hostname pet-power-plant.local
+  Hostname pet-power-plant.schmonz.com
   ControlPath none
   ForwardAgent yes
 
