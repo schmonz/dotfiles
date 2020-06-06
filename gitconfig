@@ -28,3 +28,5 @@
 	fsckObjects = true
 [diff]
 	noprefix = true
+[pull]
+	ff = only
