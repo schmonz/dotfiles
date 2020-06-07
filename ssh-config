@@ -129,6 +129,7 @@ Host osxserver
 
 #ControlPath ~/.ssh/%l-%r@%h:%p
 #ControlMaster auto
+#IdentityFile ~/.ssh/id_rsa
 Host *
   UseKeychain yes
   AddKeysToAgent yes
