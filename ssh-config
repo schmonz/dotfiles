@@ -61,7 +61,7 @@ Host pet-piercer.local
   ControlPath none
   ForwardX11 yes
 
-Host pet-power-plant.local
+Host pet-power-plant
   User buildbox
   Hostname pet-power-plant.schmonz.com
   ControlPath none
