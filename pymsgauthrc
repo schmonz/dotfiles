@@ -18,3 +18,5 @@ token_recipient = package@list.cr.yp.to
 token_recipient = publicfile@list.cr.yp.to
 token_recipient = qmail@list.cr.yp.to
 token_recipient = zeroseek@list.cr.yp.to
+
+token_recipient = djb@cr.yp.to
