@@ -4,9 +4,6 @@ checkout = git clone 'ssh://b-ikiwiki@ikiwiki.branchable.com/' 'ikiwiki'
 [smuganizer]
 checkout = git clone 'git@github.com:truist/smuganizer.git' 'smuganizer'
 
-[joerg-cwrapper]
-checkout = hg clone 'ssh://morden.netbsd.org/~joerg/cwrapper' 'joerg-cwrapper'
-
 [kyua]
 checkout = git clone 'git@github.com:jmmv/kyua.git' 'kyua'
 
@@ -44,7 +41,7 @@ checkout = git clone 'https://github.com/Alir3z4/html2text.git' 'html2text'
 checkout = git clone 'https://github.com/trentm/jirash.git' 'jirash'
 
 [knc]
-checkout = git clone 'https://imrryr.org/git/knc' 'knc'
+checkout = git clone 'git@github.com:elric1/knc.git' 'knc'
 
 [logjam]
 checkout = git clone 'git@github.com:schmonz/logjam.git' 'logjam'
@@ -72,9 +69,6 @@ checkout = git clone 'git@github.com:wking/rss2email.git' 'rss2email'
 
 [sonosweb]
 checkout = git clone 'git://github.com/ConradIrwin/sonosweb.git' 'sonosweb'
-
-[wireshark]
-checkout = git clone 'http://code.wireshark.org/git/wireshark' 'wireshark'
 
 [yourls]
 checkout = git clone 'https://github.com/YOURLS/YOURLS.git' 'yourls'
@@ -125,19 +119,19 @@ checkout = git clone 'https://github.com/SR-G/sonos-java.git' 'sonos-java'
 checkout = git clone 'https://github.com/soffes/sonos.git' 'sonos-ruby'
 
 [kharon]
-checkout = git clone 'https://imrryr.org/git/kharon' 'kharon'
+checkout = git clone 'git@github.com:elric1/kharon.git' 'kharon'
 
 [krb5_admin]
-checkout = git clone 'https://imrryr.org/git/krb5_admin' 'krb5_admin'
+checkout = git clone 'git@github.com:elric1/krb5_admin.git' 'krb5_admin'
 
 [krb5_keytab]
-checkout = git clone 'https://imrryr.org/git/krb5_keytab' 'krb5_keytab'
+checkout = git clone 'git@github.com:elric1/krb5_keytab.git' 'krb5_keytab'
 
 [lnetd]
-checkout = git clone 'https://imrryr.org/git/lnetd' 'lnetd'
+checkout = git clone 'git@github.com:elric1/lnetd.git' 'lnetd'
 
 [prefork]
-checkout = git clone 'https://imrryr.org/git/prefork' 'prefork'
+checkout = git clone 'git@github.com:elric1/prefork.git' 'prefork'
 
 [rtl8723au]
 checkout = git clone 'https://github.com/lwfinger/rtl8723au.git' 'rtl8723au'
@@ -229,9 +223,6 @@ checkout = git clone 'git@github.com:phasebash/learning-java-katas.git' 'learnin
 [vending-machine-kata]
 checkout = git clone 'git@github.com:guyroyse/vending-machine-kata.git' 'vending-machine-kata'
 
-[vending-machine-mahesh/perl-seed]
-checkout = git clone 'git@github.com:kata-seeds/perl-seed.git' 'perl-seed'
-
 [reorder]
 checkout = git clone 'git@github.com:schmonz/reorder.git' 'reorder'
 
@@ -275,7 +266,7 @@ checkout = git clone 'git@github.com:schmonz/pkgsrc-wrapper.git' 'pkgsrc-wrapper
 checkout = git clone 'git@github.com:DerDakon/Qsmtp.git' 'Qsmtp'
 
 [netbsd-src]
-checkout = git clone 'git@github.com:NetBSD/src.git' 'netbsd-src'
+checkout = hg clone 'https://anonhg.NetBSD.org/src' 'netbsd-src'
 
 [kontentment]
 checkout = git clone 'git@github.com:GeePawHill/kontentment.git' 'kontentment'
@@ -297,3 +288,48 @@ checkout = git clone 'git@github.com:schmonz/daemontools-encore.git' 'daemontool
 
 [feed2exec]
 checkout = git clone 'git@gitlab.com:anarcat/feed2exec.git' 'feed2exec'
+
+[solfege]
+checkout = git clone 'https://git.savannah.gnu.org/git/solfege.git' 'solfege'
+
+[pubmob]
+checkout = git clone 'git@github.com:pubmob-com/pubmob.git' 'pubmob'
+
+[stormlight]
+checkout = git clone 'git@gitlab.com:ClayDowling/stormlight.git' 'stormlight'
+
+[shapemywork]
+checkout = git clone 'shapemywork@shapemywork.com:/home/shapemywork/sites/shapemywork.com/www/git/shapemywork.git' 'shapemywork'
+
+[sni-shunt]
+checkout = git clone 'git://code.z0.is/sni-shunt/' 'sni-shunt'
+
+[scottgifford-ucspi-ssl]
+checkout = git clone 'git@github.com:scottgifford/ucspi-ssl.git' 'scottgifford-ucspi-ssl'
+
+[s6-networking]
+checkout = git clone 'git://git.skarnet.org/s6-networking' 's6-networking'
+
+[ucspi-tools]
+checkout = git clone 'git@github.com:younix/ucspi.git' 'ucspi-tools'
+
+[openbsd-ports]
+checkout = git clone 'git@github.com:openbsd/ports.git' 'openbsd-ports'
+
+[shupp-legacy-qmail-related]
+checkout = git clone 'git@github.com:shupp/legacy-qmail-related.git' 'shupp-legacy-qmail-related'
+
+[libretls]
+checkout = git clone 'https://git.causal.agency/libretls' 'libretls'
+
+[vpnc-scripts]
+checkout = git clone 'git://git.infradead.org/users/dwmw2/vpnc-scripts.git' 'vpnc-scripts'
+
+[emulators]
+checkout = git clone 'git@github.com:drchrispinnock/emulators.git' 'emulators'
+
+[pubmob-notqmail.wiki]
+checkout = git clone 'git@github.com:schmonz/notqmail.wiki.git' 'pubmob-notqmail.wiki'
+
+[notqmail.wiki]
+checkout = git clone 'git@github.com:notqmail/notqmail.wiki.git' 'notqmail.wiki'
