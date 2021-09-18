@@ -67,6 +67,18 @@ Host pet-power-plant
   ControlPath none
   ForwardAgent yes
 
+Host buildbox
+  User buildbox
+  Hostname pet-power-plant.schmonz.com
+  ControlPath none
+  ForwardAgent yes
+
+Host classroom
+  User classroom
+  Hostname pet-power-plant.schmonz.com
+  ControlPath none
+  ForwardAgent yes
+
 Host debian9
   HostName localhost
   ControlPath none
@@ -119,6 +131,12 @@ Host ubuntu19
   HostName localhost
   ControlPath none
   Port 3436
+  ForwardAgent yes
+
+Host ubuntu21
+  HostName localhost
+  ControlPath none
+  Port 3437
   ForwardAgent yes
 
 Host osxserver
