@@ -58,13 +58,6 @@ _set_pyenv() {
 	fi
 }
 
-_set_scala() {
-	if [ -d /opt/scala ]; then
-		SCALA_HOME=/opt/scala
-		export SCALA_HOME
-	fi
-}
-
 _set_termcolors() {
 	CLICOLOR=1; export CLICOLOR
 	LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD; export LSCOLORS
@@ -83,6 +76,10 @@ _set_ssh() {
 	fi
 }
 
+_set_git() {
+	GIT_PAGER='less -x9,17,25'; export GIT_PAGER
+}
+
 _set_path
 _set_client_specific
 _set_bashisms
@@ -92,7 +89,7 @@ _set_java
 _set_less
 _set_locale
 _set_pyenv
-_set_scala
 _set_termcolors
 _set_cdpath
 _set_ssh
+_set_git
