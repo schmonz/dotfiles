@@ -1,5 +1,7 @@
 # System-wide .profile for sh(1)
 
+# eval `$HOME/shctl/etc/rc`
+
 _set_path() {
 	if [ -x /usr/libexec/path_helper ]; then
 		eval `/usr/libexec/path_helper -s`
