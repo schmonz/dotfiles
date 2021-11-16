@@ -65,7 +65,7 @@ checkout = git clone 'https://github.com/farmergreg/vim-lastplace.git' 'vim-last
 checkout = git clone 'https://github.com/w0rp/ale.git' 'ale'
 
 [vimux]
-checkout = git clone 'git@github.com:benmills/vimux.git' 'vimux'
+checkout = git clone 'https://github.com/benmills/vimux.git' 'vimux'
 
 [nord-vim]
-checkout = git clone 'git://github.com/arcticicestudio/nord-vim.git' 'nord-vim'
+checkout = git clone 'https://github.com/arcticicestudio/nord-vim.git' 'nord-vim'
