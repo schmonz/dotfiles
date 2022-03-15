@@ -80,7 +80,7 @@ mono header reverse ^from.*|^subject:.*
 set attribution="On %d, %n wrote:\n"
 
 source ~/.mutt/colors/solarized/mutt-colors-solarized-dark-16.muttrc
-source `rcfile=~/pkg/share/examples/mutt/gpg.rc; [ ! -s "$rcfile" ] && rcfile=/opt/pkg/share/examples/mutt/gpg.rc; [ ! -s "$rcfile" ] && rcfile=/usr/pkg/share/examples/mutt/gpg.rc; echo "$rcfile"`
+source `rcfile=~/pkg/share/doc/mutt/samples/gpg.rc; [ ! -s "$rcfile" ] && rcfile=/opt/pkg/share/doc/mutt/samples/gpg.rc; echo "$rcfile"`
 
 set mailcap_path=~/.mutt/mailcap
 set tmpdir=~/.mutt/temp
