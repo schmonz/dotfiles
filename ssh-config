@@ -2,6 +2,10 @@ Host prod
   HostName schmonz.com
   ForwardAgent yes
 
+Host schleierpi.local
+  ControlPath none
+  ForwardAgent yes
+
 Host centos7
   HostName localhost
   ControlPath none
