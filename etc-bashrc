@@ -18,8 +18,8 @@ bind '"\e[B":history-search-forward'
 [ -r /usr/pkg/share/examples/git ] && _GIT_PREFIX=/usr/pkg/share/examples/git
 #_GIT_PREFIX=/Applications/Xcode.app/Contents/Developer/usr/share/git-core
 
-if [ -f ${_GIT_PREFIX}/git-completion.bash ]; then
-	. ${_GIT_PREFIX}/git-completion.bash
+if [ -f /opt/pkg/share/bash-completion/completions/git ]; then
+	. /opt/pkg/share/bash-completion/completions/git
 fi
 
 if [ -f ${_GIT_PREFIX}/git-prompt.sh ]; then
@@ -37,5 +37,9 @@ else
 	PS1=': \u@\h:\w;
 :; '
 fi
+
+# BEGIN_KITTY_SHELL_INTEGRATION
+if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
+# END_KITTY_SHELL_INTEGRATION
 
 [ -r ~/.xsh ] && . ~/.xsh
