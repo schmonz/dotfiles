@@ -16,10 +16,10 @@ checkout = git clone 'ssh://wiki.philo.org/home/schmonz/philo/philowixian.git' '
 [privowixian]
 checkout = git clone 'ssh://wiki.philo.org/home/schmonz/philo/privowixian.git' 'privowixian'
 
-[pkgsrc-current]
-checkout = cvs -d 'schmonz@cvs.netbsd.org:/cvsroot' co -d 'pkgsrc-current' 'pkgsrc'
+[pkgsrc-cvs]
+checkout = cvs -d 'schmonz@cvs.netbsd.org:/cvsroot' co -d 'pkgsrc-cvs' 'pkgsrc'
 
-[pkgsrc-current/wip]
+[pkgsrc-cvs/wip]
 checkout = cvs -d ':ext:schmonz@pkgsrc-wip.cvs.sourceforge.net:/cvsroot/pkgsrc-wip' co -d 'pkgsrc/wip' 'wip'
 
 [wikisrc]
@@ -302,7 +302,7 @@ checkout = git clone 'git@gitlab.com:ClayDowling/stormlight.git' 'stormlight'
 checkout = git clone 'shapemywork@shapemywork.com:/home/shapemywork/sites/shapemywork.com/www/git/shapemywork.git' 'shapemywork'
 
 [sni-shunt]
-checkout = git clone 'git://code.z0.is/sni-shunt/' 'sni-shunt'
+checkout = git clone 'git://josuah.net/sni-shunt' 'sni-shunt'
 
 [scottgifford-ucspi-ssl]
 checkout = git clone 'git@github.com:scottgifford/ucspi-ssl.git' 'scottgifford-ucspi-ssl'
@@ -333,3 +333,18 @@ checkout = git clone 'git@github.com:schmonz/notqmail.wiki.git' 'pubmob-notqmail
 
 [notqmail.wiki]
 checkout = git clone 'git@github.com:notqmail/notqmail.wiki.git' 'notqmail.wiki'
+
+[Refactoring-Kata-Lift-Pass-Pricing]
+checkout = git clone 'git@github.com:martinsson/Refactoring-Kata-Lift-Pass-Pricing.git' 'Refactoring-Kata-Lift-Pass-Pricing'
+
+[whatsmyip]
+checkout = cvs -d 'schmonz@whatsmyip.schmonz.com:/home/schmonz/sites/schmonz.com/whatsmyip/cvs' co -d 'whatsmyip' 'ikiwiki'
+
+[expensereport]
+checkout = git clone 'git@github.com:christianhujer/expensereport.git' 'expensereport'
+
+[joyent-pkgbuild]
+checkout = git clone 'git@github.com:joyent/pkgbuild.git' 'joyent-pkgbuild'
+
+[netbsd-mac68k-without-macos]
+checkout = git clone 'git@github.com:schmonz/netbsd-mac68k-without-macos.git' 'netbsd-mac68k-without-macos'
