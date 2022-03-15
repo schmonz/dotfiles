@@ -2,20 +2,12 @@
 
 # eval `$HOME/shctl/etc/rc`
 
-_set_path() {
-	if [ -x /usr/libexec/path_helper ]; then
-		eval `/usr/libexec/path_helper -s`
-	fi
-	export PATH
-}
-
 _set_client_specific() {
 	:
 }
 
 _set_bashisms() {
 	if [ "${BASH-no}" != "no" ]; then
-		[ -r /etc/bashrc ] && . /etc/bashrc
 		[ -r "$HOME/.bashrc" ] && . "$HOME/.bashrc"
 	fi
 }
@@ -96,7 +88,6 @@ _set_man() {
 	MANPAGER="sh -c 'col -bx | bat -l man -p'"; export MANPAGER
 }
 
-_set_path
 _set_client_specific
 _set_bashisms
 _set_cvs
