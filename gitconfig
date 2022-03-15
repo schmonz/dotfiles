@@ -3,10 +3,12 @@
 [user]
 	name = Amitai Schleier
 	email = schmonz-web-git@schmonz.com
+	signingkey = 7291B37F97F674D0461F0B41C57C37AFFE0C3DE8
 [color]
 	ui = true
 [core]
 	excludesfile = ~/.gitignore_global
+	pager = diff-so-fancy | less
 [alias]
 	graph =    log --graph --all --date=short --pretty=format:'%C(yellow)%h%Creset %Cgreen%ad%Cblue%d%Creset %s %Cgreen[%an]%Creset'
 	guygraph = log --graph       --date=short --pretty=format:'%h %ad | %s%d [%an]'
@@ -32,3 +34,7 @@
 	ff = only
 [init]
 	defaultBranch = main
+[gpg]
+	program = gpg2
+[interactive]
+	diffFilter = diff-so-fancy --patch
