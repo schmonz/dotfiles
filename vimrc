@@ -68,6 +68,7 @@ syntax on
 set background=dark
 set t_Co=16
 let g:solarized_termcolors=16
+" let g:lucius_contrast = 'medium'
 colorscheme solarized
 set cursorline
 highlight clear SignColumn
