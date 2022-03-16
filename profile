@@ -26,7 +26,7 @@ _set_gradle() {
 
 _set_java() {
 	if [ -x /usr/libexec/java_home ]; then
-		if /usr/libexec/java_home 2>/dev/null; then
+		if /usr/libexec/java_home >/dev/null 2>&1; then
 			JAVA_HOME=$(/usr/libexec/java_home)
 			export JAVA_HOME
 		fi
