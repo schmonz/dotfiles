@@ -34,15 +34,19 @@ _set_java() {
 }
 
 _set_less() {
-	if type highlight >/dev/null 2>&1; then
-		LESSOPEN="| highlight %s --out-format xterm256 -l --force -s solarized-dark --no-trailing-nl"; export LESSOPEN
+	LESS="-FRSX"
+	export LESS
+	if [ -x /opt/pkg/bin/highlight ]; then
+		LESSOPEN="| highlight %s --out-format xterm256 -l --force -s solarized-dark --no-trailing-nl"
+		export LESSOPEN
 	fi
-	LESS="-FRSX"; export LESS
 }
 
 _set_locale() {
-	LC_CTYPE=en_US.UTF-8; export LC_CTYPE
-	LC_ALL=en_US.UTF-8; export LC_ALL
+	LC_CTYPE=en_US.UTF-8
+	export LC_CTYPE
+	LC_ALL=en_US.UTF-8
+	export LC_ALL
 }
 
 _set_pyenv() {
@@ -57,17 +61,21 @@ _set_pyenv() {
 
 _set_sdkman() {
 	if [ -d "$HOME/.sdkman" ]; then
-		export SDKMAN_DIR="/Users/schmonz/.sdkman"
+		SDKMAN_DIR="/Users/schmonz/.sdkman"
+		export SDKMAN_DIR
 		if [ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]; then
-			source "/Users/schmonz/.sdkman/bin/sdkman-init.sh"
+			. "$HOME/.sdkman/bin/sdkman-init.sh"
 		fi
 	fi
 }
 
 _set_termcolors() {
-	CLICOLOR=1; export CLICOLOR
-	LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD; export LSCOLORS
-	COLORTERM=1; export COLORTERM
+	CLICOLOR=1
+	export CLICOLOR
+	LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
+	export LSCOLORS
+	COLORTERM=1
+	export COLORTERM
 }
 
 _set_cdpath() {
@@ -83,7 +91,8 @@ _set_ssh() {
 }
 
 _set_git() {
-	GIT_PAGER='less -x9,17,25'; export GIT_PAGER
+	GIT_PAGER='less -x9,17,25'
+	export GIT_PAGER
 }
 
 _set_man() {
