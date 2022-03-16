@@ -2,6 +2,12 @@
 bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
 
+alias emacs='emacs -nw'
+pkgsrc_make_show_var() {
+	make show-var VARNAME="$@"
+}
+alias msv='pkgsrc_make_show_var'
+
 [ -r ~/pkg/share/examples/git ] && _GIT_PREFIX=~/pkg/share/examples/git
 [ -r /opt/pkg/share/examples/git ] && _GIT_PREFIX=/opt/pkg/share/examples/git
 [ -r /usr/pkg/share/examples/git ] && _GIT_PREFIX=/usr/pkg/share/examples/git
