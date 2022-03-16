@@ -30,22 +30,64 @@ Host tribblix
   Port 4444
   ForwardAgent yes
 
-Host centos6
-  HostName localhost
-  ControlPath none
-  Port 3333
-  ForwardAgent yes
-
-Host netbsd9
+Host netbsd9-amd64
   HostName localhost
   ControlPath none
   Port 2222
   ForwardAgent yes
 
-Host netbsd_current
+Host netbsdcurrent-amd64
   HostName localhost
   ControlPath none
   Port 2223
+  ForwardAgent yes
+
+Host netbsd-macppc
+  HostName localhost
+  ControlPath none
+  Port 2224
+  ForwardAgent yes
+
+Host netbsd-sparc
+  HostName localhost
+  ControlPath none
+  Port 2225
+  ForwardAgent yes
+
+Host netbsd-sparc64
+  HostName localhost
+  ControlPath none
+  Port 2226
+  ForwardAgent yes
+
+Host netbsd9-i386
+  HostName localhost
+  ControlPath none
+  Port 2227
+  ForwardAgent yes
+
+Host netbsd-arm64
+  HostName localhost
+  ControlPath none
+  Port 2230
+  ForwardAgent yes
+
+Host openbsd-i386
+  HostName localhost
+  ControlPath none
+  Port 2231
+  ForwardAgent yes
+
+Host netbsd-armv7
+  HostName localhost
+  ControlPath none
+  Port 2232
+  ForwardAgent yes
+
+Host netbsd-hppa
+  HostName localhost
+  ControlPath none
+  Port 2233
   ForwardAgent yes
 
 Host philo
@@ -95,6 +137,12 @@ Host debian10
   Port 7778
   ForwardAgent yes
 
+Host debian11
+  HostName localhost
+  ControlPath none
+  Port 7779
+  ForwardAgent yes
+
 Host devuan
   HostName localhost
   ControlPath none
@@ -107,13 +155,19 @@ Host void
   Port 8888
   ForwardAgent yes
 
+Host gentoo
+  HostName localhost
+  ControlPath none
+  Port 8889
+  ForwardAgent yes
+
 Host freebsd
   HostName localhost
   ControlPath none
   Port 1212
   ForwardAgent yes
 
-Host openbsd
+Host openbsd-amd64
   HostName localhost
   ControlPath none
   Port 2323
@@ -131,7 +185,13 @@ Host ubuntu18
   Port 3435
   ForwardAgent yes
 
-Host ubuntu19
+Host ubuntu20-amd64
+  HostName localhost
+  ControlPath none
+  Port 2234
+  ForwardAgent yes
+
+Host ubuntu21-amd64
   HostName localhost
   ControlPath none
   Port 3436
@@ -147,6 +207,12 @@ Host osxserver
   HostName localhost
   ControlPath none
   Port 4545
+  ForwardAgent yes
+
+Host solaris
+  HostName localhost
+  ControlPath none
+  Port 5656
   ForwardAgent yes
 
 #ControlPath ~/.ssh/%l-%r@%h:%p
