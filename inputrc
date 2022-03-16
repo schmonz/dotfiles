@@ -1,0 +1,2 @@
+# add the missing slash when autocompleting symlinks to directories
+set mark-symlinked-directories on
