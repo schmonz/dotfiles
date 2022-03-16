@@ -96,7 +96,10 @@ _set_git() {
 }
 
 _set_man() {
-	MANPAGER="sh -c 'col -bx | bat -l man -p'"; export MANPAGER
+	if [ -x /opt/pkg/bin/bat ]; then
+		MANPAGER="sh -c 'col -bx | bat -l man -p'"
+		export MANPAGER
+	fi
 }
 
 _set_client_specific
