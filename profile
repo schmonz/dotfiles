@@ -78,6 +78,12 @@ _set_termcolors() {
 	export COLORTERM
 }
 
+_set_pkgsrc_path() {
+	PATH=$HOME/bin:/opt/pkg/sbin:/opt/pkg/bin:/usr/local/sbin:/usr/local/bin
+	PATH=$PATH:/usr/X11R7/bin:/usr/sbin:/usr/bin:/sbin:/bin
+	export PATH
+}
+
 _set_cdpath() {
 	CDPATH=".:$HOME:$HOME/trees:$HOME/Documents/trees:$HOME/trees/pkgsrc-cvs:$HOME/trees/pkgsrc:$HOME/Documents/trees/pkgsrc-cvs:$HOME/Documents/trees/pkgsrc"
 	export CDPATH
@@ -142,6 +148,7 @@ _set_locale
 _set_pyenv
 _set_sdkman
 _set_termcolors
+_set_pkgsrc_path
 _set_cdpath
 _set_git
 _set_man
