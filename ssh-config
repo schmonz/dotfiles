@@ -2,7 +2,8 @@ Host prod
   HostName schmonz.com
   ForwardAgent yes
 
-Host schleierpi.local
+Host schleierpi
+  HostName schleierpi
   ControlPath none
   ForwardAgent yes
 
