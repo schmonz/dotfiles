@@ -68,7 +68,7 @@ checkout = git clone 'git@github.com:truist/rainskiwiki.git' 'rainskiwiki'
 checkout = git clone 'git@github.com:wking/rss2email.git' 'rss2email'
 
 [sonosweb]
-checkout = git clone 'git://github.com/ConradIrwin/sonosweb.git' 'sonosweb'
+checkout = git clone 'git@github.com:ConradIrwin/sonosweb.git' 'sonosweb'
 
 [yourls]
 checkout = git clone 'https://github.com/YOURLS/YOURLS.git' 'yourls'
