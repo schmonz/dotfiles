@@ -1,5 +1,5 @@
 cvs -q
 checkout -P
 update -dP
-diff -u
+diff -uNp
 rdiff -u
