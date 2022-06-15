@@ -1,101 +1,90 @@
+ControlPath none
+ForwardAgent yes
+
 Host prod
   HostName schmonz.com
-  ForwardAgent yes
 
 Host schleierpi
   HostName schleierpi
-  ControlPath none
-  ForwardAgent yes
 
+Host centos7-amd64
+  HostName localhost
+  Port 5555
 Host centos7
   HostName localhost
-  ControlPath none
   Port 5555
-  ForwardAgent yes
 
+Host centos8-amd64
+  HostName localhost
+  Port 5556
 Host centos8
   HostName localhost
-  ControlPath none
   Port 5556
-  ForwardAgent yes
+
+Host alpine-x8664
+  HostName localhost
+  Port 5557
+Host alpine
+  HostName localhost
+  Port 5557
 
 Host smartos
   HostName schmonz.people.pkgsrc.pub
-  ControlPath none
-  ForwardAgent yes
   User root
 
 Host tribblix
   HostName localhost
-  ControlPath none
   Port 4444
-  ForwardAgent yes
 
 Host netbsd9-amd64
   HostName localhost
-  ControlPath none
   Port 2222
-  ForwardAgent yes
+Host netbsd
+  HostName localhost
+  Port 2222
 
 Host netbsdcurrent-amd64
   HostName localhost
-  ControlPath none
   Port 2223
-  ForwardAgent yes
-
-Host netbsd-macppc
+Host netbsdcurrent
   HostName localhost
-  ControlPath none
+  Port 2223
+
+Host netbsd9-macppc
+  HostName localhost
   Port 2224
-  ForwardAgent yes
 
-Host netbsd-sparc
+Host netbsd9-sparc
   HostName localhost
-  ControlPath none
   Port 2225
-  ForwardAgent yes
 
-Host netbsd-sparc64
+Host netbsd9-sparc64
   HostName localhost
-  ControlPath none
   Port 2226
-  ForwardAgent yes
 
 Host netbsd9-i386
   HostName localhost
-  ControlPath none
   Port 2227
-  ForwardAgent yes
 
-Host netbsd-arm64
+Host netbsd9-arm64
   HostName localhost
-  ControlPath none
   Port 2230
-  ForwardAgent yes
 
 Host openbsd-i386
   HostName localhost
-  ControlPath none
   Port 2231
-  ForwardAgent yes
 
-Host netbsd-armv7
+Host netbsd9-armv7
   HostName localhost
-  ControlPath none
   Port 2232
-  ForwardAgent yes
 
-Host netbsd-hppa
+Host netbsd9-hppa
   HostName localhost
-  ControlPath none
   Port 2233
-  ForwardAgent yes
 
 Host philo
   HostName localhost
-  ControlPath none
   Port 6666
-  ForwardAgent yes
 
 Host philolexian.org
   User philolex
@@ -105,116 +94,123 @@ Host wiki.philo.org
   User philolex
 
 Host pet-piercer.local
-  ControlPath none
   ForwardX11 yes
 
 Host pet-power-plant
   User buildbox
   Hostname pet-power-plant.schmonz.com
-  ControlPath none
-  ForwardAgent yes
-
 Host buildbox
   User buildbox
   Hostname pet-power-plant.schmonz.com
-  ControlPath none
-  ForwardAgent yes
 
 Host classroom
   User classroom
   Hostname pet-power-plant.schmonz.com
-  ControlPath none
-  ForwardAgent yes
 
+Host debian9-amd64
+  HostName localhost
+  Port 7777
 Host debian9
   HostName localhost
-  ControlPath none
   Port 7777
-  ForwardAgent yes
 
+Host debian10-amd64
+  HostName localhost
+  Port 7778
 Host debian10
   HostName localhost
-  ControlPath none
   Port 7778
-  ForwardAgent yes
 
+Host debian11-amd64
+  HostName localhost
+  Port 7779
 Host debian11
   HostName localhost
-  ControlPath none
   Port 7779
-  ForwardAgent yes
 
+Host devuan-amd64
+  HostName localhost
+  Port 9999
 Host devuan
   HostName localhost
-  ControlPath none
   Port 9999
-  ForwardAgent yes
 
+Host void-amd64
+  HostName localhost
+  Port 8888
 Host void
   HostName localhost
-  ControlPath none
   Port 8888
-  ForwardAgent yes
 
+Host gentoo-amd64
+  HostName localhost
+  Port 8889
 Host gentoo
   HostName localhost
-  ControlPath none
   Port 8889
-  ForwardAgent yes
 
+Host freebsd-amd64
+  HostName localhost
+  Port 1212
 Host freebsd
   HostName localhost
-  ControlPath none
   Port 1212
-  ForwardAgent yes
 
 Host openbsd-amd64
   HostName localhost
-  ControlPath none
   Port 2323
-  ForwardAgent yes
+Host openbsd
+  HostName localhost
+  Port 2323
 
+Host ubuntu16-amd64
+  HostName localhost
+  Port 3434
 Host ubuntu16
   HostName localhost
-  ControlPath none
   Port 3434
-  ForwardAgent yes
 
+Host ubuntu18-amd64
+  HostName localhost
+  Port 3435
 Host ubuntu18
   HostName localhost
-  ControlPath none
   Port 3435
-  ForwardAgent yes
 
 Host ubuntu20-amd64
   HostName localhost
-  ControlPath none
   Port 2234
-  ForwardAgent yes
+Host ubuntu20
+  HostName localhost
+  Port 2234
 
 Host ubuntu21-amd64
   HostName localhost
-  ControlPath none
   Port 3436
-  ForwardAgent yes
-
 Host ubuntu21
   HostName localhost
-  ControlPath none
-  Port 3437
-  ForwardAgent yes
+  Port 3436
 
+Host osxserver-x86_64
+  HostName localhost
+  Port 4545
 Host osxserver
   HostName localhost
-  ControlPath none
   Port 4545
-  ForwardAgent yes
 
+Host snowleopard-x86_64
+  HostName localhost
+  Port 4546
+Host snowleopard
+  HostName localhost
+  Port 4546
+
+Host solaris-x8664
+  HostName localhost
+  Port 5656
 Host solaris
   HostName localhost
-  ControlPath none
   Port 5656
-  ForwardAgent yes
 
 #ControlPath ~/.ssh/%l-%r@%h:%p
 #ControlMaster auto
