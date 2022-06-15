@@ -80,7 +80,7 @@ _set_termcolors() {
 
 _set_pkgsrc_path() {
 	PATH=$HOME/bin:/opt/pkg/sbin:/opt/pkg/bin:/usr/local/sbin:/usr/local/bin
-	PATH=$PATH:/usr/X11R7/bin:/usr/sbin:/usr/bin:/sbin:/bin
+	PATH=$PATH:/usr/X11R7/bin:/usr/X11R6/bin:/usr/sbin:/usr/bin:/sbin:/bin
 	export PATH
 }
 
