@@ -6,12 +6,6 @@ _set_client_specific() {
 	:
 }
 
-_set_bashisms() {
-	if [ "${BASH-no}" != "no" ]; then
-		[ -r "$HOME/.bashrc" ] && . "$HOME/.bashrc"
-	fi
-}
-
 _set_cvs() {
 	CVS_RSH=ssh
 	export CVS_RSH
@@ -61,7 +55,7 @@ _set_pyenv() {
 
 _set_sdkman() {
 	if [ -d "$HOME/.sdkman" ]; then
-		SDKMAN_DIR="/Users/schmonz/.sdkman"
+		SDKMAN_DIR="$HOME/.sdkman"
 		export SDKMAN_DIR
 		if [ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]; then
 			. "$HOME/.sdkman/bin/sdkman-init.sh"
@@ -85,7 +79,10 @@ _set_pkgsrc_path() {
 }
 
 _set_cdpath() {
-	CDPATH=".:$HOME:$HOME/trees:$HOME/Documents/trees:$HOME/trees/pkgsrc-cvs:$HOME/trees/pkgsrc:$HOME/Documents/trees/pkgsrc-cvs:$HOME/Documents/trees/pkgsrc"
+	CDPATH=".:$HOME"
+	for i in "$HOME/trees" "$HOME/Documents/trees" "$HOME/trees/pkgsrc-cvs" "$HOME/trees/pkgsrc" "$HOME/Documents/trees/pkgsrc-cvs" "$HOME/Documents/trees/pkgsrc" "$HOME/Documents"; do
+		[ -d "$i" ] && CDPATH="$CDPATH:$i"
+	done
 	export CDPATH
 }
 
@@ -130,8 +127,8 @@ _set_tmux() {
 }
 
 _set_ssh() {
+	ssh-add -l >/dev/null || ssh-add --apple-load-keychain
 	if [ -z "$SSH_AUTH_SOCK" ]; then
-		ssh-add -l >/dev/null || ssh-add --apple-load-keychain
 		if [ -x /opt/pkg/bin/keychain ]; then
 			eval $(/opt/pkg/bin/keychain --quiet --eval --agents ssh --inherit any id_rsa)
 		fi
@@ -139,7 +136,6 @@ _set_ssh() {
 }
 
 _set_client_specific
-_set_bashisms
 _set_cvs
 _set_gradle
 _set_java
