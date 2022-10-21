@@ -7,24 +7,15 @@ Host prod
 Host schleierpi
   HostName schleierpi
 
-Host centos7-amd64
-  HostName localhost
-  Port 5555
-Host centos7
+Host centos7 centos7-amd64
   HostName localhost
   Port 5555
 
-Host centos8-amd64
-  HostName localhost
-  Port 5556
-Host centos8
+Host centos8 centos8-amd64
   HostName localhost
   Port 5556
 
-Host alpine-x8664
-  HostName localhost
-  Port 5557
-Host alpine
+Host alpine alpine-x8664
   HostName localhost
   Port 5557
 
@@ -32,21 +23,15 @@ Host smartos
   HostName schmonz.people.pkgsrc.pub
   User root
 
-Host tribblix
+Host tribblix tribblix-amd64
   HostName localhost
   Port 4444
 
 Host netbsd9-amd64
   HostName localhost
   Port 2222
-Host netbsd
-  HostName localhost
-  Port 2222
 
-Host netbsdcurrent-amd64
-  HostName localhost
-  Port 2223
-Host netbsdcurrent
+Host netbsdcurrent netbsdcurrent-amd64
   HostName localhost
   Port 2223
 
@@ -66,7 +51,7 @@ Host netbsd9-i386
   HostName localhost
   Port 2227
 
-Host netbsd9-arm64
+Host netbsd netbsd9 netbsd9-arm64
   HostName localhost
   Port 2230
 
@@ -96,10 +81,7 @@ Host wiki.philo.org
 Host pet-piercer.local
   ForwardX11 yes
 
-Host pet-power-plant
-  User buildbox
-  Hostname pet-power-plant.schmonz.com
-Host buildbox
+Host buildbox pet-power-plant
   User buildbox
   Hostname pet-power-plant.schmonz.com
 
@@ -107,108 +89,63 @@ Host classroom
   User classroom
   Hostname pet-power-plant.schmonz.com
 
-Host debian9-amd64
-  HostName localhost
-  Port 7777
-Host debian9
+Host debian9 debian9-amd64
   HostName localhost
   Port 7777
 
-Host debian10-amd64
-  HostName localhost
-  Port 7778
-Host debian10
+Host debian10 debian10-amd64
   HostName localhost
   Port 7778
 
-Host debian11-amd64
-  HostName localhost
-  Port 7779
-Host debian11
+Host debian11 debian11-amd64
   HostName localhost
   Port 7779
 
-Host devuan-amd64
-  HostName localhost
-  Port 9999
-Host devuan
+Host devuan devuan-amd64
   HostName localhost
   Port 9999
 
-Host void-amd64
-  HostName localhost
-  Port 8888
-Host void
+Host void void-amd64
   HostName localhost
   Port 8888
 
-Host gentoo-amd64
-  HostName localhost
-  Port 8889
-Host gentoo
+Host gentoo gentoo-amd64
   HostName localhost
   Port 8889
 
-Host freebsd-amd64
-  HostName localhost
-  Port 1212
-Host freebsd
+Host freebsd freebsd-amd64
   HostName localhost
   Port 1212
 
-Host openbsd-amd64
-  HostName localhost
-  Port 2323
-Host openbsd
+Host openbsd openbsd-amd64
   HostName localhost
   Port 2323
 
-Host ubuntu16-amd64
-  HostName localhost
-  Port 3434
-Host ubuntu16
+Host ubuntu16 ubuntu16-amd64
   HostName localhost
   Port 3434
 
-Host ubuntu18-amd64
-  HostName localhost
-  Port 3435
-Host ubuntu18
+Host ubuntu18 ubuntu18-amd64
   HostName localhost
   Port 3435
 
-Host ubuntu20-amd64
-  HostName localhost
-  Port 2234
-Host ubuntu20
+Host ubuntu20 ubuntu20-amd64
   HostName localhost
   Port 2234
 
-Host ubuntu21-amd64
-  HostName localhost
-  Port 3436
-Host ubuntu21
+Host ubuntu22 ubuntu22-amd64
   HostName localhost
   Port 3436
 
-Host osxserver-x86_64
-  HostName localhost
-  Port 4545
-Host osxserver
+Host osxserver osxserver-x86_64
   HostName localhost
   Port 4545
 
-Host snowleopard-x86_64
-  HostName localhost
-  Port 4546
-Host snowleopard
+Host snowleopard snowleopard-x86_64
   HostName localhost
   Port 4546
 
-Host solaris-x8664
-  HostName localhost
-  Port 5656
-Host solaris
+Host solaris solaris-x8664
   HostName localhost
   Port 5656
 
