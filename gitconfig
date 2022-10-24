@@ -8,7 +8,6 @@
 	ui = true
 [core]
 	excludesfile = ~/.gitignore_global
-	pager = diff-so-fancy | less
 [alias]
 	graph =    log --graph --all --date=short --pretty=format:'%C(yellow)%h%Creset %Cgreen%ad%Cblue%d%Creset %s %Cgreen[%an]%Creset'
 	guygraph = log --graph       --date=short --pretty=format:'%h %ad | %s%d [%an]'
@@ -36,17 +35,5 @@
 	defaultBranch = main
 [gpg]
 	program = gpg2
-[interactive]
-	diffFilter = diff-so-fancy --patch
 [safe]
 	directory = *
-[diff]
-	tool = difftastic
-[difftool]
-	prompt = false
-[difftool "difftastic"]
-	cmd = difft "$LOCAL" "$REMOTE"
-[pager]
-	difftool = true
-[alias]
-	dft = difftool
