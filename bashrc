@@ -12,6 +12,7 @@ pkgsrc_make_show_var() {
 	make show-var VARNAME="$@"
 }
 alias msv='pkgsrc_make_show_var'
+alias cat='bat'
 
 [ -r ~/pkg/share/examples/git ] && _GIT_PREFIX=~/pkg/share/examples/git
 [ -r /opt/pkg/share/examples/git ] && _GIT_PREFIX=/opt/pkg/share/examples/git
