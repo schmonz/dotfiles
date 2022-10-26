@@ -3,8 +3,9 @@ if [ "${BASH_VERSION}" ]; then
 	bind '"\e[A":history-search-backward'
 	bind '"\e[B":history-search-forward'
 elif [ "${ZSH_VERSION}" ]; then
-	bindkey "^[[A" history-beginning-search-backward
-	bindkey "^[[B" history-beginning-search-forward
+	bindkey "^[[A" history-search-backward
+	bindkey "^[[B" history-search-forward
+	test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh || true
 fi
 
 alias emacs='emacs -nw'
