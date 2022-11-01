@@ -2,10 +2,12 @@
 if [ "${BASH_VERSION}" ]; then
 	bind '"\e[A":history-search-backward'
 	bind '"\e[B":history-search-forward'
+	[ -e ${HOME}/.iterm2_shell_integration.bash ] && source ${HOME}/.iterm2_shell_integration.bash || true
 elif [ "${ZSH_VERSION}" ]; then
 	bindkey "^[[A" history-search-backward
 	bindkey "^[[B" history-search-forward
-	test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh || true
+	autoload -Uz select-word-style && select-word-style bash
+	[ -e ${HOME}/.iterm2_shell_integration.zsh ] && source ${HOME}/.iterm2_shell_integration.zsh || true
 fi
 
 alias emacs='emacs -nw'
@@ -13,7 +15,7 @@ pkgsrc_make_show_var() {
 	make show-var VARNAME="$@"
 }
 alias msv='pkgsrc_make_show_var'
-alias cat='bat'
+[ -x /opt/pkg/bin/bat ] && alias cat='bat'
 
 [ -r ~/pkg/share/examples/git ] && _GIT_PREFIX=~/pkg/share/examples/git
 [ -r /opt/pkg/share/examples/git ] && _GIT_PREFIX=/opt/pkg/share/examples/git
@@ -50,9 +52,5 @@ if [ -f ${_GIT_PREFIX}/git-prompt.sh ]; then
 :; '
 	fi
 fi
-
-# BEGIN_KITTY_SHELL_INTEGRATION
-if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
-# END_KITTY_SHELL_INTEGRATION
 
 [ -r ~/.xsh ] && . ~/.xsh
