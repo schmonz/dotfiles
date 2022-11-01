@@ -83,7 +83,6 @@ _set_cdpath() {
 	for i in "$HOME/trees" "$HOME/Documents/trees" "$HOME/trees/pkgsrc-cvs" "$HOME/trees/pkgsrc" "$HOME/Documents/trees/pkgsrc-cvs" "$HOME/Documents/trees/pkgsrc" "$HOME/Documents"; do
 		[ -d "$i" ] && CDPATH="$CDPATH:$i"
 	done
-	export CDPATH
 }
 
 _set_git() {
