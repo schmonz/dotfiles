@@ -343,8 +343,8 @@ checkout = cvs -d 'schmonz@whatsmyip.schmonz.com:/home/schmonz/sites/schmonz.com
 [expensereport]
 checkout = git clone 'git@github.com:christianhujer/expensereport.git' 'expensereport'
 
-[joyent-pkgbuild]
-checkout = git clone 'git@github.com:joyent/pkgbuild.git' 'joyent-pkgbuild'
+[jperkin-pkgbuild]
+checkout = git clone 'git@github.com:TritonDataCenter/pkgbuild.git' 'jperkin-pkgbuild'
 
 [netbsd-mac68k-without-macos]
 checkout = git clone 'git@github.com:schmonz/netbsd-mac68k-without-macos.git' 'netbsd-mac68k-without-macos'
