@@ -1,8 +1,8 @@
-[ikiwiki-nav]
-checkout = git clone 'http://git.devnull.li/ikiwiki-nav.git' 'ikiwiki-nav'
+#[ikiwiki-nav]
+#checkout = git clone 'http://git.devnull.li/ikiwiki-nav.git' 'ikiwiki-nav'
 
-[ikiwiki-syntax]
-checkout = git clone 'http://git.devnull.li/ikiwiki-syntax.git' 'ikiwiki-syntax'
+#[ikiwiki-syntax]
+#checkout = git clone 'http://git.devnull.li/ikiwiki-syntax.git' 'ikiwiki-syntax'
 
 [supertab]
 checkout = git clone 'https://github.com/ervandew/supertab.git' 'supertab'
