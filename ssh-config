@@ -85,8 +85,7 @@ Host wiki.philo.org
 Host pet-piercer.local
   ForwardX11 yes
 
-Host buildbox pet-power-plant
-  User buildbox
+Host buildbox mini pet-power-plant
   Hostname pet-power-plant.schmonz.com
 
 Host classroom
