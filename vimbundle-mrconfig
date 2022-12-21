@@ -47,7 +47,7 @@ checkout = git clone 'https://github.com/tpope/vim-surround.git' 'vim-surround'
 checkout = git clone 'https://github.com/kien/ctrlp.vim.git' 'ctrlp.vim'
 
 [ack.vim]
-checkout = git clone 'https://github.com/mileszs/ack.vim.git' 'ack.vim'
+checkout = git clone --config fetch.fsck.zeroPaddedFilemode=ignore 'https://github.com/mileszs/ack.vim.git' 'ack.vim'
 
 [vim-perl]
 checkout = git clone 'https://github.com/vim-perl/vim-perl.git' 'vim-perl'
