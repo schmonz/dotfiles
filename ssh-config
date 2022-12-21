@@ -15,6 +15,10 @@ Host centos8 centos8-amd64
   HostName localhost
   Port 5556
 
+Host centos9 centos9-amd64
+  HostName localhost
+  Port 5558
+
 Host alpine alpine-x8664
   HostName localhost
   Port 5557
@@ -27,11 +31,11 @@ Host tribblix tribblix-amd64
   HostName localhost
   Port 4444
 
-Host netbsd9-amd64
+Host netbsd netbsd9 netbsd9-amd64
   HostName localhost
   Port 2222
 
-Host netbsdcurrent netbsdcurrent-amd64
+Host netbsd10 netbsd10-amd64
   HostName localhost
   Port 2223
 
@@ -51,7 +55,7 @@ Host netbsd9-i386
   HostName localhost
   Port 2227
 
-Host netbsd netbsd9 netbsd9-arm64
+Host netbsd9-arm64
   HostName localhost
   Port 2230
 
