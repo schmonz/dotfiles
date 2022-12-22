@@ -10,6 +10,10 @@ elif [ "${ZSH_VERSION}" ]; then
 	[ -e ${HOME}/.iterm2_shell_integration.zsh ] && source ${HOME}/.iterm2_shell_integration.zsh || true
 fi
 
+if [ -f /opt/pkg/share/asdf/asdf.sh ]; then
+	. /opt/pkg/share/asdf/asdf.sh
+fi
+
 alias emacs='emacs -nw'
 pkgsrc_make_show_var() {
 	make show-var VARNAME="$@"
