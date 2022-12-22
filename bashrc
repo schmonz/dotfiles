@@ -22,9 +22,11 @@ alias msv='pkgsrc_make_show_var'
 [ -r /usr/pkg/share/examples/git ] && _GIT_PREFIX=/usr/pkg/share/examples/git
 #_GIT_PREFIX=/Applications/Xcode.app/Contents/Developer/usr/share/git-core
 
-if [ "${BASH_VERSION}" ] && [ -f /opt/pkg/share/bash-completion/completions/git ]; then
-	. /opt/pkg/share/bash-completion/completions/git
-elif [ "${ZSH_VERSION}" ] && [ -f /opt/pkg/share/zsh/site-functions/_git ]; then
+if [ "${BASH_VERSION}" ]; then
+	for i in /opt/pkg/share/bash-completion/completions/*; do
+		. ${i}
+	done
+elif [ "${ZSH_VERSION}" ]; then
 	autoload -Uz compinit && compinit
 fi
 
