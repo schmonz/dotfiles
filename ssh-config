@@ -55,7 +55,7 @@ Host netbsd9-i386
   HostName localhost
   Port 2227
 
-Host netbsd9-arm64
+Host netbsd10-arm64
   HostName localhost
   Port 2230
 
