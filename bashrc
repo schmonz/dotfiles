@@ -60,3 +60,11 @@ if [ -f ${_GIT_PREFIX}/git-prompt.sh ]; then
 fi
 
 [ -r ~/.xsh ] && . ~/.xsh
+
+if [ -x /opt/pkg/bin/direnv ]; then
+	if [ "${BASH_VERSION}" ]; then
+		eval "$(direnv hook bash)"
+	elif [ "${ZSH_VERSION}" ]; then
+		eval "$(direnv hook zsh)"
+	fi
+fi
