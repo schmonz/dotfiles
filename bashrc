@@ -7,6 +7,7 @@ elif [ "${ZSH_VERSION}" ]; then
 	bindkey "^[[A" history-search-backward
 	bindkey "^[[B" history-search-forward
 	autoload -Uz select-word-style && select-word-style bash
+	ZLE_REMOVE_SUFFIX_CHARS=""
 	[ -e ${HOME}/.iterm2_shell_integration.zsh ] && source ${HOME}/.iterm2_shell_integration.zsh || true
 fi
 
