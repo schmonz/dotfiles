@@ -1,4 +1,3 @@
-set runtimepath+=/opt/pkg/share/lilypond/*/vim/
 " find all my installed plugins
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
