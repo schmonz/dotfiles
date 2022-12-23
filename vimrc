@@ -1,3 +1,4 @@
+set runtimepath+=/opt/pkg/share/lilypond/*/vim/
 " find all my installed plugins
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
@@ -78,11 +79,6 @@ let g:Powerline_symbols = 'unicode'
 let g:vimroom_sidebar_height=0
 " let g:vimroom_width=120
 " set formatoptions=t1
-
-" language-specific settings
-filetype off
-set runtimepath+=/Applications/LilyPond.app/Contents/Resources/share/lilypond/current/vim/
-filetype on
 
 let g:hlvarcurrent = 1
 autocmd BufRead,BufNewFile *.h1 setfiletype c
