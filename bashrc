@@ -1,3 +1,5 @@
+_PKGSRC_PREFIX=/opt/pkg
+
 # Search history for commands like what I've started typing
 if [ "${BASH_VERSION}" ]; then
 	bind '"\e[A":history-search-backward'
@@ -11,8 +13,8 @@ elif [ "${ZSH_VERSION}" ]; then
 	[ -e ${HOME}/.iterm2_shell_integration.zsh ] && source ${HOME}/.iterm2_shell_integration.zsh || true
 fi
 
-if [ -f /opt/pkg/share/asdf/asdf.sh ]; then
-	. /opt/pkg/share/asdf/asdf.sh
+if [ -f ${_PKGSRC_PREFIX}/share/asdf/asdf.sh ]; then
+	. ${_PKGSRC_PREFIX}/share/asdf/asdf.sh
 	if [ "${BASH_VERSION}" ] && [ -f ${HOME}/.asdf/plugins/java/set-java-home.bash ]; then
 		. ${HOME}/.asdf/plugins/java/set-java-home.zsh
 	elif [ "${ZSH_VERSION}" ] && [ -f ${HOME}/.asdf/plugins/java/set-java-home.zsh ]; then
@@ -25,15 +27,15 @@ pkgsrc_make_show_var() {
 	make show-var VARNAME="$@"
 }
 alias msv='pkgsrc_make_show_var'
-[ -x /opt/pkg/bin/bat ] && alias cat='bat'
+[ -x ${_PKGSRC_PREFIX}/bin/bat ] && alias cat='bat'
 
 [ -r ~/pkg/share/examples/git ] && _GIT_PREFIX=~/pkg/share/examples/git
-[ -r /opt/pkg/share/examples/git ] && _GIT_PREFIX=/opt/pkg/share/examples/git
+[ -r ${_PKGSRC_PREFIX}/share/examples/git ] && _GIT_PREFIX=${_PKGSRC_PREFIX}/share/examples/git
 [ -r /usr/pkg/share/examples/git ] && _GIT_PREFIX=/usr/pkg/share/examples/git
 #_GIT_PREFIX=/Applications/Xcode.app/Contents/Developer/usr/share/git-core
 
 if [ "${BASH_VERSION}" ]; then
-	for i in /opt/pkg/share/bash-completion/completions/*; do
+	for i in ${_PKGSRC_PREFIX}/share/bash-completion/completions/*; do
 		. ${i}
 	done
 elif [ "${ZSH_VERSION}" ]; then
@@ -67,7 +69,7 @@ fi
 
 [ -r ~/.xsh ] && . ~/.xsh
 
-if [ -x /opt/pkg/bin/direnv ]; then
+if [ -x ${_PKGSRC_PREFIX}/bin/direnv ]; then
 	if [ "${BASH_VERSION}" ]; then
 		eval "$(direnv hook bash)"
 	elif [ "${ZSH_VERSION}" ]; then
