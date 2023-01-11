@@ -13,6 +13,11 @@ fi
 
 if [ -f /opt/pkg/share/asdf/asdf.sh ]; then
 	. /opt/pkg/share/asdf/asdf.sh
+	if [ "${BASH_VERSION}" ] && [ -f ${HOME}/.asdf/plugins/java/set-java-home.bash ]; then
+		. ${HOME}/.asdf/plugins/java/set-java-home.zsh
+	elif [ "${ZSH_VERSION}" ] && [ -f ${HOME}/.asdf/plugins/java/set-java-home.zsh ]; then
+		. ${HOME}/.asdf/plugins/java/set-java-home.zsh
+	fi
 fi
 
 alias emacs='emacs -nw'
