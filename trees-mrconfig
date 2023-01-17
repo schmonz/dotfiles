@@ -348,3 +348,9 @@ checkout = git clone 'git@github.com:TritonDataCenter/pkgbuild.git' 'jperkin-pkg
 
 [netbsd-mac68k-without-macos]
 checkout = git clone 'git@github.com:schmonz/netbsd-mac68k-without-macos.git' 'netbsd-mac68k-without-macos'
+
+[ravenports]
+checkout = git clone 'git@github.com:Ravenports/Ravenports.git' 'ravenports'
+
+[skalibs]
+checkout = git clone 'git://git.skarnet.org/skalibs' 'skalibs'
