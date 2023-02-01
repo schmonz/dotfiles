@@ -70,3 +70,11 @@ if [ -x ${_PKGSRC_PREFIX}/bin/direnv ]; then
 		eval "$(direnv hook zsh)"
 	fi
 fi
+
+if [ -x ${_PKGSRC_PREFIX}/bin/sheldon ]; then
+	if [ "${BASH_VERSION}" ]; then
+		eval "$(SHELDON_PROFILE=bash sheldon source)"
+	elif [ "${ZSH_VERSION}" ]; then
+		eval "$(SHELDON_PROFILE=zsh sheldon source)"
+	fi
+fi
