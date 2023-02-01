@@ -33,6 +33,7 @@ if [ "${BASH_VERSION}" ]; then
 	done
 elif [ "${ZSH_VERSION}" ]; then
 	autoload -Uz compinit && compinit
+	autoload -Uz bashcompinit && bashcompinit
 fi
 
 if [ -f ${_GIT_PREFIX}/git-prompt.sh ]; then
