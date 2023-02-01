@@ -37,11 +37,10 @@ _set_termcolors() {
 }
 
 _set_pkgsrc_path() {
-	PATH=$HOME/bin
+	PATH="$HOME/bin:$PATH"
 	for i in /opt/pkg/sbin /opt/pkg/bin /usr/pkg/sbin /usr/pkg/bin /usr/local/sbin /usr/local/bin /usr/X11R7/bin /usr/X11R6/bin /usr/sbin /usr/bin /sbin /bin; do
-		[ -d "$i" ] && PATH="$PATH:$i"
+		[ -d "$i" ] && PATH="$i:$PATH"
 	done
-	export PATH
 }
 
 _set_cdpath() {
