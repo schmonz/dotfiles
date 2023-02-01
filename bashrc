@@ -4,13 +4,11 @@ _PKGSRC_PREFIX=/opt/pkg
 if [ "${BASH_VERSION}" ]; then
 	bind '"\e[A":history-search-backward'
 	bind '"\e[B":history-search-forward'
-	[ -e ${HOME}/.iterm2_shell_integration.bash ] && source ${HOME}/.iterm2_shell_integration.bash || true
 elif [ "${ZSH_VERSION}" ]; then
 	bindkey "^[[A" history-search-backward
 	bindkey "^[[B" history-search-forward
 	autoload -Uz select-word-style && select-word-style bash
 	ZLE_REMOVE_SUFFIX_CHARS=""
-	[ -e ${HOME}/.iterm2_shell_integration.zsh ] && source ${HOME}/.iterm2_shell_integration.zsh || true
 fi
 
 if [ -f ${_PKGSRC_PREFIX}/share/asdf/asdf.sh ]; then
