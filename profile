@@ -2,10 +2,6 @@
 
 # eval `$HOME/shctl/etc/rc`
 
-_set_client_specific() {
-	:
-}
-
 _set_cvs() {
 	CVS_RSH=ssh
 	export CVS_RSH
@@ -37,10 +33,13 @@ _set_termcolors() {
 }
 
 _set_pkgsrc_path() {
-	PATH="$HOME/bin:$PATH"
 	for i in /opt/pkg/sbin /opt/pkg/bin /usr/pkg/sbin /usr/pkg/bin /usr/local/sbin /usr/local/bin /usr/X11R7/bin /usr/X11R6/bin /usr/sbin /usr/bin /sbin /bin; do
 		[ -d "$i" ] && PATH="$i:$PATH"
 	done
+}
+
+_set_local_path() {
+	PATH="$HOME/bin:$PATH"
 }
 
 _set_cdpath() {
@@ -99,14 +98,21 @@ _set_ssh() {
 	fi
 }
 
-_set_client_specific
+_set_client_specific() {
+	:
+}
+
 _set_cvs
 _set_less
 _set_locale
 _set_termcolors
 _set_pkgsrc_path
+_set_local_path
 _set_cdpath
 _set_git
 _set_man
 _set_tmux
 _set_ssh
+_set_client_specific
+
+export PATH
