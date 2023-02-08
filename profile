@@ -33,7 +33,8 @@ _set_termcolors() {
 }
 
 _set_pkgsrc_path() {
-	for i in /opt/pkg/sbin /opt/pkg/bin /usr/pkg/sbin /usr/pkg/bin /usr/local/sbin /usr/local/bin /usr/X11R7/bin /usr/X11R6/bin /usr/sbin /usr/bin /sbin /bin; do
+	# in reverse order of how I want them
+	for i in /bin /sbin /usr/bin /usr/sbin /usr/X11R6/bin /usr/X11R7/bin /usr/local/bin /usr/local/sbin /usr/pkg/bin /usr/pkg/sbin /opt/pkg/bin /opt/pkg/sbin; do
 		[ -d "$i" ] && PATH="$i:$PATH"
 	done
 }
