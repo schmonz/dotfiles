@@ -27,11 +27,15 @@ alias msv='pkgsrc_make_show_var'
 [ -r /usr/pkg/share/examples/git ] && _GIT_PREFIX=/usr/pkg/share/examples/git
 #_GIT_PREFIX=/Applications/Xcode.app/Contents/Developer/usr/share/git-core
 
+HISTSIZE=999
+HISTFILE=${HOME}/.history
 if [ "${BASH_VERSION}" ]; then
 	for i in ${_PKGSRC_PREFIX}/share/bash-completion/completions/*; do
 		. ${i}
 	done
 elif [ "${ZSH_VERSION}" ]; then
+	setopt nosharehistory
+	SAVEHIST=${HISTSIZE}
 	autoload -Uz compinit && compinit
 	autoload -Uz bashcompinit && bashcompinit
 fi
