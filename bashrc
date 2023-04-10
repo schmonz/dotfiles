@@ -30,9 +30,9 @@ alias msv='pkgsrc_make_show_var'
 HISTSIZE=999
 HISTFILE=${HOME}/.history
 if [ "${BASH_VERSION}" ]; then
-	for i in ${_PKGSRC_PREFIX}/share/bash-completion/completions/*; do
-		. ${i}
-	done
+	if [ -f ${_PKGSRC_PREFIX}/share/bash-completion/bash_completion ]; then
+		. ${_PKGSRC_PREFIX}/share/bash-completion/bash_completion
+	fi
 elif [ "${ZSH_VERSION}" ]; then
 	setopt nosharehistory
 	SAVEHIST=${HISTSIZE}
