@@ -302,7 +302,7 @@ checkout = git clone 'git@gitlab.com:ClayDowling/stormlight.git' 'stormlight'
 checkout = git clone 'shapemywork@shapemywork.com:/home/shapemywork/sites/shapemywork.com/www/git/shapemywork.git' 'shapemywork'
 
 [sni-shunt]
-checkout = git clone 'git://josuah.net/sni-shunt' 'sni-shunt'
+checkout = git clone 'https://www.josuah.net/git/sni-shunt.git/' 'sni-shunt'
 
 [scottgifford-ucspi-ssl]
 checkout = git clone 'git@github.com:scottgifford/ucspi-ssl.git' 'scottgifford-ucspi-ssl'
@@ -354,3 +354,6 @@ checkout = git clone 'git@github.com:Ravenports/Ravenports.git' 'ravenports'
 
 [skalibs]
 checkout = git clone 'git://git.skarnet.org/skalibs' 'skalibs'
+
+[junit-whenalltestsweregreen]
+checkout = git clone 'git@github.com:schmonz/junit-whenalltestsweregreen.git' 'junit-whenalltestsweregreen'
