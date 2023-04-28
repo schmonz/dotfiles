@@ -74,7 +74,7 @@ checkout = git clone 'https://github.com/arcticicestudio/nord-vim.git' 'nord-vim
 checkout = git clone 'https://github.com/jonathanfilip/vim-lucius.git' 'vim-lucius'
 
 [vim-lilypond]
-checkout = git clone 'git@github.com:sersorrel/vim-lilypond.git' 'vim-lilypond'
+checkout = git clone 'https://github.com/sersorrel/vim-lilypond.git' 'vim-lilypond'
 
 [kotlin-vim]
-checkout = git clone 'git@github.com:udalov/kotlin-vim.git' 'kotlin-vim'
+checkout = git clone 'https://github.com/udalov/kotlin-vim.git' 'kotlin-vim'
