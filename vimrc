@@ -80,6 +80,7 @@ let g:vimroom_sidebar_height=0
 " set formatoptions=t1
 
 let g:hlvarcurrent = 1
+autocmd BufRead,BufNewFile patch* set filetype=diff
 autocmd BufRead,BufNewFile *.h1 setfiletype c
 autocmd BufRead,BufNewFile *.t,*.pl,*.pm setfiletype perl
 	autocmd FileType perl set updatetime=500
