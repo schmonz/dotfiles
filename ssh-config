@@ -23,6 +23,10 @@ Host alpine alpine-x8664
   HostName localhost
   Port 5557
 
+Host arch arch-x8664
+  HostName localhost
+  Port 5559
+
 Host smartos
   HostName schmonz.people.pkgsrc.pub
   User root
@@ -58,6 +62,10 @@ Host netbsd9-i386
 Host netbsd10-arm64
   HostName localhost
   Port 2230
+
+Host netbsdcurrent-riscv64
+  HostName localhost
+  Port 2232
 
 Host openbsd-i386
   HostName localhost
@@ -143,6 +151,11 @@ Host ubuntu22 ubuntu22-amd64
 Host osxserver osxserver-x86_64
   HostName localhost
   Port 4545
+  HostKeyAlgorithms +ssh-rsa,ssh-dss
+
+Host osxnew
+  HostName localhost
+  Port 4547
 
 Host snowleopard snowleopard-x86_64
   HostName localhost
