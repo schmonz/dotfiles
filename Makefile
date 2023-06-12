@@ -8,3 +8,4 @@ dotfiles:
 	done
 	ln -s .profile $${HOME}/.zprofile || true
 	ln -s .bashrc $${HOME}/.zshrc || true
+	ln -s .bashrc $${HOME}/.kshrc || true
