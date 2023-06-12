@@ -8,7 +8,7 @@ _set_cvs() {
 }
 
 _set_less() {
-	LESS="-FRSX"
+	LESS="-FRX"
 	export LESS
 	if [ -x /opt/pkg/bin/highlight ]; then
 		LESSOPEN="| highlight %s --out-format xterm256 -l --force -s solarized-dark --no-trailing-nl"
