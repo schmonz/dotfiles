@@ -9,6 +9,8 @@ elif [ "${ZSH_VERSION}" ]; then
 	bindkey "^[[B" history-search-forward
 	autoload -Uz select-word-style && select-word-style bash
 	ZLE_REMOVE_SUFFIX_CHARS=""
+else
+	:
 fi
 
 if [ -f ${_PKGSRC_PREFIX}/share/asdf/asdf.sh ]; then
@@ -20,6 +22,7 @@ pkgsrc_make_show_var() {
 	make show-var VARNAME="$@"
 }
 alias msv='pkgsrc_make_show_var'
+alias mic='make install clean'
 [ -x ${_PKGSRC_PREFIX}/bin/bat ] && alias cat='bat'
 
 [ -r ~/pkg/share/examples/git ] && _GIT_PREFIX=~/pkg/share/examples/git
@@ -38,10 +41,19 @@ elif [ "${ZSH_VERSION}" ]; then
 	SAVEHIST=${HISTSIZE}
 	autoload -Uz compinit && compinit
 	autoload -Uz bashcompinit && bashcompinit
+else
+	:
 fi
 
 if [ -f ${_GIT_PREFIX}/git-prompt.sh ]; then
-	. ${_GIT_PREFIX}/git-prompt.sh
+	if [ "${BASH_VERSION}" ]; then
+		. ${_GIT_PREFIX}/git-prompt.sh
+	elif [ "${ZSH_VERSION}" ]; then
+		. ${_GIT_PREFIX}/git-prompt.sh
+	else
+		:
+	fi
+
 	#GIT_PS1_SHOWDIRTYSTATE=1
 	#GIT_PS1_SHOWSTASHSTATE=1
 	#GIT_PS1_SHOWUNTRACKEDFILES=1
@@ -59,8 +71,7 @@ if [ -f ${_GIT_PREFIX}/git-prompt.sh ]; then
 :; '
 		autoload -U promptinit && promptinit
 	else
-		#PS1='\h:\W \u\$ '
-		PS1=': \u@\h:\w;
+		PS1=': $(whoami)@$(hostname -s):$(pwd);
 :; '
 	fi
 fi
@@ -72,6 +83,8 @@ if [ -x ${_PKGSRC_PREFIX}/bin/direnv ]; then
 		eval "$(direnv hook bash)"
 	elif [ "${ZSH_VERSION}" ]; then
 		eval "$(direnv hook zsh)"
+	else
+		eval "$(direnv hook bash)"
 	fi
 fi
 
