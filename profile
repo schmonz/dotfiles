@@ -84,7 +84,7 @@ _exec_tmux_singleton_session() {
 }
 
 _set_tmux() {
-	if [ "pet-power-plant" = "$(hostname -s)" -a -z "$INTELLIJ_ENVIRONMENT_READER" ]; then
+	if [ "pet-power-plant" = "$(hostname | cut -d. -f1)" -a -z "$INTELLIJ_ENVIRONMENT_READER" ]; then
 		_set_predictable_ssh_auth_sock_location
 		_exec_tmux_singleton_session
 	fi
