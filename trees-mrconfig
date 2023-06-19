@@ -355,5 +355,20 @@ checkout = git clone 'git@github.com:Ravenports/Ravenports.git' 'ravenports'
 [skalibs]
 checkout = git clone 'git://git.skarnet.org/skalibs' 'skalibs'
 
-[junit-whenalltestsweregreen]
-checkout = git clone 'git@github.com:schmonz/junit-whenalltestsweregreen.git' 'junit-whenalltestsweregreen'
+[junit-greencently]
+checkout = git clone 'git@github.com:schmonz/junit-greencently.git' 'junit-greencently'
+
+[pkgsrc-wiki-hg]
+checkout = hg clone 'ssh://ftp.netbsd.org//home/wiz/pkgsrc-wiki-hg' 'pkgsrc-wiki-hg'
+
+[macos-user-svscan]
+checkout = git clone 'git@github.com:schmonz/macos-user-svscan.git' 'macos-user-svscan'
+
+[jltk]
+checkout = git clone 'git@github.com:GeePawHill/jltk.git' 'jltk'
+
+[pkg_commit]
+checkout = git clone 'git@github.com:schmonz/pkg_commit.git' 'pkg_commit'
+
+[cvs-for-gits]
+checkout = git clone 'git@github.com:schmonz/cvs-for-gits.git' 'cvs-for-gits'
