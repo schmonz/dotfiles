@@ -6,8 +6,11 @@ Include pkgbuild-vm-hostnames
 Host prod
   HostName schmonz.com
 
-Host schleierpi
-  HostName schleierpi
+Host schleierplay
+  HostName schleierplay
+
+Host schleierprint
+  HostName schleierprint
 
 Host smartos
   HostName schmonz.people.pkgsrc.pub
