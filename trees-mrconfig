@@ -331,8 +331,8 @@ checkout = git clone 'git@github.com:drchrispinnock/emulators.git' 'emulators'
 [pubmob-notqmail.wiki]
 checkout = git clone 'git@github.com:schmonz/notqmail.wiki.git' 'pubmob-notqmail.wiki'
 
-[notqmail.wiki]
-checkout = git clone 'git@github.com:notqmail/notqmail.wiki.git' 'notqmail.wiki'
+[notqmail.org/src]
+checkout = git clone 'notqmail@notqmail.org:/home/notqmail/sites/notqmail.org/www/git/notqmail.org.git' 'src'
 
 [Refactoring-Kata-Lift-Pass-Pricing]
 checkout = git clone 'git@github.com:martinsson/Refactoring-Kata-Lift-Pass-Pricing.git' 'Refactoring-Kata-Lift-Pass-Pricing'
