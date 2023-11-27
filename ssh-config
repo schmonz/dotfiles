@@ -1,8 +1,6 @@
 ControlPath none
 ForwardAgent yes
 
-Include pkgbuild-vm-hostnames
-
 Host prod
   HostName schmonz.com
 
