@@ -62,15 +62,16 @@ _set_man() {
 	fi
 }
 
-# <URL:https://unix.stackexchange.com/a/76256>
 _set_predictable_ssh_auth_sock_location() {
-	SOCK="/tmp/ssh-agent-${USER}-tmux"
-	if [ ${SSH_AUTH_SOCK} ] && [ ${SSH_AUTH_SOCK} != ${SOCK} ]; then
-		rm -f ${SOCK}
-		ln -sf ${SSH_AUTH_SOCK} ${SOCK}
-		SSH_AUTH_SOCK=${SOCK}
-		export SSH_AUTH_SOCK
+	SOCK="/tmp/ssh-agent.${USER}"
+	if [ ! -e "${SOCK}" ]; then
+		if [ -n "${ZSH_VERSION}" ]; then
+			eval /opt/pkg/bin/ssh-agent-switcher 2>/dev/null "&!"
+		else
+			/opt/pkg/bin/ssh-agent-switcher 2>/dev/null &
+		fi
 	fi
+	export SSH_AUTH_SOCK="${SOCK}"
 }
 
 _exec_tmux_singleton_session() {
