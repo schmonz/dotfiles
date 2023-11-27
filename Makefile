@@ -12,6 +12,7 @@ dotfiles-typical:
 dotfiles-ssh:
 	ln -s `pwd`/ssh-config $${HOME}/.ssh/config || true
 	ln -s `pwd`/ssh-authorized-keys $${HOME}/.ssh/authorized_keys || true
+	sudo setenforce 0 </dev/null || true
 
 dotfiles-synonyms:
 	ln -s .profile $${HOME}/.zprofile || true
