@@ -274,8 +274,8 @@ checkout = git clone 'git@github.com:GeePawHill/kontentment.git' 'kontentment'
 [highlight]
 checkout = git clone 'git@gitlab.com:saalen/highlight.git' 'highlight'
 
-[qmail.org]
-checkout = git clone 'git@github.com:schmonz/qmail.org.git' 'qmail.org'
+[qmail.notqmail.org/src]
+checkout = git clone 'notqmail@notqmail.org:/home/notqmail/sites/notqmail.org/qmail/git/qmail.notqmail.org.git ' 'src'
 
 [ucspi-ssl]
 checkout = git clone 'git@github.com:scottgifford/ucspi-ssl.git' 'ucspi-ssl'
@@ -327,9 +327,6 @@ checkout = git clone 'git://git.infradead.org/users/dwmw2/vpnc-scripts.git' 'vpn
 
 [emulators]
 checkout = git clone 'git@github.com:drchrispinnock/emulators.git' 'emulators'
-
-[pubmob-notqmail.wiki]
-checkout = git clone 'git@github.com:schmonz/notqmail.wiki.git' 'pubmob-notqmail.wiki'
 
 [notqmail.org/src]
 checkout = git clone 'notqmail@notqmail.org:/home/notqmail/sites/notqmail.org/www/git/notqmail.org.git' 'src'
