@@ -99,6 +99,14 @@ _set_ssh() {
 	fi
 }
 
+_set_interactive_shell_goodies() {
+	_sourceme=""
+	[ "${BASH_VERSION}" ] && _sourceme="$HOME/.bashrc"
+	[ "${KSH_VERSION}" ]  && _sourceme="$HOME/.kshrc"
+	[ "${ZSH_VERSION}" ]  && _sourceme="$HOME/.zshrc"
+	[ -e "${_sourceme}" ] && . "${_sourceme}"
+}
+
 _set_client_specific() {
 	:
 }
@@ -114,6 +122,7 @@ _set_git
 _set_man
 _set_tmux
 _set_ssh
+_set_interactive_shell_goodies
 _set_client_specific
 
 export PATH
