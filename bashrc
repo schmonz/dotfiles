@@ -23,6 +23,7 @@ pkgsrc_make_show_var() {
 }
 alias msv='pkgsrc_make_show_var'
 alias mic='make install clean'
+alias ag="ag --pager='less ${LESS}'"
 [ -x ${_PKGSRC_PREFIX}/bin/bat ] && alias cat='bat'
 
 [ -r ~/pkg/share/examples/git ] && _GIT_PREFIX=~/pkg/share/examples/git
