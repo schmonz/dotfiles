@@ -203,7 +203,7 @@ endfunction
 endif
 
 autocmd BufEnter *.tt,*.ep,*.html,*.css setlocal tabstop=4 shiftwidth=4 nowrap
-autocmd FileType perl,ruby,sh,javascript,c,cpp setlocal number|let w:m2=matchadd('Search', '\%>80v.\+', -1)
+autocmd FileType perl,ruby,sh,javascript,c,cpp,yaml setlocal number|let w:m2=matchadd('Search', '\%>80v.\+', -1)
 " autocmd FileType rust,perl setlocal number expandtab tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType rust setlocal number expandtab tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType python setlocal number expandtab tabstop=4 shiftwidth=4 softtabstop=0
