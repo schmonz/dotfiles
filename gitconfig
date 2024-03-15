@@ -37,3 +37,5 @@
 	program = gpg2
 [safe]
 	directory = *
+[rebase]
+	autosquash = true
