@@ -7,7 +7,7 @@ execute pathogen#infect()
 " define <leader>
 let mapleader = ","
 
-" reload vim settings whenever I update them
+" reload current buffer's vim settings whenever I update them
 autocmd! BufWritePost $MYVIMRC source $MYVIMRC
 
 " make it easy to update them
@@ -65,11 +65,18 @@ set encoding=utf-8
 
 " color
 syntax on
-set background=dark
 set t_Co=16
 let g:solarized_termcolors=16
 " let g:lucius_contrast = 'medium'
 colorscheme solarized
+" set initial background:
+"let &background = join(readfile(expand('~/.macoslightdark')), '')
+" switch light/dark when terminal does:
+" <https://github.com/vim/vim/issues/869#issuecomment-946184301>
+autocmd VimEnter	* call echoraw(&t_RB)
+autocmd VimResume	* call echoraw(&t_RB)
+autocmd FocusGained	* call echoraw(&t_RB)
+"autocmd SigUSR1		* call echoraw(&t_RB)
 set cursorline
 highlight clear SignColumn
 let g:Powerline_symbols = 'unicode'
