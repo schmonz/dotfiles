@@ -2,6 +2,11 @@
 
 # eval `$HOME/shctl/etc/rc`
 
+_PKGSRC_PREFIX=/opt/pkg
+if [ -d $HOME/pkg ]; then
+	_PKGSRC_PREFIX=$HOME/pkg
+fi
+
 _set_cvs() {
 	CVS_RSH=ssh
 	export CVS_RSH
@@ -10,7 +15,7 @@ _set_cvs() {
 _set_less() {
 	LESS="-FRX"
 	export LESS
-	if [ -x /opt/pkg/bin/highlight ]; then
+	if [ -x ${_PKGSRC_PREFIX}/bin/highlight ]; then
 		LESSOPEN="| highlight %s --out-format xterm256 -l --force -s solarized-dark --no-trailing-nl"
 		export LESSOPEN
 	fi
@@ -34,7 +39,7 @@ _set_termcolors() {
 
 _set_pkgsrc_path() {
 	# in reverse order of how I want them
-	for i in /bin /sbin /usr/bin /usr/sbin /usr/X11R6/bin /usr/X11R7/bin /usr/local/bin /usr/local/sbin /usr/pkg/bin /usr/pkg/sbin /opt/pkg/bin /opt/pkg/sbin; do
+	for i in /bin /sbin /usr/bin /usr/sbin /usr/X11R6/bin /usr/X11R7/bin /usr/local/bin /usr/local/sbin /usr/pkg/bin /usr/pkg/sbin ${_PKGSRC_PREFIX}/bin ${_PKGSRC_PREFIX}/sbin; do
 		[ -d "$i" ] && PATH="$i:$PATH"
 	done
 }
@@ -51,14 +56,14 @@ _set_cdpath() {
 }
 
 _set_git() {
-	if [ ! -x /opt/pkg/bin/delta ]; then
+	if [ ! -x ${_PKGSRC_PREFIX}/bin/delta ]; then
 		GIT_PAGER='less -x9,17,25'
 		export GIT_PAGER
 	fi
 }
 
 _set_man() {
-	if [ -x /opt/pkg/bin/bat ]; then
+	if [ -x ${_PKGSRC_PREFIX}/bin/bat ]; then
 		MANPAGER="sh -c 'col -bx | bat -l man -p'"
 		export MANPAGER
 	fi
@@ -76,11 +81,11 @@ _set_predictable_ssh_auth_sock_location() {
 }
 
 _exec_tmux_singleton_session() {
-	if [ -x /opt/pkg/bin/tmux ] \
+	if [ -x ${_PKGSRC_PREFIX}/bin/tmux ] \
 		&& [ -n "$PS1" ] \
 		&& [ -z "$TMUX" ]; then
 		{
-			/opt/pkg/bin/tmux attach || exec /opt/pkg/bin/tmux new-session && exit
+			${_PKGSRC_PREFIX}/bin/tmux attach || exec ${_PKGSRC_PREFIX}/bin/tmux new-session && exit
 		}
 	fi
 }
@@ -95,8 +100,8 @@ _set_tmux() {
 _set_ssh() {
 	ssh-add -l >/dev/null || ssh-add --apple-load-keychain
 	if [ -z "$SSH_AUTH_SOCK" ]; then
-		if [ -x /opt/pkg/bin/keychain ]; then
-			eval $(/opt/pkg/bin/keychain --quiet --eval --agents ssh --inherit any id_rsa)
+		if [ -x ${_PKGSRC_PREFIX}/bin/keychain ]; then
+			eval $(${_PKGSRC_PREFIX}/bin/keychain --quiet --eval --agents ssh --inherit any id_rsa)
 		fi
 	fi
 }

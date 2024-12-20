@@ -1,4 +1,7 @@
 _PKGSRC_PREFIX=/opt/pkg
+if [ -d $HOME/pkg ]; then
+	_PKGSRC_PREFIX=$HOME/pkg
+fi
 
 # Search history for commands like what I've started typing
 if [ "${BASH_VERSION}" ]; then
@@ -94,5 +97,25 @@ if [ -x ${_PKGSRC_PREFIX}/bin/sheldon ]; then
 		eval "$(SHELDON_PROFILE=bash sheldon source)"
 	elif [ "${ZSH_VERSION}" ]; then
 		eval "$(SHELDON_PROFILE=zsh sheldon source)"
+	fi
+fi
+
+if [ -x ${_PKGSRC_PREFIX}/bin/starship ]; then
+	if [ "${BASH_VERSION}" ]; then
+		eval "$(starship init bash)"
+	elif [ "${ZSH_VERSION}" ]; then
+		eval "$(starship init zsh)"
+	else
+		eval "$(starship init bash)"
+	fi
+fi
+
+if [ -x ${_PKGSRC_PREFIX}/bin/zoxide ]; then
+	if [ "${BASH_VERSION}" ]; then
+		eval "$(zoxide init bash)"
+	elif [ "${ZSH_VERSION}" ]; then
+		eval "$(zoxide init zsh)"
+	else
+		eval "$(zoxide init posix --hook prompt)"
 	fi
 fi
