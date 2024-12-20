@@ -108,8 +108,9 @@ autocmd BufEnter * call SmartTildes()
 function! SaveAndRunTests()
   :w
 " let s:currentSub = PerlCurrentSub()
-" let s:cmd = "! git commit --amend --no-edit"
+" let s:cmd = "! git commit --amend --no-edit -a"
 " let s:cmd = "! git commit -am XXX"
+" let s:cmd = "! clear && corepack yarn test"
 " let s:cmd = "! clear && ginkgo"
 " let s:cmd = "! clear && mix test"
 " let s:cmd = "! clear && sbt test"
@@ -152,7 +153,10 @@ function! SaveAndRunTests()
 " let s:cmd = "! clear && python2.7 ./io_strangler.py http /opt/pkg/libexec/bozohttpd -e /Users/schmonz/Sites localhost 2>strangler.log"
 " let s:cmd = "! clear && mconnect 0 5888"
 " let s:cmd = "! clear && ./% echo hi"
+if exists("s:cmd")
   execute s:cmd
+endif
+
 " noremap <leader>t :w\|:!clear && /opt/pkg/bin/ruby193 %<cr>
 " noremap <leader>t :w\|:!guess_how_to_run_tests_for_file %<cr>
 " noremap <leader>t :w\|:!bmake clean && bmake test<cr>
