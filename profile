@@ -51,8 +51,10 @@ _set_cdpath() {
 }
 
 _set_git() {
-	GIT_PAGER='less -x9,17,25'
-	export GIT_PAGER
+	if [ ! -x /opt/pkg/bin/delta ]; then
+		GIT_PAGER='less -x9,17,25'
+		export GIT_PAGER
+	fi
 }
 
 _set_man() {

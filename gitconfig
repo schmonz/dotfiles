@@ -8,6 +8,7 @@
 	ui = true
 [core]
 	excludesfile = ~/.gitignore_global
+	pager = delta
 [alias]
 	graph =    log --graph --all --date=short --pretty=format:'%C(yellow)%h%Creset %Cgreen%ad%Cblue%d%Creset %s %Cgreen[%an]%Creset'
 	guygraph = log --graph       --date=short --pretty=format:'%h %ad | %s%d [%an]'
@@ -39,3 +40,9 @@
 	directory = *
 [rebase]
 	autosquash = true
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+[merge]
+	conflictStyle = zdiff3
