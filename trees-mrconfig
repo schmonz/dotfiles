@@ -145,9 +145,6 @@ checkout = git clone 'https://github.com/altercation/mutt-colors-solarized.git' 
 [isync]
 checkout = git clone 'git://git.code.sf.net/p/isync/isync' 'isync'
 
-[distix]
-checkout = git clone 'git://git.liw.fi/distix' 'distix'
-
 [philolexian]
 checkout = git clone 'git@github.com:schmonz/philolexian.git' 'philolexian'
 
@@ -192,9 +189,6 @@ checkout = git clone 'git@github.com:petdance/ack2.git' 'ack2'
 
 [c-embedded-fundamentals]
 checkout = git clone 'git@github.com:schmonz/c-embedded-fundamentals.git' 'c-embedded-fundamentals'
-
-[c-gilded-rose-kata]
-checkout = git clone 'git@github.com:schmonz/c-gilded-rose-kata.git' 'c-gilded-rose-kata'
 
 [c-rpi-led-toggle]
 checkout = git clone 'git@github.com:schmonz/c-rpi-led-toggle.git' 'c-rpi-led-toggle'
@@ -369,3 +363,6 @@ checkout = git clone 'git@github.com:schmonz/pkg_commit.git' 'pkg_commit'
 
 [cvs-for-gits]
 checkout = git clone 'git@github.com:schmonz/cvs-for-gits.git' 'cvs-for-gits'
+
+[/Users/schmonz/trees/BulkTracker]
+checkout = git clone 'git@github.com:bsiegert/BulkTracker.git' 'BulkTracker'
