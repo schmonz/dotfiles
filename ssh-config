@@ -1,6 +1,11 @@
 ControlPath none
 ForwardAgent yes
 
+Host 192.168.8.1
+  HostkeyAlgorithms +ssh-rsa
+  PubkeyAcceptedAlgorithms +ssh-rsa
+  User root
+
 Host prod
   HostName schmonz.com
 
