@@ -73,6 +73,7 @@ colorscheme solarized
 "let &background = join(readfile(expand('~/.macoslightdark')), '')
 " switch light/dark when terminal does:
 " <https://github.com/vim/vim/issues/869#issuecomment-946184301>
+set background=dark
 autocmd VimEnter	* call echoraw(&t_RB)
 autocmd VimResume	* call echoraw(&t_RB)
 autocmd FocusGained	* call echoraw(&t_RB)
@@ -127,7 +128,8 @@ function! SaveAndRunTests()
 " let s:cmd = "! clear && ruby *_test.rb"
 " let s:cmd = "! clear && jasmine-node ."
 " let s:cmd = "! clear && ./% secretbombdisarmingcodes.txt"
-" let s:cmd = "! clear && ./%"
+" let s:cmd = "! clear && ./% < outbox.json | less"
+" let s:cmd = "! clear && make test && kyua report-html --force"
 " let s:cmd = "! clear && make && clear && prove -b %"
 " let s:cmd = "! clear && go test"
 " let s:cmd = "! clear && env IKIWIKI_TEST_ASSUME_MODERN_DISCOUNT=1 %"
@@ -214,7 +216,7 @@ endfunction
 endif
 
 autocmd BufEnter *.tt,*.ep,*.html,*.css setlocal tabstop=4 shiftwidth=4 nowrap
-autocmd FileType perl,ruby,sh,javascript,typescript,c,cpp,yaml,make setlocal number|let w:m2=matchadd('Search', '\%>80v.\+', -1)
+autocmd FileType perl,ruby,sh,javascript,typescript,c,cpp,yaml,execline,make setlocal number|let w:m2=matchadd('Search', '\%>80v.\+', -1)
 " autocmd FileType rust,perl setlocal number expandtab tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType rust setlocal number expandtab tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType python setlocal number expandtab tabstop=4 shiftwidth=4 softtabstop=0
