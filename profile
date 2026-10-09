@@ -39,7 +39,7 @@ _set_termcolors() {
 
 _set_pkgsrc_path() {
 	# in reverse order of how I want them
-	for i in /bin /sbin /usr/bin /usr/sbin /usr/X11R6/bin /usr/X11R7/bin /usr/local/bin /usr/local/sbin /usr/pkg/bin /usr/pkg/sbin ${_PKGSRC_PREFIX}/bin ${_PKGSRC_PREFIX}/sbin; do
+	for i in /bin /sbin /usr/bin /usr/sbin /usr/X11R6/bin /usr/X11R7/bin /usr/local/bin /usr/local/sbin /opt/local/bin /opt/local/sbin /usr/pkg/bin /usr/pkg/sbin ${_PKGSRC_PREFIX}/bin ${_PKGSRC_PREFIX}/sbin /usr/local/mavergreen/bin /usr/local/mavergreen/sbin; do
 		[ -d "$i" ] && PATH="$i:$PATH"
 	done
 }
@@ -98,7 +98,7 @@ _set_tmux() {
 }
 
 _set_ssh() {
-	ssh-add -l >/dev/null || ssh-add --apple-load-keychain
+	ssh-add -l >/dev/null 2>&1 || ssh-add --apple-load-keychain >/dev/null 2>&1
 	if [ -z "$SSH_AUTH_SOCK" ]; then
 		if [ -x ${_PKGSRC_PREFIX}/bin/keychain ]; then
 			eval $(${_PKGSRC_PREFIX}/bin/keychain --quiet --eval --agents ssh --inherit any id_rsa)
