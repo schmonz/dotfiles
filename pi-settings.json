@@ -3,6 +3,7 @@
   "defaultProvider": "anthropic",
   "defaultModel": "claude-opus-5-5",
   "defaultThinkingLevel": "high",
+  "tuiMode": "regular",
   "packages": [
     "git:github.com/obra/superpowers",
     "git:github.com/ayghri/i-have-adhd",
