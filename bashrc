@@ -16,10 +16,6 @@ else
 	:
 fi
 
-if [ -f ${_PKGSRC_PREFIX}/share/asdf/asdf.sh ]; then
-	. ${_PKGSRC_PREFIX}/share/asdf/asdf.sh
-fi
-
 alias emacs='emacs -nw'
 pkgsrc_make_show_var() {
 	make show-var VARNAME="$@"
@@ -28,6 +24,7 @@ alias msv='pkgsrc_make_show_var'
 alias mic='make install clean'
 alias ag="ag --pager='less ${LESS}'"
 [ -x ${_PKGSRC_PREFIX}/bin/bat ] && alias cat='bat'
+[ -x ${_PKGSRC_PREFIX}/bin/vim ] && alias vi='vim'
 
 [ -r ~/pkg/share/examples/git ] && _GIT_PREFIX=~/pkg/share/examples/git
 [ -r ${_PKGSRC_PREFIX}/share/examples/git ] && _GIT_PREFIX=${_PKGSRC_PREFIX}/share/examples/git
