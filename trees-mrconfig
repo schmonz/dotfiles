@@ -8,7 +8,7 @@ checkout = git clone 'git@github.com:truist/smuganizer.git' 'smuganizer'
 checkout = git clone 'git@github.com:jmmv/kyua.git' 'kyua'
 
 [localsrc]
-checkout = cvs -d 'schmonz@cvs.netbsd.org:/cvsroot' co -d 'localsrc' 'localsrc'
+checkout = cvs -d 'schmonz@cvs.netbsd.org:/cvsroot' co 'localsrc'
 
 [philowixian]
 checkout = git clone 'ssh://wiki.philo.org/home/schmonz/philo/philowixian.git' 'philowixian'
@@ -256,8 +256,8 @@ checkout = git clone 'git://sourceware.org/git/valgrind.git' 'valgrind'
 [pkgsrc-wrapper]
 checkout = git clone 'git@github.com:schmonz/pkgsrc-wrapper.git' 'pkgsrc-wrapper'
 
-[Qsmtp]
-checkout = git clone 'git@github.com:DerDakon/Qsmtp.git' 'Qsmtp'
+[qsmtp]
+checkout = git clone 'git@github.com:DerDakon/Qsmtp.git' 'qsmtp'
 
 [netbsd-src]
 checkout = hg clone 'https://anonhg.NetBSD.org/src' 'netbsd-src'
@@ -269,7 +269,7 @@ checkout = git clone 'git@github.com:GeePawHill/kontentment.git' 'kontentment'
 checkout = git clone 'git@gitlab.com:saalen/highlight.git' 'highlight'
 
 [qmail.notqmail.org/src]
-checkout = git clone 'notqmail@notqmail.org:/home/notqmail/sites/notqmail.org/qmail/git/qmail.notqmail.org.git ' 'src'
+checkout = git clone 'notqmail@notqmail.org:sites/notqmail.org/org.qmail.mirror/git/org.qmail.mirror.notqmail.org.git' 'src'
 
 [ucspi-ssl]
 checkout = git clone 'git@github.com:scottgifford/ucspi-ssl.git' 'ucspi-ssl'
@@ -346,11 +346,8 @@ checkout = git clone 'git@github.com:Ravenports/Ravenports.git' 'ravenports'
 [skalibs]
 checkout = git clone 'git://git.skarnet.org/skalibs' 'skalibs'
 
-[junit-greencently]
-checkout = git clone 'git@github.com:schmonz/junit-greencently.git' 'junit-greencently'
-
-[pkgsrc-wiki-hg]
-checkout = hg clone 'ssh://ftp.netbsd.org//home/wiz/pkgsrc-wiki-hg' 'pkgsrc-wiki-hg'
+[greencently]
+checkout = git clone 'git@github.com:schmonz/greencently.git' 'greencently'
 
 [macos-user-svscan]
 checkout = git clone 'git@github.com:schmonz/macos-user-svscan.git' 'macos-user-svscan'
@@ -364,5 +361,5 @@ checkout = git clone 'git@github.com:schmonz/pkg_commit.git' 'pkg_commit'
 [cvs-for-gits]
 checkout = git clone 'git@github.com:schmonz/cvs-for-gits.git' 'cvs-for-gits'
 
-[/Users/schmonz/trees/BulkTracker]
+[BulkTracker]
 checkout = git clone 'git@github.com:bsiegert/BulkTracker.git' 'BulkTracker'
