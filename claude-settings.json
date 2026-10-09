@@ -1,0 +1,71 @@
+{
+  "permissions": {
+    "defaultMode": "auto"
+  },
+  "model": "opus[1m]",
+  "enabledPlugins": {
+    "superpowers@superpowers-marketplace": true,
+    "i-have-adhd@i-have-adhd": true,
+    "mavergreen@mavergreen": true
+  },
+  "extraKnownMarketplaces": {
+    "superpowers-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "obra/superpowers-marketplace"
+      },
+      "autoUpdate": true
+    },
+    "i-have-adhd": {
+      "source": {
+        "source": "github",
+        "repo": "ayghri/i-have-adhd"
+      },
+      "autoUpdate": true
+    },
+    "mavergreen": {
+      "source": {
+        "source": "github",
+        "repo": "Mavergreen/shipyard"
+      }
+    }
+  },
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "high"
+    }
+  },
+  "tui": "default",
+  "skipWorkflowUsageWarning": true,
+  "theme": "auto",
+  "agentPushNotifEnabled": true,
+  "autoMode": {
+    "environment": [
+      "### Org-wide",
+      "**Organization**: Mavergreen (github.com/Mavergreen) — inferred from this repo's org-owned remote",
+      "**Cloud provider(s)**: None configured",
+      "**Repository visibility**: PUBLIC — Mavergreen/container-tools (confirmed via gh)",
+      "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
+      "**Secrets management**: CI secret referenced: SPARKLE_PRIVATE_KEY (deploy/signing key used in CI; value not exposed)",
+      "**Default / protected branches**: main (default, protected per gh; no rulesets listed)",
+      "**CI/CD deploy targets**: None configured",
+      "**Network posture**: None configured",
+      "**Host containment**: None configured — assume Claude Code runs on an ordinary developer machine with open internet",
+      "**Source control**: This repo (Mavergreen/container-tools) and its origin remote only, as scoped by Trusted repo and Repository visibility below",
+      "**Trusted internal domains**: None configured",
+      "**Trusted cloud buckets**: None configured",
+      "**Key internal services**: None configured",
+      "**Internal package registry**: None configured",
+      "**Sensitive data locations & audiences**: CI secret SPARKLE_PRIVATE_KEY — share only with audiences cleared at the [named+specifics] bar",
+      "**Data retention / declassification**: None configured",
+      "**Sensitive remote targets**: any namespace, host, or container whose name carries `prod` or `production` as a whole word or name segment",
+      "**Protected deployment namespaces / environments**: None configured — fall back to the Sensitive remote targets heuristic",
+      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries `prod` or `production` as a whole word or name segment",
+      "### User-specific",
+      "**Primary use of Claude Code**: software development",
+      "**Trusted repo**: Mavergreen/container-tools (this repo, working directory) and its origin remote (github.com:Mavergreen/container-tools.git) — PUBLIC repo, so only this repo's own work belongs in commits/pushes here; secrets and sensitive data are never cleared into it by visibility alone",
+      "**Org-specific CLIs**: None configured",
+      "routine under this repo's own paths (e.g. cmake/, .github/workflows/) is standard project work, not a special carve-out"
+    ]
+  }
+}

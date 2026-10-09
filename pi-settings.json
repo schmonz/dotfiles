@@ -1,0 +1,12 @@
+{
+  "lastChangelogVersion": "1.1.0",
+  "defaultProvider": "anthropic",
+  "defaultModel": "claude-opus-5-5",
+  "defaultThinkingLevel": "high",
+  "packages": [
+    "git:github.com/obra/superpowers",
+    "git:github.com/ayghri/i-have-adhd",
+    "npm:pi-subagents",
+    "git:github.com/Mavergreen/shipyard"
+  ]
+}
