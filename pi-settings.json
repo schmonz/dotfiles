@@ -8,6 +8,15 @@
     "git:github.com/obra/superpowers",
     "git:github.com/ayghri/i-have-adhd",
     "npm:pi-subagents",
-    "git:github.com/Mavergreen/shipyard"
+    "git:github.com/Mavergreen/shipyard",
+    {
+      "source": "git:github.com/addyosmani/agent-skills",
+      "extensions": [],
+      "skills": [
+        "skills/doubt-driven-development"
+      ],
+      "prompts": [],
+      "themes": []
+    }
   ]
 }
