@@ -1,8 +1,8 @@
 {
   "lastChangelogVersion": "1.3.0",
-  "defaultProvider": "anthropic",
-  "defaultModel": "claude-opus-5-5",
-  "defaultThinkingLevel": "high",
+  "defaultProvider": "openai",
+  "defaultModel": "gpt-6.1-sol",
+  "defaultThinkingLevel": "medium",
   "tuiMode": "regular",
   "packages": [
     "git:github.com/obra/superpowers",
@@ -18,5 +18,6 @@
       "prompts": [],
       "themes": []
     }
-  ]
+  ],
+  "deviceId": "74b3a640-6588-4cea-8c7b-f56f1a183807"
 }
