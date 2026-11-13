@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "1.3.0",
+  "lastChangelogVersion": "1.5.2",
   "defaultProvider": "openai",
   "defaultModel": "gpt-6.1-sol",
   "defaultThinkingLevel": "medium",
@@ -19,5 +19,8 @@
       "themes": []
     }
   ],
-  "deviceId": "74b3a640-6588-4cea-8c7b-f56f1a183807"
+  "deviceId": "74b3a640-6588-4cea-8c7b-f56f1a183807",
+  "extensionChangelogVersions": {
+    "{\"source\":\"npm:pi-subagents\",\"scope\":\"user\"}": "0.88.0"
+  }
 }

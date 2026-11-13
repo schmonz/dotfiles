@@ -1,0 +1,31 @@
+#!/bin/sh
+# Replace stale symlinks, but never overwrite a local file or directory.
+set -eu
+
+allow_missing=false
+if [ "${1-}" = --allow-missing ]; then
+	allow_missing=true
+	shift
+fi
+
+if [ "$#" -ne 2 ]; then
+	printf 'Usage: %s [--allow-missing] SOURCE DESTINATION\n' "$0" >&2
+	exit 1
+fi
+source=$1
+destination=$2
+
+if [ "$allow_missing" = false ] && [ ! -e "$source" ]; then
+	printf 'Missing dotfile source: %s\n' "$source" >&2
+	exit 1
+fi
+if [ -L "$destination" ]; then
+	if [ "$(readlink "$destination")" = "$source" ]; then
+		exit 0
+	fi
+	rm "$destination"
+elif [ -e "$destination" ]; then
+	printf 'Refusing to replace local file or directory: %s (back it up first)\n' "$destination" >&2
+	exit 1
+fi
+ln -s "$source" "$destination"
