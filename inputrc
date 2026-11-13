@@ -1,2 +1,3 @@
 # add the missing slash when autocompleting symlinks to directories
 set mark-symlinked-directories on
+set completion-ignore-case On
