@@ -1,3 +1,9 @@
+# Shared by Bash, Zsh, and Ksh; keep interactive setup out of batch/SSH commands.
+case $- in
+	*i*) ;;
+	*) return 0 ;;
+esac
+
 _PKGSRC_PREFIX=/opt/pkg
 if [ -d $HOME/pkg ]; then
 	_PKGSRC_PREFIX=$HOME/pkg
