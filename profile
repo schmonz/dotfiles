@@ -110,7 +110,7 @@ _set_interactive_shell_goodies() {
 	_sourceme=""
 	[ "${BASH_VERSION}" ] && _sourceme="$HOME/.bashrc"
 	[ "${KSH_VERSION}" ]  && _sourceme="$HOME/.kshrc"
-	[ "${ZSH_VERSION}" ]  && _sourceme="$HOME/.zshrc"
+	# Zsh loads .zshrc itself after .zprofile; sourcing it here would run it twice.
 	[ -e "${_sourceme}" ] && . "${_sourceme}"
 }
 

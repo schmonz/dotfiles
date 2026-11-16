@@ -65,3 +65,67 @@ class ShellStartupTests(unittest.TestCase):
                     result.stdout,
                     "interactive setup reached\nstartup status=0\nbody executed\n",
                 )
+
+
+class ZshStartupOrderTests(unittest.TestCase):
+    def setUp(self):
+        candidates = ["/bin/zsh", "/opt/pkg/bin/zsh", "/usr/pkg/bin/zsh"]
+        path = shutil.which("zsh")
+        if path:
+            candidates.append(path)
+        self.shells = sorted({path for path in candidates if os.access(path, os.X_OK)})
+        if not self.shells:
+            self.skipTest("Zsh is not installed")
+        self.tmp = tempfile.TemporaryDirectory(prefix="zsh startup test ")
+        self.addCleanup(self.tmp.cleanup)
+        self.home = Path(self.tmp.name)
+        (self.home / "pkg").mkdir()
+        (self.home / ".zprofile").write_text(
+            # Source the real profile without SSH/keychain or tmux side effects.
+            "hostname() { printf '%s\\n' 'dotfiles-startup-test'; }\n"
+            "ssh-add() { return 0; }\n"
+            '. "$DOTFILES_TEST_PROFILE"\n'
+        )
+        (self.home / ".zshrc").write_text(
+            'printf "zshrc environment=%s\\n" "${CVS_RSH-unset}"\n'
+        )
+
+    def run_zsh(self, shell, mode):
+        return subprocess.run(
+            [shell, "-d", mode,
+             'printf "profile environment=%s\\n" "${CVS_RSH-unset}"; '
+             'printf "%s\\n" "body executed"'],
+            env={**os.environ, "HOME": str(self.home),
+                 "ZDOTDIR": str(self.home), "DOTFILES_TEST_PROFILE": str(ROOT / "profile"),
+                 "SSH_AUTH_SOCK": "/tmp/dotfiles-startup-test-unused-socket",
+                 "HISTFILE": "/dev/null", "CVS_RSH": "not initialized"},
+            stdin=subprocess.DEVNULL, capture_output=True, text=True, timeout=15,
+        )
+
+    def test_interactive_login_sources_zshrc_once_after_profile(self):
+        for shell in self.shells:
+            with self.subTest(shell=shell):
+                result = self.run_zsh(shell, "-lic")
+                self.assertEqual(result.returncode, 0, result.stderr)
+                self.assertEqual(
+                    result.stdout,
+                    "zshrc environment=ssh\nprofile environment=ssh\nbody executed\n",
+                )
+
+    def test_interactive_nonlogin_still_sources_zshrc_once(self):
+        for shell in self.shells:
+            with self.subTest(shell=shell):
+                result = self.run_zsh(shell, "-ic")
+                self.assertEqual(result.returncode, 0, result.stderr)
+                self.assertEqual(
+                    result.stdout,
+                    "zshrc environment=not initialized\n"
+                    "profile environment=not initialized\nbody executed\n",
+                )
+
+    def test_noninteractive_login_initializes_environment_without_zshrc(self):
+        for shell in self.shells:
+            with self.subTest(shell=shell):
+                result = self.run_zsh(shell, "-lc")
+                self.assertEqual(result.returncode, 0, result.stderr)
+                self.assertEqual(result.stdout, "profile environment=ssh\nbody executed\n")
