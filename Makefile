@@ -5,13 +5,16 @@ none:
 # Run make from this checkout; path discovery stays in the shell, not make.
 LINK = sh ./scripts/link-dotfile
 
-.PHONY: default none dotfiles dotfiles-typical dotfiles-ssh dotfiles-synonyms \
+.PHONY: default none dotfiles dotfiles-shell-common dotfiles-typical dotfiles-ssh dotfiles-synonyms \
 	dotfiles-agents dotfiles-agents-generic dotfiles-agents-claude \
 	dotfiles-agents-codex dotfiles-agents-pi test
 
 dotfiles: dotfiles-typical dotfiles-ssh dotfiles-synonyms dotfiles-agents
 
-dotfiles-typical:
+dotfiles-shell-common:
+	$(LINK) "$$(pwd)/shell-common" "$${HOME}/.shell-common"
+
+dotfiles-typical: dotfiles-shell-common
 	set -e; for i in ackrc bashrc colordiffrc cvsignore cvsrc gitconfig gitignore_global inputrc profile tmux.conf vimrc wezterm.lua; do \
 		$(LINK) "$$(pwd)/$${i}" "$${HOME}/.$${i}"; \
 	done

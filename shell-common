@@ -1,0 +1,91 @@
+# Shared POSIX-shell discovery. Sourcing this file does not initialize tools.
+# Function subshells keep lookup variables, cwd, and shell options private.
+
+_dotfiles_command() (
+	[ "$#" -eq 1 ] || return 1
+	case $1 in ''|*/*) return 1 ;; esac
+	remaining=${PATH-}
+	while :; do
+		directory=${remaining%%:*}
+		candidate=${directory:-.}/$1
+		if [ -f "$candidate" ] && [ -x "$candidate" ]; then
+			case $candidate in
+				/*) printf '%s\n' "$candidate" ;;
+				*) printf '%s/%s\n' "$(pwd -P)" "$candidate" ;;
+			esac
+			return 0
+		fi
+		case $remaining in
+			*:*) remaining=${remaining#*:} ;;
+			*) return 1 ;;
+		esac
+	done
+)
+
+_dotfiles_install_prefix() (
+	CDPATH='' cd -P "${1%/*}" 2>/dev/null || return 1
+	case $(pwd -P) in
+		*/bin|*/sbin)
+			CDPATH='' cd -P .. 2>/dev/null || return 1
+			pwd -P
+			;;
+		*) return 1 ;;
+	esac
+)
+
+_dotfiles_file_at_prefix() (
+	prefix=$1
+	shift
+	for relative do
+		if [ -f "$prefix/$relative" ] && [ -r "$prefix/$relative" ]; then
+			printf '%s/%s\n' "$prefix" "$relative"
+			return 0
+		fi
+	done
+	return 1
+)
+
+_dotfiles_support_file() (
+	[ "$#" -ge 2 ] || return 1
+	case $1 in
+		*/*) executable=$1 ;;
+		*) executable=$(_dotfiles_command "$1") || return 1 ;;
+	esac
+	[ -f "$executable" ] && [ -x "$executable" ] || return 1
+	shift
+	if prefix=$(_dotfiles_install_prefix "$executable"); then
+		_dotfiles_file_at_prefix "$prefix" "$@" && return 0
+	fi
+	remaining=${PATH-}
+	while :; do
+		directory=${remaining%%:*}
+		if prefix=$(_dotfiles_install_prefix "${directory:-.}/unused"); then
+			_dotfiles_file_at_prefix "$prefix" "$@" && return 0
+		fi
+		case $remaining in
+			*:*) remaining=${remaining#*:} ;;
+			*) return 1 ;;
+		esac
+	done
+)
+
+# Quote a selected path for aliases and command-valued environment variables.
+_dotfiles_quote() (
+	value=$1
+	printf "'"
+	while :; do
+		case $value in
+			*"'"*)
+				printf "%s'\\\\''" "${value%%"'"*}"
+				value=${value#*"'"}
+				;;
+			*) printf "%s'" "$value"; return 0 ;;
+		esac
+	done
+)
+
+# Never expose partial shell code from an unsuccessful generator to eval.
+_dotfiles_hook() (
+	code=$("$@" 2>/dev/null) || return 1
+	printf '%s\n' "$code"
+)

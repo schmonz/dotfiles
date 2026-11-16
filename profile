@@ -2,8 +2,15 @@
 
 # eval `$HOME/shctl/etc/rc`
 
+# An older installation may not have the shared helper yet. Keep basic setup usable.
+_dotfiles_command() { return 1; }
+_dotfiles_support_file() { return 1; }
+if [ -f "$HOME/.shell-common" ] && [ -r "$HOME/.shell-common" ]; then
+	. "$HOME/.shell-common"
+fi
+
 _PKGSRC_PREFIX=/opt/pkg
-if [ -d $HOME/pkg ]; then
+if [ -d "$HOME/pkg" ]; then
 	_PKGSRC_PREFIX=$HOME/pkg
 fi
 
@@ -15,8 +22,8 @@ _set_cvs() {
 _set_less() {
 	LESS="-FRX"
 	export LESS
-	if [ -x ${_PKGSRC_PREFIX}/bin/highlight ]; then
-		LESSOPEN="| highlight %s --out-format xterm256 -l --force -s solarized-dark --no-trailing-nl"
+	if _highlight=$(_dotfiles_command highlight); then
+		LESSOPEN="| $(_dotfiles_quote "$_highlight") %s --out-format xterm256 -l --force -s solarized-dark --no-trailing-nl"
 		export LESSOPEN
 	fi
 }
@@ -39,7 +46,7 @@ _set_termcolors() {
 
 _set_pkgsrc_path() {
 	# in reverse order of how I want them
-	for i in /bin /sbin /usr/bin /usr/sbin /usr/X11R6/bin /usr/X11R7/bin /usr/local/bin /usr/local/sbin /opt/local/bin /opt/local/sbin /usr/pkg/bin /usr/pkg/sbin ${_PKGSRC_PREFIX}/bin ${_PKGSRC_PREFIX}/sbin /usr/local/mavergreen/bin /usr/local/mavergreen/sbin; do
+	for i in /bin /sbin /usr/bin /usr/sbin /usr/X11R6/bin /usr/X11R7/bin /usr/local/bin /usr/local/sbin /opt/local/bin /opt/local/sbin /usr/pkg/bin /usr/pkg/sbin "${_PKGSRC_PREFIX}/bin" "${_PKGSRC_PREFIX}/sbin" /usr/local/mavergreen/bin /usr/local/mavergreen/sbin; do
 		[ -d "$i" ] && PATH="$i:$PATH"
 	done
 }
@@ -56,15 +63,17 @@ _set_cdpath() {
 }
 
 _set_git() {
-	if [ ! -x ${_PKGSRC_PREFIX}/bin/delta ]; then
+	if _delta=$(_dotfiles_command delta); then
+		GIT_PAGER=$(_dotfiles_quote "$_delta")
+	else
 		GIT_PAGER='less -x9,17,25'
-		export GIT_PAGER
 	fi
+	export GIT_PAGER
 }
 
 _set_man() {
-	if [ -x ${_PKGSRC_PREFIX}/bin/bat ]; then
-		MANPAGER="sh -c 'col -bx | bat -l man -p'"
+	if _bat=$(_dotfiles_command bat); then
+		MANPAGER="sh -c $(_dotfiles_quote "col -bx | $(_dotfiles_quote "$_bat") -l man -p")"
 		export MANPAGER
 	fi
 }
@@ -81,11 +90,11 @@ _set_predictable_ssh_auth_sock_location() {
 }
 
 _exec_tmux_singleton_session() {
-	if [ -x ${_PKGSRC_PREFIX}/bin/tmux ] \
+	if _tmux=$(_dotfiles_command tmux) \
 		&& [ -n "$PS1" ] \
 		&& [ -z "$TMUX" ]; then
 		{
-			${_PKGSRC_PREFIX}/bin/tmux attach || exec ${_PKGSRC_PREFIX}/bin/tmux new-session && exit
+			"$_tmux" attach || exec "$_tmux" new-session && exit
 		}
 	fi
 }
@@ -100,8 +109,8 @@ _set_tmux() {
 _set_ssh() {
 	ssh-add -l >/dev/null 2>&1 || ssh-add --apple-load-keychain >/dev/null 2>&1
 	if [ -z "$SSH_AUTH_SOCK" ]; then
-		if [ -x ${_PKGSRC_PREFIX}/bin/keychain ]; then
-			eval $(${_PKGSRC_PREFIX}/bin/keychain --quiet --eval --agents ssh --inherit any id_rsa)
+		if _keychain=$(_dotfiles_command keychain); then
+			eval "$(_dotfiles_hook "$_keychain" --quiet --eval --agents ssh --inherit any id_rsa)"
 		fi
 	fi
 }
@@ -119,11 +128,11 @@ _set_client_specific() {
 }
 
 _set_cvs
+_set_pkgsrc_path
+_set_local_path
 _set_less
 _set_locale
 _set_termcolors
-_set_pkgsrc_path
-_set_local_path
 _set_cdpath
 _set_git
 _set_man

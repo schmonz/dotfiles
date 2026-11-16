@@ -15,13 +15,13 @@ class DotfilesTests(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory(prefix="dotfiles test ")
         self.addCleanup(self.tmp.cleanup)
-        workspace = Path(self.tmp.name)
+        workspace = Path(self.tmp.name).resolve()
         self.home = workspace / "home"
         self.home.mkdir()
         self.checkout = workspace / "arbitrary parent" / "dotfiles"
         shutil.copytree(
             ROOT, self.checkout, symlinks=True,
-            ignore=shutil.ignore_patterns(".git", "__pycache__"),
+            ignore=shutil.ignore_patterns(".git", "__pycache__", ".superpowers"),
         )
 
     def link(self, source, destination, *options):
@@ -99,6 +99,7 @@ class DotfilesTests(unittest.TestCase):
             result = self.make("-j4", "dotfiles")
             self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         expected = {
+            ".shell-common": "shell-common",
             ".claude/settings.json": "agents/claude/settings.json",
             ".codex/config.toml": "agents/codex/config.toml",
             ".codex/AGENTS.md": "agents/codex/AGENTS.md",
@@ -141,6 +142,13 @@ class DotfilesTests(unittest.TestCase):
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("Missing dotfile source:", result.stderr)
         self.assertFalse((self.home / ".pi/agent/settings.json").is_symlink())
+
+    def test_helper_conflict_prevents_shell_link_installation(self):
+        (self.home / ".shell-common").write_text("local")
+        result = self.make("-j4", "dotfiles-typical")
+        self.assertNotEqual(result.returncode, 0)
+        self.assertEqual((self.home / ".shell-common").read_text(), "local")
+        self.assertFalse((self.home / ".bashrc").exists())
 
     def test_agent_json_is_valid(self):
         for path in (self.checkout / "agents").rglob("*.json"):

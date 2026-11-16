@@ -14,6 +14,7 @@ class ShellStartupTests(unittest.TestCase):
         self.tmp = tempfile.TemporaryDirectory(prefix="shell startup test ")
         self.addCleanup(self.tmp.cleanup)
         self.home = Path(self.tmp.name)
+        (self.home / ".shell-common").symlink_to(ROOT / "shell-common")
         # Keep optional pkgsrc tools out of this startup test.
         (self.home / "pkg").mkdir()
         (self.home / ".xsh").write_text("printf '%s\\n' 'interactive setup reached'\n")
@@ -80,6 +81,7 @@ class ZshStartupOrderTests(unittest.TestCase):
         self.addCleanup(self.tmp.cleanup)
         self.home = Path(self.tmp.name)
         (self.home / "pkg").mkdir()
+        (self.home / ".shell-common").symlink_to(ROOT / "shell-common")
         (self.home / ".zprofile").write_text(
             # Source the real profile without SSH/keychain or tmux side effects.
             "hostname() { printf '%s\\n' 'dotfiles-startup-test'; }\n"

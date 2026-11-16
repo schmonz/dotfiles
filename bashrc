@@ -4,8 +4,15 @@ case $- in
 	*) return 0 ;;
 esac
 
+# Standalone/non-login shells also need discovery; an uninstalled helper is optional.
+_dotfiles_command() { return 1; }
+_dotfiles_support_file() { return 1; }
+if [ -f "$HOME/.shell-common" ] && [ -r "$HOME/.shell-common" ]; then
+	. "$HOME/.shell-common"
+fi
+
 _PKGSRC_PREFIX=/opt/pkg
-if [ -d $HOME/pkg ]; then
+if [ -d "$HOME/pkg" ]; then
 	_PKGSRC_PREFIX=$HOME/pkg
 fi
 
@@ -29,19 +36,19 @@ pkgsrc_make_show_var() {
 alias msv='pkgsrc_make_show_var'
 alias mic='make install clean'
 alias ag="ag --pager='less ${LESS}'"
-[ -x ${_PKGSRC_PREFIX}/bin/bat ] && alias cat='bat'
-[ -x ${_PKGSRC_PREFIX}/bin/vim ] && alias vi='vim'
-
-[ -r ~/pkg/share/examples/git ] && _GIT_PREFIX=~/pkg/share/examples/git
-[ -r ${_PKGSRC_PREFIX}/share/examples/git ] && _GIT_PREFIX=${_PKGSRC_PREFIX}/share/examples/git
-[ -r /usr/pkg/share/examples/git ] && _GIT_PREFIX=/usr/pkg/share/examples/git
-#_GIT_PREFIX=/Applications/Xcode.app/Contents/Developer/usr/share/git-core
+if _bat=$(_dotfiles_command bat); then alias cat="$(_dotfiles_quote "$_bat")"; fi
+if _vim=$(_dotfiles_command vim); then alias vi="$(_dotfiles_quote "$_vim")"; fi
 
 HISTSIZE=999
 HISTFILE=${HOME}/.history
 if [ "${BASH_VERSION}" ]; then
-	if [ -f ${_PKGSRC_PREFIX}/share/bash-completion/bash_completion ]; then
-		. ${_PKGSRC_PREFIX}/share/bash-completion/bash_completion
+	# Current bash-completion requires Bash 4.2+. Keep basic completion on older Bash.
+	if [ "${BASH_VERSINFO[0]}" -gt 4 ] ||
+		{ [ "${BASH_VERSINFO[0]}" -eq 4 ] && [ "${BASH_VERSINFO[1]}" -ge 2 ]; }; then
+		if _completion=$(_dotfiles_support_file "$BASH" \
+			share/bash-completion/bash_completion etc/bash_completion); then
+			if . "$_completion"; then :; fi
+		fi
 	fi
 elif [ "${ZSH_VERSION}" ]; then
 	setopt nosharehistory
@@ -52,11 +59,15 @@ else
 	:
 fi
 
-if [ -f ${_GIT_PREFIX}/git-prompt.sh ]; then
+if _git_prompt=$(_dotfiles_support_file git \
+	share/examples/git/git-prompt.sh share/git/completion/git-prompt.sh \
+	lib/git-core/git-sh-prompt share/git-core/contrib/completion/git-prompt.sh \
+	share/git-core/git-prompt.sh); then
+	_GIT_PREFIX=${_git_prompt%/*}
 	if [ "${BASH_VERSION}" ]; then
-		. ${_GIT_PREFIX}/git-prompt.sh
+		if . "$_git_prompt"; then :; fi
 	elif [ "${ZSH_VERSION}" ]; then
-		. ${_GIT_PREFIX}/git-prompt.sh
+		if . "$_git_prompt"; then :; fi
 	else
 		:
 	fi
@@ -85,40 +96,36 @@ fi
 
 [ -r ~/.xsh ] && . ~/.xsh
 
-if [ -x ${_PKGSRC_PREFIX}/bin/direnv ]; then
-	if [ "${BASH_VERSION}" ]; then
-		eval "$(direnv hook bash)"
-	elif [ "${ZSH_VERSION}" ]; then
-		eval "$(direnv hook zsh)"
-	else
-		eval "$(direnv hook bash)"
-	fi
+if [ "${BASH_VERSION}" ]; then
+	_dotfiles_shell=bash
+elif [ "${ZSH_VERSION}" ]; then
+	_dotfiles_shell=zsh
+elif [ "${KSH_VERSION}" ]; then
+	_dotfiles_shell=ksh
+else
+	_dotfiles_shell=posix
 fi
 
-if [ -x ${_PKGSRC_PREFIX}/bin/sheldon ]; then
-	if [ "${BASH_VERSION}" ]; then
-		eval "$(SHELDON_PROFILE=bash sheldon source)"
-	elif [ "${ZSH_VERSION}" ]; then
-		eval "$(SHELDON_PROFILE=zsh sheldon source)"
-	fi
+if _direnv=$(_dotfiles_command direnv); then
+	eval "$(_dotfiles_hook "$_direnv" hook "$_dotfiles_shell")"
 fi
 
-if [ -x ${_PKGSRC_PREFIX}/bin/starship ]; then
-	if [ "${BASH_VERSION}" ]; then
-		eval "$(starship init bash)"
-	elif [ "${ZSH_VERSION}" ]; then
-		eval "$(starship init zsh)"
-	else
-		eval "$(starship init bash)"
-	fi
+if _sheldon=$(_dotfiles_command sheldon); then
+	case $_dotfiles_shell in
+		bash|zsh) eval "$(SHELDON_PROFILE=$_dotfiles_shell _dotfiles_hook "$_sheldon" source)" ;;
+	esac
 fi
 
-if [ -x ${_PKGSRC_PREFIX}/bin/zoxide ]; then
-	if [ "${BASH_VERSION}" ]; then
-		eval "$(zoxide init bash)"
-	elif [ "${ZSH_VERSION}" ]; then
-		eval "$(zoxide init zsh)"
-	else
-		eval "$(zoxide init posix --hook prompt)"
-	fi
+if _starship=$(_dotfiles_command starship); then
+	eval "$(_dotfiles_hook "$_starship" init "$_dotfiles_shell")"
 fi
+
+if _zoxide=$(_dotfiles_command zoxide); then
+	case $_dotfiles_shell in
+		bash|zsh) eval "$(_dotfiles_hook "$_zoxide" init "$_dotfiles_shell")" ;;
+		*) eval "$(_dotfiles_hook "$_zoxide" init posix --hook prompt)" ;;
+	esac
+fi
+
+# Optional hook feature probes may return false after successfully defining hooks.
+:
