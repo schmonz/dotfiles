@@ -131,3 +131,36 @@ class ZshStartupOrderTests(unittest.TestCase):
                 result = self.run_zsh(shell, "-lc")
                 self.assertEqual(result.returncode, 0, result.stderr)
                 self.assertEqual(result.stdout, "profile environment=ssh\nbody executed\n")
+
+
+class LocalPathOrderTests(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory(prefix="local path test ")
+        self.addCleanup(self.tmp.cleanup)
+        self.home = Path(self.tmp.name)
+        (self.home / "pkg").mkdir()
+        (self.home / ".shell-common").symlink_to(ROOT / "shell-common")
+
+    def login_path(self, inherited):
+        # Source the real profile without tmux side effects. POSIX sh rejects
+        # "ssh-add" as a function name; the unused socket keeps ssh-add inert.
+        result = subprocess.run(
+            ["/bin/sh", "-c",
+             "hostname() { printf '%s\\n' 'dotfiles-startup-test'; }; "
+             '. "$1"; printf "%s\\n" "$PATH"',
+             "local-path-test", str(ROOT / "profile")],
+            env={"HOME": str(self.home), "PATH": inherited,
+                 "SSH_AUTH_SOCK": "/tmp/dotfiles-startup-test-unused-socket"},
+            stdin=subprocess.DEVNULL, capture_output=True, text=True, timeout=15,
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+        return result.stdout.strip().split(":")
+
+    def test_user_bins_precede_system_dirs_with_bin_first(self):
+        (self.home / ".local" / "bin").mkdir(parents=True)
+        path = self.login_path(f"{self.home}/.local/bin:/usr/bin:/bin")
+        self.assertEqual(path[:2], [f"{self.home}/bin", f"{self.home}/.local/bin"])
+
+    def test_missing_local_bin_is_not_added(self):
+        path = self.login_path("/usr/bin:/bin")
+        self.assertNotIn(f"{self.home}/.local/bin", path)

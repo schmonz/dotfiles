@@ -52,6 +52,9 @@ _set_pkgsrc_path() {
 }
 
 _set_local_path() {
+	# ~/bin (placed by hand) beats ~/.local/bin (placed by installers); both
+	# beat the system. Debian's skel orders these two the other way round.
+	[ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
 	PATH="$HOME/bin:$PATH"
 }
 
