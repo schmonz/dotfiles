@@ -120,6 +120,41 @@ class IntegrationTests(unittest.TestCase):
         self.assertEqual(result.stdout, "continued")
         self.assertNotIn(".shell-common", result.stderr)
 
+    def run_iterm2_rc(self, terminal, installed=True):
+        if installed:
+            (self.home / ".iterm2_shell_integration.bash").write_text('printf "iterm2-loaded\\n"\n')
+        return self.run_shell(
+            "bashrc", 'printf continued; HISTFILE=/dev/null', interactive=True,
+            before="unset LC_TERMINAL TERM_PROGRAM; " + terminal)
+
+    def test_iterm2_integration_is_skipped_outside_iterm2(self):
+        for installed in (True, False):
+            result = self.run_iterm2_rc("export TERM_PROGRAM=WezTerm", installed)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertEqual(result.stdout, "continued")
+            self.assertNotIn("iTerm2", result.stderr)
+
+    def test_iterm2_integration_loads_in_local_iterm2(self):
+        result = self.run_iterm2_rc("export TERM_PROGRAM=iTerm.app")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(result.stdout, "iterm2-loaded\ncontinued")
+
+    def test_iterm2_integration_loads_over_ssh_from_iterm2(self):
+        result = self.run_iterm2_rc("export LC_TERMINAL=iTerm2")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(result.stdout, "iterm2-loaded\ncontinued")
+
+    def test_missing_iterm2_integration_is_reported_in_iterm2(self):
+        result = self.run_iterm2_rc("export TERM_PROGRAM=iTerm.app", installed=False)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(result.stdout, "continued")
+        self.assertIn("Install Shell Integration", result.stderr)
+
+    def test_iterm2_installer_finds_existing_hook_in_rc_files(self):
+        # iTerm2's installer appends to an rc file unless it already mentions this name.
+        for name in ("bashrc", "profile"):
+            self.assertIn("iterm2_shell_integration", (ROOT / name).read_text(), name)
+
     def test_existing_host_rule_can_start_native_tmux(self):
         self.tool(self.home, "tmux", 'printf "%s\\n" "$*" >> "$TRACE"; exit 0\n')
         result = self.run_shell("profile", "printf should-not-reach", interactive=True,

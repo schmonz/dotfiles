@@ -127,5 +127,20 @@ if _zoxide=$(_dotfiles_command zoxide); then
 	esac
 fi
 
+# iTerm2 sets TERM_PROGRAM locally; since 3.3 it also sets LC_TERMINAL, which SSH forwards.
+# Its installer appends a hook unless this file mentions iterm2_shell_integration.
+if [ "${LC_TERMINAL-}" = iTerm2 ] || [ "${TERM_PROGRAM-}" = iTerm.app ]; then
+	case $_dotfiles_shell in
+		bash|zsh)
+			_iterm2_integration=$HOME/.iterm2_shell_integration.$_dotfiles_shell
+			if [ -f "$_iterm2_integration" ] && [ -r "$_iterm2_integration" ]; then
+				if . "$_iterm2_integration"; then :; fi
+			else
+				printf '%s\n' "dotfiles: no $_iterm2_integration; run iTerm2 > Install Shell Integration" >&2
+			fi
+			;;
+	esac
+fi
+
 # Optional hook feature probes may return false after successfully defining hooks.
 :

@@ -123,6 +123,7 @@ _set_interactive_shell_goodies() {
 	[ "${BASH_VERSION}" ] && _sourceme="$HOME/.bashrc"
 	[ "${KSH_VERSION}" ]  && _sourceme="$HOME/.kshrc"
 	# Zsh loads .zshrc itself after .zprofile; sourcing it here would run it twice.
+	# The rc file loads iterm2_shell_integration; iTerm2's Bash installer targets this file.
 	[ -e "${_sourceme}" ] && . "${_sourceme}"
 }
 
