@@ -121,9 +121,12 @@ _set_1password_ssh_agent() {
 	fi
 	SSH_AUTH_SOCK=$_onepassword_sock
 	export SSH_AUTH_SOCK
+	_ssh_agent_is_1password=yes
 }
 
 _set_ssh() {
+	# 1Password's agent refuses added keys; loading the keychain into it is a wasted call.
+	[ "${_ssh_agent_is_1password-}" = yes ] && return 0
 	ssh-add -l >/dev/null 2>&1 || ssh-add --apple-load-keychain >/dev/null 2>&1
 	if [ -z "$SSH_AUTH_SOCK" ]; then
 		if _keychain=$(_dotfiles_command keychain); then

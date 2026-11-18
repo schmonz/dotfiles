@@ -6,10 +6,17 @@ import subprocess
 import tempfile
 import unittest
 
+from shells import available_shells, without_startup_files
+
 
 ROOT = Path(__file__).resolve().parents[1]
 PRINT_SOCK = 'printf "%s\\n" "${SSH_AUTH_SOCK-unset}"'
 SYSTEM_SOCK = "/tmp/ssh-agent-dotfiles-test-tmux"
+# A function named ssh-add is a syntax error in ksh and dash, so profile finds this in ~/bin.
+FAKE_SSH_ADD = """printf '%s\\n' "$*" >> "$HOME/ssh-add.log"
+[ "$1" = -l ] && exit "${SSH_ADD_LIST_STATUS-0}"
+exit 0
+"""
 
 
 class IntegrationTests(unittest.TestCase):
@@ -23,6 +30,7 @@ class IntegrationTests(unittest.TestCase):
         for prefix in (self.first, self.second, self.home):
             (prefix / "bin").mkdir(parents=True)
         (self.home / ".shell-common").symlink_to(ROOT / "shell-common")
+        self.tool(self.home, "ssh-add", FAKE_SSH_ADD)
         self.trace = self.home / "trace"
 
     def tool(self, prefix, name, body="exit 0\n"):
@@ -36,12 +44,12 @@ class IntegrationTests(unittest.TestCase):
         file.parent.mkdir(parents=True, exist_ok=True)
         file.write_text(body)
 
-    def run_shell(self, file, body, interactive=False, before="", shell="/bin/bash"):
+    def run_shell(self, file, body, interactive=False, before="", shell="/bin/bash", home=None):
         return subprocess.run(
-            [shell, "--noprofile", "--norc", "-ic" if interactive else "-c",
-             'hostname() { printf "%s\\n" "$TEST_HOST"; }; ssh-add() { return 0; }; '
+            [shell, *without_startup_files(shell), "-ic" if interactive else "-c",
+             'hostname() { printf "%s\\n" "$TEST_HOST"; }; '
              + (before or ":") + '; . "$1"; ' + body, "integration-test", str(ROOT / file)],
-            env={**os.environ, "HOME": str(self.home), "TEST_HOST": "dotfiles-test",
+            env={**os.environ, "HOME": str(home or self.home), "TEST_HOST": "dotfiles-test",
                  "PATH": str(self.first / "bin") + ":" + str(self.second / "bin"),
                  "USER": "dotfiles-test", "SSH_AUTH_SOCK": "/tmp/ssh-agent-dotfiles-test-tmux",
                  "TMUX": "", "INTELLIJ_ENVIRONMENT_READER": "", "ENV": "", "BASH_ENV": "",
@@ -158,8 +166,15 @@ class IntegrationTests(unittest.TestCase):
         for name in ("bashrc", "profile"):
             self.assertIn("iterm2_shell_integration", (ROOT / name).read_text(), name)
 
-    def agent_socket(self):
-        directory = self.home / ".1password"
+    def quoted_home(self):
+        home = self.home / "o'q\"h"
+        (home / "bin").mkdir(parents=True)
+        (home / ".shell-common").symlink_to(ROOT / "shell-common")
+        self.tool(home, "ssh-add", FAKE_SSH_ADD)
+        return home
+
+    def agent_socket(self, home=None):
+        directory = (home or self.home) / ".1password"
         directory.mkdir()
         server = socket.socket(socket.AF_UNIX)
         self.addCleanup(server.close)
@@ -171,42 +186,72 @@ class IntegrationTests(unittest.TestCase):
             os.chdir(cwd)
         return directory / "agent.sock"
 
-    def assert_profile_sock(self, expected, before="unset SSH_CONNECTION"):
-        result = self.run_shell("profile", PRINT_SOCK, before=before)
-        self.assertEqual(result.returncode, 0, result.stderr)
-        self.assertEqual(result.stdout, str(expected) + "\n")
+    def check_profile_everywhere(self, home, before, check):
+        for shell in available_shells():
+            with self.subTest(shell=shell):
+                (home / "ssh-add.log").unlink(missing_ok=True)
+                result = self.run_shell("profile", PRINT_SOCK, before=before, shell=shell, home=home)
+                self.assertEqual(result.returncode, 0, result.stderr)
+                check(result)
+
+    def assert_profile_sock(self, home, expected, before="unset SSH_CONNECTION"):
+        self.check_profile_everywhere(home, before, lambda result:
+            self.assertEqual(result.stdout, str(expected) + "\n"))
+
+    def ssh_add_calls(self, home):
+        log = home / "ssh-add.log"
+        return log.read_text().splitlines() if log.exists() else []
 
     def test_profile_selects_1password_agent_socket(self):
-        self.assert_profile_sock(self.agent_socket())
+        home = self.quoted_home()
+        self.assert_profile_sock(home, self.agent_socket(home))
 
     def test_profile_keeps_system_agent_without_1password_socket(self):
-        self.assert_profile_sock(SYSTEM_SOCK)
+        self.assert_profile_sock(self.quoted_home(), SYSTEM_SOCK)
 
     def test_profile_ignores_non_socket_at_1password_path(self):
-        (self.home / ".1password").mkdir()
-        (self.home / ".1password/agent.sock").write_text("")
-        self.assert_profile_sock(SYSTEM_SOCK)
+        home = self.quoted_home()
+        (home / ".1password").mkdir()
+        (home / ".1password/agent.sock").write_text("")
+        self.assert_profile_sock(home, SYSTEM_SOCK)
 
     def test_profile_keeps_forwarded_agent(self):
-        self.agent_socket()
-        self.assert_profile_sock("/tmp/forwarded", before=
+        home = self.quoted_home()
+        self.agent_socket(home)
+        self.assert_profile_sock(home, "/tmp/forwarded", before=
             'export SSH_CONNECTION="10.0.0.1 1 10.0.0.2 22" SSH_AUTH_SOCK=/tmp/forwarded')
 
     def test_profile_selects_1password_in_ssh_session_without_forwarding(self):
-        sock = self.agent_socket()
-        self.assert_profile_sock(sock, before=
+        home = self.quoted_home()
+        sock = self.agent_socket(home)
+        self.assert_profile_sock(home, sock, before=
             'export SSH_CONNECTION="10.0.0.1 1 10.0.0.2 22"; unset SSH_AUTH_SOCK')
+
+    def test_profile_loads_keychain_into_empty_system_agent(self):
+        home = self.quoted_home()
+        self.check_profile_everywhere(home, "unset SSH_CONNECTION; export SSH_ADD_LIST_STATUS=1",
+            lambda _: self.assertEqual(self.ssh_add_calls(home), ["-l", "--apple-load-keychain"]))
+
+    def test_profile_does_not_load_keychain_into_1password_agent(self):
+        # 1Password's agent refuses added keys; asking is a wasted call at every login.
+        home = self.quoted_home()
+        self.agent_socket(home)
+        self.check_profile_everywhere(home, "unset SSH_CONNECTION; export SSH_ADD_LIST_STATUS=1",
+            lambda _: self.assertNotIn("--apple-load-keychain", self.ssh_add_calls(home)))
 
     def test_tmux_host_links_predictable_socket_to_1password(self):
         sock = self.agent_socket()
-        link = Path(SYSTEM_SOCK)
+        # A per-run name, so another user's or another run's link can't collide in /tmp.
+        user = "dotfiles-test-" + self.home.name.rsplit(" ", 1)[-1]
+        link = Path("/tmp/ssh-agent-" + user + "-tmux")
         self.addCleanup(lambda: link.unlink() if link.is_symlink() else None)
         self.tool(self.home, "tmux", "exit 0\n")
         result = self.run_shell("profile", "printf should-not-reach", interactive=True,
-                                before="unset SSH_CONNECTION; TEST_HOST=pet-power-plant")
+                                before="unset SSH_CONNECTION; TEST_HOST=pet-power-plant; USER=" + user)
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertTrue(link.is_symlink(), result.stderr)
         self.assertEqual(os.readlink(link), str(sock))
+        self.assertFalse(Path(SYSTEM_SOCK).is_symlink())
 
     def test_existing_host_rule_can_start_native_tmux(self):
         self.tool(self.home, "tmux", 'printf "%s\\n" "$*" >> "$TRACE"; exit 0\n')
