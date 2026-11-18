@@ -84,9 +84,9 @@ _set_man() {
 # <URL:https://unix.stackexchange.com/a/76256>
 _set_predictable_ssh_auth_sock_location() {
 	SOCK="/tmp/ssh-agent-${USER}-tmux"
-	if [ ${SSH_AUTH_SOCK} ] && [ ${SSH_AUTH_SOCK} != ${SOCK} ]; then
-		rm -f ${SOCK}
-		ln -sf ${SSH_AUTH_SOCK} ${SOCK}
+	if [ -n "${SSH_AUTH_SOCK-}" ] && [ "${SSH_AUTH_SOCK}" != "${SOCK}" ]; then
+		rm -f "${SOCK}"
+		ln -sf "${SSH_AUTH_SOCK}" "${SOCK}"
 		SSH_AUTH_SOCK=${SOCK}
 		export SSH_AUTH_SOCK
 	fi
@@ -107,6 +107,20 @@ _set_tmux() {
 		_set_predictable_ssh_auth_sock_location
 		_exec_tmux_singleton_session
 	fi
+}
+
+# 1Password's agent socket has the same path on Linux and on Mavericks (via Mavergreen's op).
+# Starting the agent is theirs: Linux 1Password's setting, or `op ssh-agent install-launchd`.
+# Don't check liveness: shells opened before the agent is up should use it once it is.
+_set_1password_ssh_agent() {
+	_onepassword_sock="$HOME/.1password/agent.sock"
+	[ -S "$_onepassword_sock" ] || return 0
+	# An agent forwarded by `ssh -A` takes precedence.
+	if [ -n "${SSH_CONNECTION-}" ] && [ -n "${SSH_AUTH_SOCK-}" ]; then
+		return 0
+	fi
+	SSH_AUTH_SOCK=$_onepassword_sock
+	export SSH_AUTH_SOCK
 }
 
 _set_ssh() {
@@ -140,6 +154,7 @@ _set_termcolors
 _set_cdpath
 _set_git
 _set_man
+_set_1password_ssh_agent
 _set_tmux
 _set_ssh
 _set_interactive_shell_goodies

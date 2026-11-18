@@ -1,12 +1,15 @@
 import os
 from pathlib import Path
 import shlex
+import socket
 import subprocess
 import tempfile
 import unittest
 
 
 ROOT = Path(__file__).resolve().parents[1]
+PRINT_SOCK = 'printf "%s\\n" "${SSH_AUTH_SOCK-unset}"'
+SYSTEM_SOCK = "/tmp/ssh-agent-dotfiles-test-tmux"
 
 
 class IntegrationTests(unittest.TestCase):
@@ -154,6 +157,56 @@ class IntegrationTests(unittest.TestCase):
         # iTerm2's installer appends to an rc file unless it already mentions this name.
         for name in ("bashrc", "profile"):
             self.assertIn("iterm2_shell_integration", (ROOT / name).read_text(), name)
+
+    def agent_socket(self):
+        directory = self.home / ".1password"
+        directory.mkdir()
+        server = socket.socket(socket.AF_UNIX)
+        self.addCleanup(server.close)
+        cwd = os.getcwd()
+        os.chdir(directory)  # sun_path is short; bind relative to stay under it
+        try:
+            server.bind("agent.sock")
+        finally:
+            os.chdir(cwd)
+        return directory / "agent.sock"
+
+    def assert_profile_sock(self, expected, before="unset SSH_CONNECTION"):
+        result = self.run_shell("profile", PRINT_SOCK, before=before)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(result.stdout, str(expected) + "\n")
+
+    def test_profile_selects_1password_agent_socket(self):
+        self.assert_profile_sock(self.agent_socket())
+
+    def test_profile_keeps_system_agent_without_1password_socket(self):
+        self.assert_profile_sock(SYSTEM_SOCK)
+
+    def test_profile_ignores_non_socket_at_1password_path(self):
+        (self.home / ".1password").mkdir()
+        (self.home / ".1password/agent.sock").write_text("")
+        self.assert_profile_sock(SYSTEM_SOCK)
+
+    def test_profile_keeps_forwarded_agent(self):
+        self.agent_socket()
+        self.assert_profile_sock("/tmp/forwarded", before=
+            'export SSH_CONNECTION="10.0.0.1 1 10.0.0.2 22" SSH_AUTH_SOCK=/tmp/forwarded')
+
+    def test_profile_selects_1password_in_ssh_session_without_forwarding(self):
+        sock = self.agent_socket()
+        self.assert_profile_sock(sock, before=
+            'export SSH_CONNECTION="10.0.0.1 1 10.0.0.2 22"; unset SSH_AUTH_SOCK')
+
+    def test_tmux_host_links_predictable_socket_to_1password(self):
+        sock = self.agent_socket()
+        link = Path(SYSTEM_SOCK)
+        self.addCleanup(lambda: link.unlink() if link.is_symlink() else None)
+        self.tool(self.home, "tmux", "exit 0\n")
+        result = self.run_shell("profile", "printf should-not-reach", interactive=True,
+                                before="unset SSH_CONNECTION; TEST_HOST=pet-power-plant")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertTrue(link.is_symlink(), result.stderr)
+        self.assertEqual(os.readlink(link), str(sock))
 
     def test_existing_host_rule_can_start_native_tmux(self):
         self.tool(self.home, "tmux", 'printf "%s\\n" "$*" >> "$TRACE"; exit 0\n')
