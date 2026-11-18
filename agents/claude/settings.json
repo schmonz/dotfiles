@@ -56,7 +56,8 @@
   "outputStyle": "Concise",
   "modelSettings": {
     "claude-opus-5-5": {
-      "effortLevel": "medium"
+      "effortLevel": "medium",
+      "autoCompactWindow": 400000
     }
   },
   "tui": "default",
