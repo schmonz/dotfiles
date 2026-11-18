@@ -128,9 +128,10 @@ _set_ssh() {
 	# 1Password's agent refuses added keys; loading the keychain into it is a wasted call.
 	[ "${_ssh_agent_is_1password-}" = yes ] && return 0
 	ssh-add -l >/dev/null 2>&1 || ssh-add --apple-load-keychain >/dev/null 2>&1
-	if [ -z "$SSH_AUTH_SOCK" ]; then
+	# Start or reuse an agent; ssh-config's AddKeysToAgent loads whichever key ssh uses.
+	if [ -z "${SSH_AUTH_SOCK-}" ]; then
 		if _keychain=$(_dotfiles_command keychain); then
-			eval "$(_dotfiles_hook "$_keychain" --quiet --eval --agents ssh --inherit any id_rsa)"
+			eval "$(_dotfiles_hook "$_keychain" --quiet --eval --agents ssh --inherit any)"
 		fi
 	fi
 }

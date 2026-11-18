@@ -239,6 +239,16 @@ class IntegrationTests(unittest.TestCase):
         self.check_profile_everywhere(home, "unset SSH_CONNECTION; export SSH_ADD_LIST_STATUS=1",
             lambda _: self.assertNotIn("--apple-load-keychain", self.ssh_add_calls(home)))
 
+    def test_profile_starts_agent_with_keychain_without_naming_a_key(self):
+        # AddKeysToAgent loads whichever key ssh uses; naming one here would miss the rest.
+        home = self.quoted_home()
+        self.tool(home, "keychain", 'printf "%s\\n" "$*" >> "$HOME/keychain.log"\n')
+        log = home / "keychain.log"
+        def check(_):
+            self.assertEqual(log.read_text(), "--quiet --eval --agents ssh --inherit any\n")
+            log.unlink()
+        self.check_profile_everywhere(home, "unset SSH_CONNECTION SSH_AUTH_SOCK", check)
+
     def test_tmux_host_links_predictable_socket_to_1password(self):
         sock = self.agent_socket()
         # A per-run name, so another user's or another run's link can't collide in /tmp.

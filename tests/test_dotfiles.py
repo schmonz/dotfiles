@@ -207,6 +207,15 @@ class DotfilesTests(unittest.TestCase):
         self.assertEqual((self.home / ".shell-common").read_text(), "local")
         self.assertFalse((self.home / ".bashrc").exists())
 
+    @unittest.skipUnless(shutil.which("ssh"), "needs ssh")
+    def test_ssh_config_forwards_agent_only_on_request(self):
+        resolved = subprocess.run(
+            ["ssh", "-G", "-F", str(self.checkout / "ssh-config"), "any-host.example"],
+            capture_output=True, text=True,
+        )
+        self.assertEqual(resolved.returncode, 0, resolved.stderr)
+        self.assertIn("forwardagent no", resolved.stdout.splitlines())
+
     def test_agent_json_is_valid(self):
         for path in (self.checkout / "agents").rglob("*.json"):
             json.loads(path.read_text())

@@ -1,5 +1,5 @@
 ControlPath none
-ForwardAgent yes
+# Forward the agent only on request (ssh -A), so hosts can't use it unasked.
 
 Host 192.168.8.1
   HostkeyAlgorithms +ssh-rsa
