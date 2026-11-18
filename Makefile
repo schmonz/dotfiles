@@ -19,10 +19,11 @@ dotfiles-typical: dotfiles-shell-common
 		$(LINK) "$$(pwd)/$${i}" "$${HOME}/.$${i}"; \
 	done
 
+# ssh and sshd reject files owned by another user, as NFS checkouts can be.
 dotfiles-ssh:
 	mkdir -p "$${HOME}/.ssh"
-	$(LINK) "$$(pwd)/ssh-config" "$${HOME}/.ssh/config"
-	$(LINK) "$$(pwd)/ssh-authorized-keys" "$${HOME}/.ssh/authorized_keys"
+	$(LINK) --private "$$(pwd)/ssh-config" "$${HOME}/.ssh/config"
+	$(LINK) --private "$$(pwd)/ssh-authorized-keys" "$${HOME}/.ssh/authorized_keys"
 
 dotfiles-synonyms: dotfiles-typical
 	$(LINK) "$${HOME}/.profile" "$${HOME}/.zprofile"

@@ -1,31 +1,72 @@
 #!/bin/sh
 # Replace stale symlinks, but never overwrite a local file or directory.
+# --private: for files whose consumers reject other owners (ssh). When the source
+# isn't ours (e.g. an NFS checkout with a different UID), install a mode-600 copy
+# instead, and remember it so later runs can refresh it but never clobber edits.
 set -eu
 
 allow_missing=false
-if [ "${1-}" = --allow-missing ]; then
-	allow_missing=true
-	shift
-fi
+private=false
+while :; do
+	case ${1-} in
+		--allow-missing) allow_missing=true; shift ;;
+		--private) private=true; shift ;;
+		*) break ;;
+	esac
+done
 
 if [ "$#" -ne 2 ]; then
-	printf 'Usage: %s [--allow-missing] SOURCE DESTINATION\n' "$0" >&2
+	printf 'Usage: %s [--allow-missing] [--private] SOURCE DESTINATION\n' "$0" >&2
 	exit 1
 fi
 source=$1
 destination=$2
+record=$destination.dotfiles-copy
 
 if [ "$allow_missing" = false ] && [ ! -e "$source" ]; then
 	printf 'Missing dotfile source: %s\n' "$source" >&2
 	exit 1
 fi
+
+refuse() {
+	printf 'Refusing to replace local file or directory: %s (back it up first)\n' "$destination" >&2
+	exit 1
+}
+
+# A plain file we installed earlier, unchanged since (or already matching the source).
+is_installed_copy() {
+	[ -f "$destination" ] && [ ! -L "$destination" ] || return 1
+	cmp -s "$destination" "$source" && return 0
+	[ -f "$record" ] && cmp -s "$destination" "$record"
+}
+
+if [ "$private" = true ] && [ -e "$source" ]; then
+	owner=$(ls -lndL "$source" | awk '{ print $3 }')
+	if [ "$owner" != "$(id -u)" ]; then
+		if [ -L "$destination" ]; then
+			rm "$destination"
+		elif [ -e "$destination" ] && ! is_installed_copy; then
+			refuse
+		fi
+		temporary=$(umask 077 && mktemp "$destination.XXXXXX")
+		cp "$source" "$temporary"
+		chmod 600 "$temporary"
+		cp -p "$temporary" "$record"
+		mv -f "$temporary" "$destination"
+		exit 0
+	fi
+	if is_installed_copy; then
+		rm "$destination"
+	fi
+	rm -f "$record"
+fi
+
 if [ -L "$destination" ]; then
 	if [ "$(readlink "$destination")" = "$source" ]; then
 		exit 0
 	fi
 	rm "$destination"
 elif [ -e "$destination" ]; then
-	printf 'Refusing to replace local file or directory: %s (back it up first)\n' "$destination" >&2
-	exit 1
+	refuse
 fi
 ln -s "$source" "$destination"

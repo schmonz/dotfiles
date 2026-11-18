@@ -24,12 +24,69 @@ class DotfilesTests(unittest.TestCase):
             ignore=shutil.ignore_patterns(".git", "__pycache__", ".superpowers"),
         )
 
-    def link(self, source, destination, *options):
+    def link(self, source, destination, *options, env=None):
         return subprocess.run(
             ["sh", str(self.checkout / "scripts/link-dotfile"),
              *options, str(source), str(destination)],
-            capture_output=True, text=True,
+            capture_output=True, text=True, env=env,
         )
+
+    def as_other_user(self):
+        # Files owned by someone else (e.g. an NFS checkout with mismatched UIDs) need root to create.
+        fake = self.home / "fake bin"
+        fake.mkdir(exist_ok=True)
+        (fake / "id").write_text('#!/bin/sh\n[ "$1" = -u ] && echo 999999 && exit 0\nexec /usr/bin/id "$@"\n')
+        (fake / "id").chmod(0o755)
+        return {**os.environ, "PATH": str(fake) + ":" + os.environ["PATH"]}
+
+    def private_source(self, text="source"):
+        source = self.home / "source with spaces"
+        source.write_text(text)
+        return source, self.home / "private destination"
+
+    def test_private_links_source_owned_by_user(self):
+        source, destination = self.private_source()
+        result = self.link(source, destination, "--private")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(destination.resolve(), source)
+
+    def test_private_copies_and_refreshes_source_owned_by_other_user(self):
+        source, destination = self.private_source()
+        destination.symlink_to(source)
+        for text in ("source", "source", "updated"):
+            source.write_text(text)
+            result = self.link(source, destination, "--private", env=self.as_other_user())
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertFalse(destination.is_symlink())
+            self.assertEqual(destination.read_text(), text)
+            self.assertEqual(destination.stat().st_mode & 0o777, 0o600)
+
+    def test_private_preserves_edited_copy(self):
+        source, destination = self.private_source()
+        self.assertEqual(self.link(source, destination, "--private", env=self.as_other_user()).returncode, 0)
+        destination.write_text("edited")
+        source.write_text("updated")
+        result = self.link(source, destination, "--private", env=self.as_other_user())
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("Refusing to replace", result.stderr)
+        self.assertEqual(destination.read_text(), "edited")
+
+    def test_private_preserves_unrelated_local_file(self):
+        source, destination = self.private_source()
+        destination.write_text("local")
+        result = self.link(source, destination, "--private", env=self.as_other_user())
+        self.assertNotEqual(result.returncode, 0)
+        self.assertEqual(destination.read_text(), "local")
+
+    def test_private_copy_becomes_link_once_source_is_owned(self):
+        source, destination = self.private_source()
+        self.assertEqual(self.link(source, destination, "--private", env=self.as_other_user()).returncode, 0)
+        source.write_text("updated")
+        result = self.link(source, destination, "--private")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(destination.resolve(), source)
+        self.assertEqual(sorted(p.name for p in self.home.iterdir() if "destination" in p.name),
+                         ["private destination"])
 
     def test_create_repeat_and_repair_broken_link(self):
         source = self.home / "source with spaces"
